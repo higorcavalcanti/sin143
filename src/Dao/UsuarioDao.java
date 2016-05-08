@@ -40,6 +40,7 @@ public class UsuarioDao {
             // executa
             stmt.execute();
             stmt.close();
+            
             return true;
         } 
         catch (SQLException e) {
