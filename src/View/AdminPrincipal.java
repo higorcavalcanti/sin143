@@ -6,7 +6,7 @@
 package View;
 
 import javax.swing.JFrame;
-
+import javax.swing.text.View;
 /**
  *
  * @author Daniel
@@ -45,12 +45,8 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jMenuSubLogs = new javax.swing.JMenu();
         jMenuSubSair = new javax.swing.JMenuItem();
         jMenuCadastro = new javax.swing.JMenu();
-        jMenuSubCargos = new javax.swing.JMenuItem();
-        jMenuSubDepartamentos = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuSubHorarios = new javax.swing.JMenuItem();
-        jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        jMenuSubUsuarioSistema = new javax.swing.JMenuItem();
+        menu_cadastro_funcionarios = new javax.swing.JMenuItem();
+        menu_cadastro_departamentos = new javax.swing.JMenuItem();
         jMenuRelatorio = new javax.swing.JMenu();
         jMenuSubRelatorioFuncionarios = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
@@ -110,23 +106,23 @@ public class AdminPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuArquivos);
 
-        jMenuCadastro.setText("Cadastro");
+        jMenuCadastro.setText("Cadastrar");
 
-        jMenuSubCargos.setText("Cargos");
-        jMenuCadastro.add(jMenuSubCargos);
+        menu_cadastro_funcionarios.setText("Funcionarios");
+        menu_cadastro_funcionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_cadastro_funcionariosActionPerformed(evt);
+            }
+        });
+        jMenuCadastro.add(menu_cadastro_funcionarios);
 
-        jMenuSubDepartamentos.setText("Departamentos");
-        jMenuCadastro.add(jMenuSubDepartamentos);
-
-        jMenuItem1.setText("Funcionarios");
-        jMenuCadastro.add(jMenuItem1);
-
-        jMenuSubHorarios.setText("Horários");
-        jMenuCadastro.add(jMenuSubHorarios);
-        jMenuCadastro.add(jSeparator2);
-
-        jMenuSubUsuarioSistema.setText("Usuário do Sistema");
-        jMenuCadastro.add(jMenuSubUsuarioSistema);
+        menu_cadastro_departamentos.setText("Departamentos");
+        menu_cadastro_departamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_cadastro_departamentosActionPerformed(evt);
+            }
+        });
+        jMenuCadastro.add(menu_cadastro_departamentos);
 
         jMenuBar1.add(jMenuCadastro);
 
@@ -195,6 +191,14 @@ public class AdminPrincipal extends javax.swing.JFrame {
        System.exit(0);
     }//GEN-LAST:event_jMenuSubSairActionPerformed
 
+    private void menu_cadastro_funcionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_cadastro_funcionariosActionPerformed
+        new CadastroFuncionario().setVisible(true);
+    }//GEN-LAST:event_menu_cadastro_funcionariosActionPerformed
+
+    private void menu_cadastro_departamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_cadastro_departamentosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menu_cadastro_departamentosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -235,17 +239,13 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuArquivos;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCadastro;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu jMenuRelatorio;
     private javax.swing.JMenuItem jMenuSubAtualizacao;
     private javax.swing.JMenuItem jMenuSubBackup;
-    private javax.swing.JMenuItem jMenuSubCargos;
     private javax.swing.JMenuItem jMenuSubConfig;
     private javax.swing.JMenuItem jMenuSubDadosSistema;
-    private javax.swing.JMenuItem jMenuSubDepartamentos;
     private javax.swing.JMenuItem jMenuSubDuvidas;
-    private javax.swing.JMenuItem jMenuSubHorarios;
     private javax.swing.JMenuItem jMenuSubImportFunc;
     private javax.swing.JMenu jMenuSubLogs;
     private javax.swing.JMenuItem jMenuSubRelatorioBancoHoras;
@@ -256,10 +256,8 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuSubRelatorioHorarios;
     private javax.swing.JMenuItem jMenuSubSair;
     private javax.swing.JMenu jMenuSubSobre;
-    private javax.swing.JMenuItem jMenuSubUsuarioSistema;
     private javax.swing.JPanel jPanelAdminPrincipal;
     private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
@@ -267,5 +265,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator7;
     private javax.swing.JPopupMenu.Separator jSeparator8;
     private javax.swing.JPopupMenu.Separator jSeparator9;
+    private javax.swing.JMenuItem menu_cadastro_departamentos;
+    private javax.swing.JMenuItem menu_cadastro_funcionarios;
     // End of variables declaration//GEN-END:variables
 }

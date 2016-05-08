@@ -125,7 +125,7 @@ public class RelatorioAtividades extends javax.swing.JFrame {
                 .addComponent(jPainelRelatorioAtividades, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 55, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(50, 50, 50)
                 .addComponent(jBotaoLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBotaoEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)

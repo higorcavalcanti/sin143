@@ -134,6 +134,7 @@ public class Login extends javax.swing.JFrame {
     private void jBotaoEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoEntrarActionPerformed
        AdminPrincipal admPrinc = new AdminPrincipal();
        admPrinc.setVisible(true);
+       this.setVisible(false);
     }//GEN-LAST:event_jBotaoEntrarActionPerformed
 
     /**

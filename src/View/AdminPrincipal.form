@@ -52,35 +52,24 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenuCadastro">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cadastro"/>
+            <Property name="text" type="java.lang.String" value="Cadastrar"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuSubCargos">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cargos"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuSubDepartamentos">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Departamentos"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="menu_cadastro_funcionarios">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Funcionarios"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_cadastro_funcionariosActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuSubHorarios">
+            <MenuItem class="javax.swing.JMenuItem" name="menu_cadastro_departamentos">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Hor&#xe1;rios"/>
+                <Property name="text" type="java.lang.String" value="Departamentos"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator2">
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuSubUsuarioSistema">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Usu&#xe1;rio do Sistema"/>
-              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_cadastro_departamentosActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
