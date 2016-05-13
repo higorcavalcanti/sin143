@@ -1,10 +1,12 @@
 package Persistencia;
 
+import Dao.UsuarioDao;
+import Model.Usuario;
 import java.sql.*;
 
 public class ConnectionFactory {
     
-    private static String file = "bd.db";
+    //private static String file = "bd.db";
     private static Connection conection = null;
 
     public static Connection getConnection() {
@@ -12,8 +14,8 @@ public class ConnectionFactory {
         if(ConnectionFactory.conection == null) {
             //Abre uma nova conexão
             try {
-                Class.forName("org.sqlite.JDBC");
-                ConnectionFactory.conection = DriverManager.getConnection("jdbc:sqlite:" + ConnectionFactory.file );
+                Class.forName("org.h2.Driver");
+                ConnectionFactory.conection = DriverManager.getConnection("jdbc:h2:./ponto", "sa", "");
                 return ConnectionFactory.conection;
             }
             catch(Exception e) {

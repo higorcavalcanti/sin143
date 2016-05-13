@@ -1,35 +1,32 @@
 package Dao;
 
 import Model.Usuario;
-import Persistencia.*;
 import java.sql.*;
 
-public class UsuarioDao {
-    
-    private Connection connection;  
+public class UsuarioDao extends Dao {
+
     private Usuario usuario;
 
     public Usuario getUsuario() {
         return usuario;
     }
-
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 
     public UsuarioDao(Usuario usuario) {
-        this.connection = ConnectionFactory.getConnection();
+        super();
         this.usuario = usuario;
     }
 
     public boolean insert() {
         
-        String sql = "insert into usuarios " +
+        String sql = "INSERT INTO usuarios " +
                     "(matricula,nome,departamento,cargo)" +
-                    " values (?,?,?,?)";
+                    " VALUES (?,?,?,?)";
         try {
             // prepared statement para inserção
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt = connection.prepareStatement(sql);
 
             // seta os valores
             stmt.setInt(1, this.usuario.getMatricula());
@@ -38,15 +35,15 @@ public class UsuarioDao {
             stmt.setString(4, this.usuario.getCargo());
 
             // executa
-            stmt.execute();
+            stmt.executeUpdate();
             stmt.close();
+            
+            System.out.println("Inserido!");
             
             return true;
         } 
         catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
-    
+    }  
 }
-//teste

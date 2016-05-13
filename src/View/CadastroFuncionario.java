@@ -5,9 +5,6 @@
  */
 package View;
 
-import Dao.UsuarioDao;
-import Model.Usuario;
-
 /**
  *
  * @author Higor
@@ -45,7 +42,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jTextCargo = new javax.swing.JTextField();
         jLabelCargo = new javax.swing.JLabel();
         jLabelDepartamento = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jBotaoAcao = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -106,7 +103,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jLabelDepartamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelDepartamento.setText("Departamento");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Presidencia", "Vice-presidente", "Diretor de Projetos" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Presidencia", "Vice-presidente", "Diretor de Projetos" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -252,7 +249,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jBotaoAcaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoAcaoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jBotaoAcaoActionPerformed
 
     /**
