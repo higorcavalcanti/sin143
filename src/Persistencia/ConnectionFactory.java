@@ -13,7 +13,7 @@ public class ConnectionFactory {
             //Abre uma nova conexão
             try {
                 Class.forName("org.sqlite.JDBC");
-                ConnectionFactory.conection = DriverManager.getConnection("jdbc:sqlite:" + ConnectionFactory.file, "", "pass" );
+                ConnectionFactory.conection = DriverManager.getConnection("jdbc:sqlite:" + ConnectionFactory.file );
                 return ConnectionFactory.conection;
             }
             catch(Exception e) {
@@ -24,16 +24,6 @@ public class ConnectionFactory {
         else {
             //Se não for nula, retorna a conexão atual
             return ConnectionFactory.conection;
-        }
-    }
-    
-    public static boolean closeConnection() {
-        try {
-            ConnectionFactory.conection.close();
-            return true;
-        }
-        catch(Exception e) {
-            return false;   
         }
     }
 }
