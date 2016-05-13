@@ -50,25 +50,25 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenuCadastro">
+        <Menu class="javax.swing.JMenu" name="jMenuFuncionario">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cadastrar"/>
+            <Property name="text" type="java.lang.String" value="Funcion&#xe1;rios"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="menu_cadastro_funcionarios">
+            <MenuItem class="javax.swing.JMenuItem" name="menu_visualizar_funcionarios">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Funcionarios"/>
+                <Property name="text" type="java.lang.String" value="Visualizar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_cadastro_funcionariosActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_visualizar_funcionariosActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menu_cadastro_departamentos">
+            <MenuItem class="javax.swing.JMenuItem" name="menu_cadastrar_funcionarios">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Departamentos"/>
+                <Property name="text" type="java.lang.String" value="Cadastrar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_cadastro_departamentosActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_cadastrar_funcionariosActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -187,6 +187,9 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="jPanelAdminPrincipal">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="Batedor de Ponto" noResource="true"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">

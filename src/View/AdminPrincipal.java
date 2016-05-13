@@ -44,9 +44,9 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jSeparator6 = new javax.swing.JPopupMenu.Separator();
         jMenuSubLogs = new javax.swing.JMenu();
         jMenuSubSair = new javax.swing.JMenuItem();
-        jMenuCadastro = new javax.swing.JMenu();
-        menu_cadastro_funcionarios = new javax.swing.JMenuItem();
-        menu_cadastro_departamentos = new javax.swing.JMenuItem();
+        jMenuFuncionario = new javax.swing.JMenu();
+        menu_visualizar_funcionarios = new javax.swing.JMenuItem();
+        menu_cadastrar_funcionarios = new javax.swing.JMenuItem();
         jMenuRelatorio = new javax.swing.JMenu();
         jMenuSubRelatorioFuncionarios = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
@@ -68,6 +68,8 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanelAdminPrincipal.setName("Batedor de Ponto"); // NOI18N
 
         javax.swing.GroupLayout jPanelAdminPrincipalLayout = new javax.swing.GroupLayout(jPanelAdminPrincipal);
         jPanelAdminPrincipal.setLayout(jPanelAdminPrincipalLayout);
@@ -106,25 +108,25 @@ public class AdminPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuArquivos);
 
-        jMenuCadastro.setText("Cadastrar");
+        jMenuFuncionario.setText("Funcionários");
 
-        menu_cadastro_funcionarios.setText("Funcionarios");
-        menu_cadastro_funcionarios.addActionListener(new java.awt.event.ActionListener() {
+        menu_visualizar_funcionarios.setText("Visualizar");
+        menu_visualizar_funcionarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_cadastro_funcionariosActionPerformed(evt);
+                menu_visualizar_funcionariosActionPerformed(evt);
             }
         });
-        jMenuCadastro.add(menu_cadastro_funcionarios);
+        jMenuFuncionario.add(menu_visualizar_funcionarios);
 
-        menu_cadastro_departamentos.setText("Departamentos");
-        menu_cadastro_departamentos.addActionListener(new java.awt.event.ActionListener() {
+        menu_cadastrar_funcionarios.setText("Cadastrar");
+        menu_cadastrar_funcionarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_cadastro_departamentosActionPerformed(evt);
+                menu_cadastrar_funcionariosActionPerformed(evt);
             }
         });
-        jMenuCadastro.add(menu_cadastro_departamentos);
+        jMenuFuncionario.add(menu_cadastrar_funcionarios);
 
-        jMenuBar1.add(jMenuCadastro);
+        jMenuBar1.add(jMenuFuncionario);
 
         jMenuRelatorio.setText("Relatórios");
 
@@ -191,13 +193,14 @@ public class AdminPrincipal extends javax.swing.JFrame {
        System.exit(0);
     }//GEN-LAST:event_jMenuSubSairActionPerformed
 
-    private void menu_cadastro_funcionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_cadastro_funcionariosActionPerformed
-        new CadastroFuncionario().setVisible(true);
-    }//GEN-LAST:event_menu_cadastro_funcionariosActionPerformed
+    private void menu_visualizar_funcionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_visualizar_funcionariosActionPerformed
+        
+        
+    }//GEN-LAST:event_menu_visualizar_funcionariosActionPerformed
 
-    private void menu_cadastro_departamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_cadastro_departamentosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menu_cadastro_departamentosActionPerformed
+    private void menu_cadastrar_funcionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_cadastrar_funcionariosActionPerformed
+        new CadastroFuncionario().setVisible(true);
+    }//GEN-LAST:event_menu_cadastrar_funcionariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,7 +241,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuAjuda;
     private javax.swing.JMenu jMenuArquivos;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenu jMenuCadastro;
+    private javax.swing.JMenu jMenuFuncionario;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu jMenuRelatorio;
     private javax.swing.JMenuItem jMenuSubAtualizacao;
@@ -265,7 +268,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator7;
     private javax.swing.JPopupMenu.Separator jSeparator8;
     private javax.swing.JPopupMenu.Separator jSeparator9;
-    private javax.swing.JMenuItem menu_cadastro_departamentos;
-    private javax.swing.JMenuItem menu_cadastro_funcionarios;
+    private javax.swing.JMenuItem menu_cadastrar_funcionarios;
+    private javax.swing.JMenuItem menu_visualizar_funcionarios;
     // End of variables declaration//GEN-END:variables
 }

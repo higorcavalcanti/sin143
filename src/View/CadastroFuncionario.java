@@ -19,6 +19,8 @@ public class CadastroFuncionario extends javax.swing.JFrame {
      */
     public CadastroFuncionario() {
         initComponents();
+        setLocationRelativeTo( null ); // Centralizar a tela no meio
+        
     }
 
     /**
@@ -30,127 +32,228 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        matricula = new javax.swing.JTextField();
-        nome = new javax.swing.JTextField();
-        cargo = new javax.swing.JTextField();
-        departamento = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        JPanelTela = new javax.swing.JPanel();
+        jTextMatricula = new javax.swing.JTextField();
+        jLabelDataNascimento = new javax.swing.JLabel();
+        jLabeNomeCompleto = new javax.swing.JLabel();
+        jTextNome = new javax.swing.JTextField();
+        jLabelCadastroFuncionarioTitulo = new javax.swing.JLabel();
+        jLabelMatricula1 = new javax.swing.JLabel();
+        jTextData = new javax.swing.JTextField();
+        jTextEmail = new javax.swing.JTextField();
+        jLabelEmail = new javax.swing.JLabel();
+        jTextCargo = new javax.swing.JTextField();
+        jLabelCargo = new javax.swing.JLabel();
+        jLabelDepartamento = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jBotaoAcao = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        Cadastro = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setPreferredSize(new java.awt.Dimension(780, 474));
+        setResizable(false);
+        setType(java.awt.Window.Type.UTILITY);
 
-        matricula.setText("1");
-        matricula.addActionListener(new java.awt.event.ActionListener() {
+        jTextMatricula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                matriculaActionPerformed(evt);
+                jTextMatriculaActionPerformed(evt);
             }
         });
 
-        nome.setText("Nome");
+        jLabelDataNascimento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelDataNascimento.setText("Data de nascimento");
 
-        cargo.setText("Cargo");
-        cargo.addActionListener(new java.awt.event.ActionListener() {
+        jLabeNomeCompleto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabeNomeCompleto.setText("Nome completo");
+
+        jTextNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cargoActionPerformed(evt);
+                jTextNomeActionPerformed(evt);
             }
         });
 
-        departamento.setText("Departamento");
+        jLabelCadastroFuncionarioTitulo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabelCadastroFuncionarioTitulo.setText("Cadastro de funcionario");
 
-        jLabel1.setText("Matricula");
+        jLabelMatricula1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelMatricula1.setText("Matricula");
 
-        jLabel2.setText("Nome");
-
-        jLabel3.setText("Cargo");
-
-        jLabel4.setText("Departamento");
-
-        Cadastro.setText("Cadastrar");
-        Cadastro.addActionListener(new java.awt.event.ActionListener() {
+        jTextData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadastroActionPerformed(evt);
+                jTextDataActionPerformed(evt);
             }
         });
+
+        jTextEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextEmailActionPerformed(evt);
+            }
+        });
+
+        jLabelEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelEmail.setText("Email");
+
+        jTextCargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextCargoActionPerformed(evt);
+            }
+        });
+
+        jLabelCargo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelCargo.setText("Cargo");
+
+        jLabelDepartamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelDepartamento.setText("Departamento");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Presidencia", "Vice-presidente", "Diretor de Projetos" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jBotaoAcao.setText("Cadastrar");
+        jBotaoAcao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotaoAcaoActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/foto.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+
+        javax.swing.GroupLayout JPanelTelaLayout = new javax.swing.GroupLayout(JPanelTela);
+        JPanelTela.setLayout(JPanelTelaLayout);
+        JPanelTelaLayout.setHorizontalGroup(
+            JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelTelaLayout.createSequentialGroup()
+                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(JPanelTelaLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jBotaoAcao, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JPanelTelaLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JPanelTelaLayout.createSequentialGroup()
+                                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelMatricula1))
+                                .addGap(30, 30, 30)
+                                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(JPanelTelaLayout.createSequentialGroup()
+                                        .addComponent(jLabeNomeCompleto)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(jTextNome)))
+                            .addGroup(JPanelTelaLayout.createSequentialGroup()
+                                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelDataNascimento)
+                                    .addComponent(jTextData, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelEmail)
+                                    .addComponent(jTextEmail)))
+                            .addGroup(JPanelTelaLayout.createSequentialGroup()
+                                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelCargo)
+                                    .addComponent(jTextCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(JPanelTelaLayout.createSequentialGroup()
+                                        .addComponent(jLabelDepartamento)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JPanelTelaLayout.createSequentialGroup()
+                        .addGap(215, 215, 215)
+                        .addComponent(jLabelCadastroFuncionarioTitulo)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(44, 44, 44)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84))
+        );
+        JPanelTelaLayout.setVerticalGroup(
+            JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanelTelaLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabelCadastroFuncionarioTitulo)
+                .addGap(47, 47, 47)
+                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JPanelTelaLayout.createSequentialGroup()
+                        .addComponent(jLabelMatricula1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(JPanelTelaLayout.createSequentialGroup()
+                                .addComponent(jLabelDataNascimento)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextData, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(JPanelTelaLayout.createSequentialGroup()
+                                .addComponent(jLabelEmail)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelCargo)
+                            .addComponent(jLabelDepartamento))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JPanelTelaLayout.createSequentialGroup()
+                        .addComponent(jLabeNomeCompleto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(jBotaoAcao, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Cadastro)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(cargo)
-                                .addComponent(departamento, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(matricula)
-                                .addComponent(nome, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
-                            .addGap(30, 30, 30)
-                            .addComponent(jLabel1))))
-                .addContainerGap(236, Short.MAX_VALUE))
+            .addComponent(JPanelTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cargo, departamento, matricula, nome});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(matricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(departamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Cadastro)
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addComponent(JPanelTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void matriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matriculaActionPerformed
+    private void jTextMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextMatriculaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_matriculaActionPerformed
+    }//GEN-LAST:event_jTextMatriculaActionPerformed
 
-    private void cargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargoActionPerformed
+    private void jTextNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cargoActionPerformed
+    }//GEN-LAST:event_jTextNomeActionPerformed
 
-    private void CadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroActionPerformed
-        Usuario user = new Usuario();
-        user.setMatricula( Integer.parseInt(this.matricula.getText()) );
-        user.setNome( this.nome.getText() );
-        user.setCargo( this.cargo.getText() );
-        user.setDepartamento( Integer.parseInt(this.departamento.getText()) );
-        
-        UsuarioDao userDao = new UsuarioDao(user);
-        userDao.insert();
-    }//GEN-LAST:event_CadastroActionPerformed
+    private void jTextDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextDataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextDataActionPerformed
+
+    private void jTextEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextEmailActionPerformed
+
+    private void jTextCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCargoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextCargoActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jBotaoAcaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoAcaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBotaoAcaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,14 +291,21 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Cadastro;
-    private javax.swing.JTextField cargo;
-    private javax.swing.JTextField departamento;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel JPanelTela;
+    private javax.swing.JButton jBotaoAcao;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabeNomeCompleto;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField matricula;
-    private javax.swing.JTextField nome;
+    private javax.swing.JLabel jLabelCadastroFuncionarioTitulo;
+    private javax.swing.JLabel jLabelCargo;
+    private javax.swing.JLabel jLabelDataNascimento;
+    private javax.swing.JLabel jLabelDepartamento;
+    private javax.swing.JLabel jLabelEmail;
+    private javax.swing.JLabel jLabelMatricula1;
+    private javax.swing.JTextField jTextCargo;
+    private javax.swing.JTextField jTextData;
+    private javax.swing.JTextField jTextEmail;
+    private javax.swing.JTextField jTextMatricula;
+    private javax.swing.JTextField jTextNome;
     // End of variables declaration//GEN-END:variables
 }
