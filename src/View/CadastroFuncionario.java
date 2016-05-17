@@ -5,11 +5,13 @@
  */
 package View;
 
+import java.awt.Dialog;
+
 /**
  *
  * @author Higor
  */
-public class CadastroFuncionario extends javax.swing.JFrame {
+public class CadastroFuncionario extends javax.swing.JDialog {
 
     /**
      * Creates new form CadastroFuncionario
@@ -17,7 +19,6 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     public CadastroFuncionario() {
         initComponents();
         setLocationRelativeTo( null ); // Centralizar a tela no meio
-        
     }
 
     /**
@@ -48,6 +49,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
+        setModal(true);
         setPreferredSize(new java.awt.Dimension(780, 474));
         setResizable(false);
         setType(java.awt.Window.Type.UTILITY);

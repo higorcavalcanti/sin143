@@ -9,7 +9,7 @@ package View;
  *
  * @author Daniel
  */
-public class GerenciadorDepartamento extends javax.swing.JFrame {
+public class GerenciadorDepartamento extends javax.swing.JDialog {
 
     /**
      * Creates new form GerenciadorDepartamento
@@ -34,13 +34,13 @@ public class GerenciadorDepartamento extends javax.swing.JFrame {
         jLabelCadastroFuncionarioTitulo = new javax.swing.JLabel();
         jLabelCodigo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jList1 = new javax.swing.JList<String>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setModal(true);
         setPreferredSize(new java.awt.Dimension(700, 560));
         setResizable(false);
 
@@ -65,10 +65,10 @@ public class GerenciadorDepartamento extends javax.swing.JFrame {
         jLabelCodigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelCodigo.setText("Matricula");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(jList1);
 

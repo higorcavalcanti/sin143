@@ -9,7 +9,7 @@ package View;
  *
  * @author Daniel
  */
-public class RelatorioAtividades extends javax.swing.JFrame {
+public class RelatorioAtividades extends javax.swing.JDialog {
 
     /**
      * Creates new form RelatorioAtividades
@@ -41,8 +41,8 @@ public class RelatorioAtividades extends javax.swing.JFrame {
         jBotaoEnviar = new javax.swing.JButton();
         jBotaoLimpar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setModal(true);
         setResizable(false);
 
         jPainelRelatorioAtividades.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));

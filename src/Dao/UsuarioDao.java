@@ -2,6 +2,7 @@ package Dao;
 
 import Model.Usuario;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class UsuarioDao extends Dao {
 
@@ -38,12 +39,73 @@ public class UsuarioDao extends Dao {
             stmt.executeUpdate();
             stmt.close();
             
-            System.out.println("Inserido!");
-            
             return true;
         } 
         catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }  
+    
+    public Usuario getByMatricula(int matricula) {
+        
+        try {
+            String sql = "SELECT * " +
+                        "FROM Usuarios " +
+                        "WHERE matricula = ? " +
+                        "LIMIT 1";
+
+            stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, matricula);
+
+            ResultSet rs = stmt.executeQuery();
+            
+            if(!rs.next())
+                throw new RuntimeException("Usuario não encontrado!");
+            
+            Usuario u = new Usuario(
+                    rs.getInt("matricula"),
+                    rs.getString("nome"),
+                    rs.getInt("departamento"),
+                    rs.getString("cargo")
+            );
+            
+            stmt.close();
+            return u;
+        }
+        catch(SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    /*
+    public Usuario getAll(int matricula) {
+        
+        try {
+            String sql = "SELECT * " +
+                        "FROM Usuarios";
+
+            stmt = connection.prepareStatement(sql);
+
+            ResultSet rs = stmt.executeQuery();
+            
+            ArrayList<Usuario> users = new ArrayList<>();
+                        
+            while (rs.next()) {
+                users.add(
+                    new Usuario(
+                        rs.getInt("matricula"),
+                        rs.getString("nome"),
+                        rs.getInt("departamento"),
+                        rs.getString("cargo")
+                    )
+                );
+            }
+            
+            stmt.close();
+        }
+        catch(SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    */
 }

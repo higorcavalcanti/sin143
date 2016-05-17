@@ -68,6 +68,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Painel do Administrador");
 
         jPanelAdminPrincipal.setName("Batedor de Ponto"); // NOI18N
 

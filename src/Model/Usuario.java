@@ -38,5 +38,16 @@ public class Usuario {
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
+
+    public Usuario() {
+    }
+    
+    public Usuario(int matricula, String nome, int departamento, String cargo) {
+        this.matricula = matricula;
+        this.nome = nome;
+        this.departamento = departamento;
+        this.cargo = cargo;
+    }
  
+    
 }
