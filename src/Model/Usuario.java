@@ -49,5 +49,8 @@ public class Usuario {
         this.cargo = cargo;
     }
  
-    
+    @Override
+    public String toString() {
+        return "[" + this.getMatricula() + "]" + this.getNome();
+    }
 }

@@ -5,6 +5,7 @@
  */
 package View;
 
+import Dao.UsuarioDao;
 import javax.swing.JFrame;
 
 /**
@@ -19,6 +20,10 @@ public class PrincipalCliente extends javax.swing.JFrame {
     public PrincipalCliente() {
         initComponents();
         setLocationRelativeTo( null ); // Centralizar a tela no meio
+        
+        UsuarioDao u = new UsuarioDao(null);
+        System.out.println( u.getByMatricula(3621) );
+        
     }
 
     /**
