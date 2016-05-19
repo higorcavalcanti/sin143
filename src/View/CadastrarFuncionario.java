@@ -11,12 +11,12 @@ import java.awt.Dialog;
  *
  * @author Higor
  */
-public class CadastroFuncionario extends javax.swing.JDialog {
+public class CadastrarFuncionario extends javax.swing.JDialog {
 
     /**
      * Creates new form CadastroFuncionario
      */
-    public CadastroFuncionario() {
+    public CadastrarFuncionario() {
         initComponents();
         setLocationRelativeTo( null ); // Centralizar a tela no meio
     }
@@ -43,7 +43,7 @@ public class CadastroFuncionario extends javax.swing.JDialog {
         jTextCargo = new javax.swing.JTextField();
         jLabelCargo = new javax.swing.JLabel();
         jLabelDepartamento = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<String>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jBotaoAcao = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -73,7 +73,7 @@ public class CadastroFuncionario extends javax.swing.JDialog {
         });
 
         jLabelCadastroFuncionarioTitulo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabelCadastroFuncionarioTitulo.setText("Cadastro de funcionario");
+        jLabelCadastroFuncionarioTitulo.setText("Cadastro de funcionário");
 
         jLabelMatricula1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelMatricula1.setText("Matricula");
@@ -105,7 +105,7 @@ public class CadastroFuncionario extends javax.swing.JDialog {
         jLabelDepartamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelDepartamento.setText("Departamento");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Presidencia", "Vice-presidente", "Diretor de Projetos" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Presidencia", "Vice-presidente", "Diretor de Projetos" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -271,20 +271,21 @@ public class CadastroFuncionario extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroFuncionario().setVisible(true);
+                new CadastrarFuncionario().setVisible(true);
             }
         });
     }
