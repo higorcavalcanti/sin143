@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package com.spej.view;
 
 import java.awt.Dialog;
 
@@ -43,14 +43,13 @@ public class CadastrarFuncionario extends javax.swing.JDialog {
         jTextCargo = new javax.swing.JTextField();
         jLabelCargo = new javax.swing.JLabel();
         jLabelDepartamento = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jBotaoAcao = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
         setModal(true);
-        setPreferredSize(new java.awt.Dimension(780, 474));
         setResizable(false);
         setType(java.awt.Window.Type.UTILITY);
 
@@ -105,7 +104,7 @@ public class CadastrarFuncionario extends javax.swing.JDialog {
         jLabelDepartamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelDepartamento.setText("Departamento");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Presidencia", "Vice-presidente", "Diretor de Projetos" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Presidencia", "Vice-presidente", "Diretor de Projetos" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);

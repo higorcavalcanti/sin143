@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package com.spej.view;
 
-import Dao.UsuarioDao;
+import com.spej.dao.UsuarioDao;
 import javax.swing.JFrame;
 
 /**
@@ -40,7 +40,7 @@ public class PrincipalCliente extends javax.swing.JFrame {
         jCaixaIdentificacao = new javax.swing.JTextField();
         JBaterPonto = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jListaAtivos = new javax.swing.JList<>();
+        jListaAtivos = new javax.swing.JList<String>();
         jBotaoTeste = new javax.swing.JButton();
         jBotaoAdmin = new javax.swing.JButton();
 
@@ -67,10 +67,10 @@ public class PrincipalCliente extends javax.swing.JFrame {
             }
         });
 
-        jListaAtivos.setModel(new javax.swing.AbstractListModel<String>() {
+        jListaAtivos.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(jListaAtivos);
 

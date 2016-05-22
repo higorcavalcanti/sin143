@@ -1,6 +1,6 @@
-package Dao;
+package com.spej.dao;
 
-import Model.Usuario;
+import com.spej.model.Usuario;
 import java.sql.*;
 import java.util.ArrayList;
 

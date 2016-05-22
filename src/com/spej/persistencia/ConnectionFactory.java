@@ -1,7 +1,7 @@
-package Persistencia;
+package com.spej.persistencia;
 
-import Dao.UsuarioDao;
-import Model.Usuario;
+import com.spej.dao.UsuarioDao;
+import com.spej.model.Usuario;
 import java.sql.*;
 
 public class ConnectionFactory {
