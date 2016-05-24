@@ -63,7 +63,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLogomarca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/logo_login.png"))); // NOI18N
+        jLogomarca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/logo_login.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanelLoginLayout = new javax.swing.GroupLayout(jPanelLogin);
         jPanelLogin.setLayout(jPanelLoginLayout);

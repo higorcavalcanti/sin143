@@ -5,9 +5,6 @@
  */
 package com.spej.view;
 
-import com.spej.dao.UsuarioDao;
-import javax.swing.JFrame;
-
 /**
  *
  * @author Daniel
@@ -19,11 +16,7 @@ public class PrincipalCliente extends javax.swing.JFrame {
      */
     public PrincipalCliente() {
         initComponents();
-        setLocationRelativeTo( null ); // Centralizar a tela no meio
-        
-        UsuarioDao u = new UsuarioDao(null);
-        System.out.println( u.getByMatricula(3621) );
-        
+        setLocationRelativeTo( null ); // Centralizar a tela no meio       
     }
 
     /**
@@ -51,8 +44,7 @@ public class PrincipalCliente extends javax.swing.JFrame {
         jPainelPrincipalClientes.setMaximumSize(null);
         jPainelPrincipalClientes.setPreferredSize(new java.awt.Dimension(780, 474));
 
-        JLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/logo.png"))); // NOI18N
-        JLabelLogo.setMaximumSize(null);
+        JLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/logo.png"))); // NOI18N
 
         jCaixaIdentificacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,7 +73,7 @@ public class PrincipalCliente extends javax.swing.JFrame {
             }
         });
 
-        jBotaoAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/administracao.png"))); // NOI18N
+        jBotaoAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/administracao.png"))); // NOI18N
         jBotaoAdmin.setFocusable(false);
         jBotaoAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +93,7 @@ public class PrincipalCliente extends javax.swing.JFrame {
                     .addGroup(jPainelPrincipalClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPainelPrincipalClientesLayout.createSequentialGroup()
                             .addGap(126, 126, 126)
-                            .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(JLabelLogo))
                         .addGroup(jPainelPrincipalClientesLayout.createSequentialGroup()
                             .addComponent(jCaixaIdentificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)

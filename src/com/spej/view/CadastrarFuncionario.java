@@ -118,7 +118,7 @@ public class CadastrarFuncionario extends javax.swing.JDialog {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/foto.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/foto.png"))); // NOI18N
         jLabel2.setText("jLabel2");
 
         javax.swing.GroupLayout JPanelTelaLayout = new javax.swing.GroupLayout(JPanelTela);
