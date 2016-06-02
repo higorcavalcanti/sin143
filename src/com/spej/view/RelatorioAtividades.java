@@ -146,7 +146,7 @@ public class RelatorioAtividades extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBotaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoEnviarActionPerformed
-        // TODO add your handling code here:
+        // Teste
     }//GEN-LAST:event_jBotaoEnviarActionPerformed
 
     private void jBotaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoLimparActionPerformed
