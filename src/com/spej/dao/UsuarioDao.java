@@ -15,17 +15,23 @@ public class UsuarioDao extends Dao<Usuario> {
         this.usuario = usuario;
     }
 
+    public UsuarioDao() {
+        this(null);
+    }    
     public UsuarioDao(Usuario usuario) {
         super();
         this.usuario = usuario;
     }
     
+    private String getStringUsuario() {
+        return " matricula = ? nome = ? departamento = ? cargo = ? ";
+    }
     
     @Override
     public boolean update(Usuario novo) {
          String sql = "UPDATE Usuarios " +
-                    "SET matricula = ? nome = ? departamento = ? cargo = ? " +
-                    "WHERE matricula = ? nome = ? departamento = ? cargo = ?";
+                    "SET " + this.getStringUsuario() + "" +
+                    "WHERE " + this.getStringUsuario() + "";
         try {
             // prepared statement para inserção
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -56,10 +62,7 @@ public class UsuarioDao extends Dao<Usuario> {
     @Override
     public boolean delete() {
         String sql = "DELETE FROM Usuarios " +
-                    "WHERE matricula = ? " +
-                    "nome = ?" +
-                    "departamento = ?" +
-                    "cargo = ?";
+                    "WHERE " + this.getStringUsuario() + "";
         try {
             // prepared statement para inserção
             PreparedStatement stmt = connection.prepareStatement(sql);

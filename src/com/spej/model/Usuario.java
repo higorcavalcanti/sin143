@@ -11,6 +11,17 @@ public class Usuario {
     private int departamento;
     private String cargo;
 
+    
+    public Usuario() {
+    }
+    
+    public Usuario(int matricula, String nome, int departamento, String cargo) {
+        this.matricula = matricula;
+        this.nome = nome;
+        this.departamento = departamento;
+        this.cargo = cargo;
+    }
+
     public int getMatricula() {
         return matricula;
     }
@@ -36,16 +47,6 @@ public class Usuario {
         return cargo;
     }
     public void setCargo(String cargo) {
-        this.cargo = cargo;
-    }
-
-    public Usuario() {
-    }
-    
-    public Usuario(int matricula, String nome, int departamento, String cargo) {
-        this.matricula = matricula;
-        this.nome = nome;
-        this.departamento = departamento;
         this.cargo = cargo;
     }
  

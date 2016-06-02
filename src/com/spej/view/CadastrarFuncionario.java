@@ -5,14 +5,14 @@
  */
 package com.spej.view;
 
-import java.awt.Dialog;
+import com.spej.controller.UsuarioController;
 
 /**
  *
  * @author Higor
  */
 public class CadastrarFuncionario extends javax.swing.JDialog {
-
+   
     /**
      * Creates new form CadastroFuncionario
      */
