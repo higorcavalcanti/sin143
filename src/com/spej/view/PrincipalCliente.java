@@ -33,13 +33,14 @@ public class PrincipalCliente extends javax.swing.JFrame {
         jCaixaIdentificacao = new javax.swing.JTextField();
         JBaterPonto = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jListaAtivos = new javax.swing.JList<String>();
-        jBotaoTeste = new javax.swing.JButton();
-        jBotaoAdmin = new javax.swing.JButton();
+        jListaAtivos = new javax.swing.JList<>();
+        jBotaoAdministracao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(238, 238, 238));
         setResizable(false);
 
+        jPainelPrincipalClientes.setBackground(new java.awt.Color(238, 238, 238));
         jPainelPrincipalClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPainelPrincipalClientes.setMaximumSize(null);
         jPainelPrincipalClientes.setPreferredSize(new java.awt.Dimension(780, 474));
@@ -59,25 +60,17 @@ public class PrincipalCliente extends javax.swing.JFrame {
             }
         });
 
-        jListaAtivos.setModel(new javax.swing.AbstractListModel() {
+        jListaAtivos.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(jListaAtivos);
 
-        jBotaoTeste.setText("Testar tela de relatorio");
-        jBotaoTeste.addActionListener(new java.awt.event.ActionListener() {
+        jBotaoAdministracao.setText("Administração");
+        jBotaoAdministracao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBotaoTesteActionPerformed(evt);
-            }
-        });
-
-        jBotaoAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/administracao.png"))); // NOI18N
-        jBotaoAdmin.setFocusable(false);
-        jBotaoAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBotaoAdminActionPerformed(evt);
+                jBotaoAdministracaoActionPerformed(evt);
             }
         });
 
@@ -85,39 +78,33 @@ public class PrincipalCliente extends javax.swing.JFrame {
         jPainelPrincipalClientes.setLayout(jPainelPrincipalClientesLayout);
         jPainelPrincipalClientesLayout.setHorizontalGroup(
             jPainelPrincipalClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPainelPrincipalClientesLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPainelPrincipalClientesLayout.createSequentialGroup()
                 .addContainerGap(130, Short.MAX_VALUE)
                 .addGroup(jPainelPrincipalClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jBotaoTeste)
+                    .addComponent(jBotaoAdministracao)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPainelPrincipalClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPainelPrincipalClientesLayout.createSequentialGroup()
-                            .addGap(126, 126, 126)
-                            .addComponent(JLabelLogo))
-                        .addGroup(jPainelPrincipalClientesLayout.createSequentialGroup()
-                            .addComponent(jCaixaIdentificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(JBaterPonto, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPainelPrincipalClientesLayout.createSequentialGroup()
+                        .addGroup(jPainelPrincipalClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(JLabelLogo)
+                            .addComponent(jCaixaIdentificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(JBaterPonto, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(128, 128, 128))
-            .addGroup(jPainelPrincipalClientesLayout.createSequentialGroup()
-                .addComponent(jBotaoAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPainelPrincipalClientesLayout.setVerticalGroup(
             jPainelPrincipalClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPainelPrincipalClientesLayout.createSequentialGroup()
-                .addComponent(jBotaoAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
                 .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPainelPrincipalClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jCaixaIdentificacao)
                     .addComponent(JBaterPonto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBotaoTeste)
-                .addGap(24, 24, 24))
+                .addComponent(jBotaoAdministracao)
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -128,13 +115,16 @@ public class PrincipalCliente extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPainelPrincipalClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+            .addComponent(jPainelPrincipalClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBotaoAdministracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoAdministracaoActionPerformed
+        Login login = new Login();
+        login.setVisible(true);
+    }//GEN-LAST:event_jBotaoAdministracaoActionPerformed
 
     private void JBaterPontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBaterPontoActionPerformed
 
@@ -143,16 +133,6 @@ public class PrincipalCliente extends javax.swing.JFrame {
     private void jCaixaIdentificacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCaixaIdentificacaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCaixaIdentificacaoActionPerformed
-
-    private void jBotaoTesteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoTesteActionPerformed
-        RelatorioAtividades rAtividades = new RelatorioAtividades();
-        rAtividades.setVisible(true);
-    }//GEN-LAST:event_jBotaoTesteActionPerformed
-
-    private void jBotaoAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoAdminActionPerformed
-        Login login = new Login();
-        login.setVisible(true);
-    }//GEN-LAST:event_jBotaoAdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,8 +172,7 @@ public class PrincipalCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBaterPonto;
     private javax.swing.JLabel JLabelLogo;
-    private javax.swing.JButton jBotaoAdmin;
-    private javax.swing.JButton jBotaoTeste;
+    private javax.swing.JButton jBotaoAdministracao;
     private javax.swing.JTextField jCaixaIdentificacao;
     private javax.swing.JList<String> jListaAtivos;
     private javax.swing.JPanel jPainelPrincipalClientes;

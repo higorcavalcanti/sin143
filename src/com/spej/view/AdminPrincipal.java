@@ -89,6 +89,8 @@ public class AdminPrincipal extends javax.swing.JFrame {
             .addGap(0, 279, Short.MAX_VALUE)
         );
 
+        jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
         jMenuArquivos.setText("Arquivos");
 
         jMenuSubConfig.setText("Configurações");
@@ -115,6 +117,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuArquivos);
 
+        jMenuFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/icones/user.png"))); // NOI18N
         jMenuFuncionario.setText("Funcionários");
 
         menuGerenciarFuncionario.setText("Gerenciar");
@@ -241,13 +244,13 @@ public class AdminPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuSubSairActionPerformed
 
     private void menuGerenciarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGerenciarFuncionarioActionPerformed
-        GerenciarFuncionario gerenciarFunc = new GerenciarFuncionario();
+        GerenciarUsuario gerenciarFunc = new GerenciarUsuario();
         gerenciarFunc.setVisible(true);
         
     }//GEN-LAST:event_menuGerenciarFuncionarioActionPerformed
 
     private void menuCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastrarFuncionarioActionPerformed
-        new CadastrarFuncionario().setVisible(true);
+        new CadastrarUsuario().setVisible(true);
     }//GEN-LAST:event_menuCadastrarFuncionarioActionPerformed
 
     private void menuGerenciarDepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGerenciarDepartamentosActionPerformed
