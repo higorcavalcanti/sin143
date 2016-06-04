@@ -5,17 +5,22 @@
  */
 package com.spej.view;
 
+import java.awt.Color;
+import java.awt.Dialog;
+
 /**
  *
  * @author Daniel
  */
-public class GerenciarUsuario extends javax.swing.JFrame {
+public class GerenciarUsuario extends javax.swing.JDialog {
 
     /**
      * Creates new form GerenciarUsuario
      */
     public GerenciarUsuario() {
         initComponents();
+        setLocationRelativeTo( null ); // Centralizar a tela no meio
+        getContentPane().setBackground(new Color(238,238,238));
     }
 
     /**
@@ -33,18 +38,22 @@ public class GerenciarUsuario extends javax.swing.JFrame {
         jLabelUsuario = new javax.swing.JLabel();
         jLabelNome = new javax.swing.JLabel();
         jBotaoBuscar = new javax.swing.JButton();
-        jTextSenha = new javax.swing.JPasswordField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        jTextNome = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setBackground(new java.awt.Color(238, 238, 238));
         setPreferredSize(new java.awt.Dimension(660, 474));
         setResizable(false);
+        setType(java.awt.Window.Type.UTILITY);
 
         jPanelGerenciarUsuario.setBackground(new java.awt.Color(238, 238, 238));
+        jPanelGerenciarUsuario.setToolTipText("Gerenciar Usuários");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Gerenciar Usuario");
+        jLabel1.setText("Gerenciar Usuários");
 
         jTextMatricula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,6 +68,7 @@ public class GerenciarUsuario extends javax.swing.JFrame {
         jLabelNome.setText("Nome");
 
         jBotaoBuscar.setText("Buscar");
+        jBotaoBuscar.setMargin(new java.awt.Insets(2, 2, 2, 2));
         jBotaoBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBotaoBuscarActionPerformed(evt);
@@ -77,58 +87,66 @@ public class GerenciarUsuario extends javax.swing.JFrame {
         jPanelGerenciarUsuarioLayout.setHorizontalGroup(
             jPanelGerenciarUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelGerenciarUsuarioLayout.createSequentialGroup()
-                .addGap(214, 214, 214)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelGerenciarUsuarioLayout.createSequentialGroup()
-                .addContainerGap(76, Short.MAX_VALUE)
+                .addGap(88, 88, 88)
                 .addGroup(jPanelGerenciarUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelGerenciarUsuarioLayout.createSequentialGroup()
-                        .addGroup(jPanelGerenciarUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelUsuario)
-                            .addComponent(jTextMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelGerenciarUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelNome)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelGerenciarUsuarioLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(221, 221, 221))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelGerenciarUsuarioLayout.createSequentialGroup()
+                        .addGroup(jPanelGerenciarUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1)
                             .addGroup(jPanelGerenciarUsuarioLayout.createSequentialGroup()
-                                .addComponent(jTextSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanelGerenciarUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelUsuario)
+                                    .addComponent(jTextMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jBotaoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(110, 110, 110))
+                                .addGroup(jPanelGerenciarUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanelGerenciarUsuarioLayout.createSequentialGroup()
+                                        .addComponent(jTextNome, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jBotaoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanelGerenciarUsuarioLayout.createSequentialGroup()
+                                        .addComponent(jLabelNome)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addGap(91, 91, 91))))
         );
         jPanelGerenciarUsuarioLayout.setVerticalGroup(
             jPanelGerenciarUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelGerenciarUsuarioLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addGap(45, 45, 45)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(jPanelGerenciarUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jBotaoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelGerenciarUsuarioLayout.createSequentialGroup()
-                        .addComponent(jLabelUsuario)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelGerenciarUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBotaoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanelGerenciarUsuarioLayout.createSequentialGroup()
-                        .addComponent(jLabelNome)
-                        .addGap(39, 39, 39)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
+                            .addComponent(jLabelUsuario)
+                            .addComponent(jLabelNome))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelGerenciarUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextMatricula)
+                            .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(11, 11, 11)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelGerenciarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanelGerenciarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelGerenciarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        jPanelGerenciarUsuario.getAccessibleContext().setAccessibleName("");
+        jPanelGerenciarUsuario.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -138,9 +156,7 @@ public class GerenciarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextMatriculaActionPerformed
 
     private void jBotaoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoBuscarActionPerformed
-        AdminPrincipal admPrinc = new AdminPrincipal();
-        admPrinc.setVisible(true);
-        this.setVisible(false);
+
     }//GEN-LAST:event_jBotaoBuscarActionPerformed
 
     /**
@@ -187,6 +203,6 @@ public class GerenciarUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelGerenciarUsuario;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextMatricula;
-    private javax.swing.JPasswordField jTextSenha;
+    private javax.swing.JTextField jTextNome;
     // End of variables declaration//GEN-END:variables
 }
