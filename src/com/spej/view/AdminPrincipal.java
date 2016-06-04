@@ -5,6 +5,7 @@
  */
 package com.spej.view;
 
+import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.text.View;
 /**
@@ -17,10 +18,11 @@ public class AdminPrincipal extends javax.swing.JFrame {
      * Creates new form AdminPrincipal
      */
     public AdminPrincipal() {
-        setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        //setExtendedState(JFrame.MAXIMIZED_BOTH); 
         initComponents();
+        setLocationRelativeTo( null ); // Centralizar a tela no meio
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE); // FEchar somente uma tela, não o programa todo
-        
+        getContentPane().setBackground(new Color(238,238,238));
     }
 
     /**
@@ -42,7 +44,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jMenuSubBackup = new javax.swing.JMenuItem();
         jMenuSubImportFunc = new javax.swing.JMenuItem();
         jSeparator6 = new javax.swing.JPopupMenu.Separator();
-        jMenuSubLogs = new javax.swing.JMenu();
         jMenuSubSair = new javax.swing.JMenuItem();
         jMenuFuncionario = new javax.swing.JMenu();
         menuGerenciarFuncionario = new javax.swing.JMenuItem();
@@ -50,9 +51,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jMenuDepartamentos = new javax.swing.JMenu();
         menuGerenciarDepartamentos = new javax.swing.JMenuItem();
         menuCadastrarDepartamentos = new javax.swing.JMenuItem();
-        jMenuUsuarioSistema = new javax.swing.JMenu();
-        menu_visualizar_usuarios = new javax.swing.JMenuItem();
-        menu_cadastrar_usuarios = new javax.swing.JMenuItem();
         jMenuRelatorio = new javax.swing.JMenu();
         jMenuSubRelatorioFuncionarios = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
@@ -69,24 +67,26 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jSeparator8 = new javax.swing.JPopupMenu.Separator();
         jMenuSubDadosSistema = new javax.swing.JMenuItem();
         jSeparator7 = new javax.swing.JPopupMenu.Separator();
-        jMenuSubSobre = new javax.swing.JMenu();
+        jMenuSubSobreSistema = new javax.swing.JMenuItem();
 
         jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Painel do Administrador");
 
+        jPanelAdminPrincipal.setBackground(new java.awt.Color(238, 238, 238));
         jPanelAdminPrincipal.setName("Batedor de Ponto"); // NOI18N
+        jPanelAdminPrincipal.setPreferredSize(new java.awt.Dimension(950, 560));
 
         javax.swing.GroupLayout jPanelAdminPrincipalLayout = new javax.swing.GroupLayout(jPanelAdminPrincipal);
         jPanelAdminPrincipal.setLayout(jPanelAdminPrincipalLayout);
         jPanelAdminPrincipalLayout.setHorizontalGroup(
             jPanelAdminPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 580, Short.MAX_VALUE)
+            .addGap(0, 950, Short.MAX_VALUE)
         );
         jPanelAdminPrincipalLayout.setVerticalGroup(
             jPanelAdminPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 560, Short.MAX_VALUE)
         );
 
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -104,9 +104,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jMenuArquivos.add(jMenuSubImportFunc);
         jMenuArquivos.add(jSeparator6);
 
-        jMenuSubLogs.setText("Logs do Sistema");
-        jMenuArquivos.add(jMenuSubLogs);
-
         jMenuSubSair.setText("Sair");
         jMenuSubSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,8 +114,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuArquivos);
 
-        jMenuFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/icones/user.png"))); // NOI18N
-        jMenuFuncionario.setText("Funcionários");
+        jMenuFuncionario.setText("Usuários");
 
         menuGerenciarFuncionario.setText("Gerenciar");
         menuGerenciarFuncionario.addActionListener(new java.awt.event.ActionListener() {
@@ -158,26 +154,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuDepartamentos);
 
-        jMenuUsuarioSistema.setText("Usuário Sistema");
-
-        menu_visualizar_usuarios.setText("Visualizar");
-        menu_visualizar_usuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_visualizar_usuariosActionPerformed(evt);
-            }
-        });
-        jMenuUsuarioSistema.add(menu_visualizar_usuarios);
-
-        menu_cadastrar_usuarios.setText("Cadastrar");
-        menu_cadastrar_usuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_cadastrar_usuariosActionPerformed(evt);
-            }
-        });
-        jMenuUsuarioSistema.add(menu_cadastrar_usuarios);
-
-        jMenuBar1.add(jMenuUsuarioSistema);
-
         jMenuRelatorio.setText("Relatórios");
 
         jMenuSubRelatorioFuncionarios.setText("Funcionarios");
@@ -216,8 +192,8 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jMenuAjuda.add(jMenuSubDadosSistema);
         jMenuAjuda.add(jSeparator7);
 
-        jMenuSubSobre.setText("Sobre o Software");
-        jMenuAjuda.add(jMenuSubSobre);
+        jMenuSubSobreSistema.setText("Sobre o sistema");
+        jMenuAjuda.add(jMenuSubSobreSistema);
 
         jMenuBar1.add(jMenuAjuda);
 
@@ -244,8 +220,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuSubSairActionPerformed
 
     private void menuGerenciarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGerenciarFuncionarioActionPerformed
-        GerenciarUsuario gerenciarFunc = new GerenciarUsuario();
-        gerenciarFunc.setVisible(true);
+        new GerenciarUsuario().setVisible(true);
         
     }//GEN-LAST:event_menuGerenciarFuncionarioActionPerformed
 
@@ -262,14 +237,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private void menuCadastrarDepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastrarDepartamentosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuCadastrarDepartamentosActionPerformed
-
-    private void menu_visualizar_usuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_visualizar_usuariosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menu_visualizar_usuariosActionPerformed
-
-    private void menu_cadastrar_usuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_cadastrar_usuariosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menu_cadastrar_usuariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -320,7 +287,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuSubDadosSistema;
     private javax.swing.JMenuItem jMenuSubDuvidas;
     private javax.swing.JMenuItem jMenuSubImportFunc;
-    private javax.swing.JMenu jMenuSubLogs;
     private javax.swing.JMenuItem jMenuSubRelatorioBancoHoras;
     private javax.swing.JMenuItem jMenuSubRelatorioControleAdmin;
     private javax.swing.JMenuItem jMenuSubRelatorioControleAtividades;
@@ -328,8 +294,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuSubRelatorioFuncionarios;
     private javax.swing.JMenuItem jMenuSubRelatorioHorarios;
     private javax.swing.JMenuItem jMenuSubSair;
-    private javax.swing.JMenu jMenuSubSobre;
-    private javax.swing.JMenu jMenuUsuarioSistema;
+    private javax.swing.JMenuItem jMenuSubSobreSistema;
     private javax.swing.JPanel jPanelAdminPrincipal;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator3;
@@ -343,7 +308,5 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuCadastrarFuncionario;
     private javax.swing.JMenuItem menuGerenciarDepartamentos;
     private javax.swing.JMenuItem menuGerenciarFuncionario;
-    private javax.swing.JMenuItem menu_cadastrar_usuarios;
-    private javax.swing.JMenuItem menu_visualizar_usuarios;
     // End of variables declaration//GEN-END:variables
 }
