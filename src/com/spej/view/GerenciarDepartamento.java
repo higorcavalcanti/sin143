@@ -5,6 +5,8 @@
  */
 package com.spej.view;
 
+import java.awt.Color;
+
 /**
  *
  * @author Daniel
@@ -18,6 +20,7 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo( null ); // Centralizar a tela no meio
+        getContentPane().setBackground(new Color(238,238,238));
     }
 
     /**
@@ -29,46 +32,98 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelFundo = new javax.swing.JPanel();
-        jLabelGerenciamentoFuncionarioTitulo = new javax.swing.JLabel();
+        jPanelGerenciardepartamentos = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextMatricula = new javax.swing.JTextField();
+        jLabelUsuario = new javax.swing.JLabel();
+        jLabelNome = new javax.swing.JLabel();
+        jBotaoBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<String>();
+        jList1 = new javax.swing.JList<>();
+        jTextNome = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(660, 474));
 
-        jPanelFundo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanelGerenciardepartamentos.setBackground(new java.awt.Color(238, 238, 238));
+        jPanelGerenciardepartamentos.setToolTipText("Gerenciar Usuários");
 
-        jLabelGerenciamentoFuncionarioTitulo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabelGerenciamentoFuncionarioTitulo.setText("Gerenciador de departamentos");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setText("Gerenciar Departamentos");
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        jTextMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextMatriculaActionPerformed(evt);
+            }
+        });
+
+        jLabelUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelUsuario.setText("Código");
+
+        jLabelNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelNome.setText("Nome");
+
+        jBotaoBuscar.setText("Buscar");
+        jBotaoBuscar.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        jBotaoBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotaoBuscarActionPerformed(evt);
+            }
+        });
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(jList1);
 
-        javax.swing.GroupLayout jPanelFundoLayout = new javax.swing.GroupLayout(jPanelFundo);
-        jPanelFundo.setLayout(jPanelFundoLayout);
-        jPanelFundoLayout.setHorizontalGroup(
-            jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFundoLayout.createSequentialGroup()
-                .addContainerGap(88, Short.MAX_VALUE)
-                .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFundoLayout.createSequentialGroup()
-                        .addComponent(jLabelGerenciamentoFuncionarioTitulo)
-                        .addGap(16, 16, 16)))
-                .addContainerGap())
+        javax.swing.GroupLayout jPanelGerenciardepartamentosLayout = new javax.swing.GroupLayout(jPanelGerenciardepartamentos);
+        jPanelGerenciardepartamentos.setLayout(jPanelGerenciardepartamentosLayout);
+        jPanelGerenciardepartamentosLayout.setHorizontalGroup(
+            jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelGerenciardepartamentosLayout.createSequentialGroup()
+                .addGap(88, 88, 88)
+                .addGroup(jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanelGerenciardepartamentosLayout.createSequentialGroup()
+                        .addGroup(jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelUsuario)
+                            .addComponent(jTextMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelGerenciardepartamentosLayout.createSequentialGroup()
+                                .addComponent(jTextNome, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jBotaoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelGerenciardepartamentosLayout.createSequentialGroup()
+                                .addComponent(jLabelNome)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addGap(91, 91, 91))
+            .addGroup(jPanelGerenciardepartamentosLayout.createSequentialGroup()
+                .addGap(152, 152, 152)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanelFundoLayout.setVerticalGroup(
-            jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelFundoLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jLabelGerenciamentoFuncionarioTitulo)
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+        jPanelGerenciardepartamentosLayout.setVerticalGroup(
+            jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelGerenciardepartamentosLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jBotaoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelGerenciardepartamentosLayout.createSequentialGroup()
+                        .addGroup(jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelUsuario)
+                            .addComponent(jLabelNome))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextMatricula)
+                            .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(11, 11, 11)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -76,19 +131,25 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 30, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanelGerenciardepartamentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65))
+            .addComponent(jPanelGerenciardepartamentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextMatriculaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextMatriculaActionPerformed
+
+    private void jBotaoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoBuscarActionPerformed
+
+    }//GEN-LAST:event_jBotaoBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,9 +195,14 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabelGerenciamentoFuncionarioTitulo;
+    private javax.swing.JButton jBotaoBuscar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelNome;
+    private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JList<String> jList1;
-    private javax.swing.JPanel jPanelFundo;
+    private javax.swing.JPanel jPanelGerenciardepartamentos;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextMatricula;
+    private javax.swing.JTextField jTextNome;
     // End of variables declaration//GEN-END:variables
 }

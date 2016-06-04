@@ -53,6 +53,8 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         setResizable(false);
         setType(java.awt.Window.Type.UTILITY);
 
+        JPanelTela.setBackground(new java.awt.Color(238, 238, 238));
+
         jTextMatricula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextMatriculaActionPerformed(evt);
@@ -72,7 +74,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         });
 
         jLabelCadastroFuncionarioTitulo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabelCadastroFuncionarioTitulo.setText("Cadastro de funcionário");
+        jLabelCadastroFuncionarioTitulo.setText("Cadastro de Usuário");
 
         jLabelMatricula1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelMatricula1.setText("Matricula");
