@@ -57,8 +57,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
         menuGerenciarFuncionario = new javax.swing.JMenuItem();
         menuCadastrarFuncionario = new javax.swing.JMenuItem();
         jMenuDepartamentos = new javax.swing.JMenu();
-        menuGerenciarDepartamentos = new javax.swing.JMenuItem();
-        menuCadastrarDepartamentos = new javax.swing.JMenuItem();
         jMenuRelatorio = new javax.swing.JMenu();
         jMenuSubRelatorioFuncionarios = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
@@ -168,23 +166,11 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenuFuncionario);
 
         jMenuDepartamentos.setText("Departamentos");
-
-        menuGerenciarDepartamentos.setText("Gerenciar");
-        menuGerenciarDepartamentos.addActionListener(new java.awt.event.ActionListener() {
+        jMenuDepartamentos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuGerenciarDepartamentosActionPerformed(evt);
+                jMenuDepartamentosActionPerformed(evt);
             }
         });
-        jMenuDepartamentos.add(menuGerenciarDepartamentos);
-
-        menuCadastrarDepartamentos.setText("Cadastrar");
-        menuCadastrarDepartamentos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuCadastrarDepartamentosActionPerformed(evt);
-            }
-        });
-        jMenuDepartamentos.add(menuCadastrarDepartamentos);
-
         jMenuBar1.add(jMenuDepartamentos);
 
         jMenuRelatorio.setText("Relatórios");
@@ -267,16 +253,10 @@ public class AdminPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void menuCadastrarDepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastrarDepartamentosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menuCadastrarDepartamentosActionPerformed
 
-
-    private void menuGerenciarDepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGerenciarDepartamentosActionPerformed
-        //GerenciarDepartamento gerenciarDepar = new GerenciarDepartamento(this, rootPaneCheckingEnabled);
-        //gerenciarDepar.setVisible(true);
-
-    }//GEN-LAST:event_menuGerenciarDepartamentosActionPerformed
+    private void jMenuDepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuDepartamentosActionPerformed
+       new GerenciarDepartamento(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jMenuDepartamentosActionPerformed
 
 
 
@@ -352,9 +332,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator7;
     private javax.swing.JPopupMenu.Separator jSeparator8;
     private javax.swing.JPopupMenu.Separator jSeparator9;
-    private javax.swing.JMenuItem menuCadastrarDepartamentos;
     private javax.swing.JMenuItem menuCadastrarFuncionario;
-    private javax.swing.JMenuItem menuGerenciarDepartamentos;
     private javax.swing.JMenuItem menuGerenciarFuncionario;
     // End of variables declaration//GEN-END:variables
 }
