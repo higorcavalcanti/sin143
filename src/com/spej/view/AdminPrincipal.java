@@ -18,7 +18,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
      * Creates new form AdminPrincipal
      */
     public AdminPrincipal() {
-        setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        //setExtendedState(JFrame.MAXIMIZED_BOTH); 
         initComponents();
         setLocationRelativeTo( null ); // Centralizar a tela no meio
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE); // FEchar somente uma tela, não o programa todo
@@ -86,6 +86,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jBarraFerramentas.add(jSeparador);
 
         jBotaoAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/usersAdd.png"))); // NOI18N
+        jBotaoAdicionar.setToolTipText("Cadastrar Usuário");
         jBotaoAdicionar.setFocusable(false);
         jBotaoAdicionar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBotaoAdicionar.setMaximumSize(new java.awt.Dimension(60, 45));
@@ -101,6 +102,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jBarraFerramentas.add(jSeparator10);
 
         jBotaoGerenciarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/users.png"))); // NOI18N
+        jBotaoGerenciarUsuario.setToolTipText("Gerenciar Usuário");
         jBotaoGerenciarUsuario.setFocusable(false);
         jBotaoGerenciarUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBotaoGerenciarUsuario.setMaximumSize(new java.awt.Dimension(60, 45));
@@ -116,6 +118,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jBarraFerramentas.add(jSeparator11);
 
         jBotaoDepartamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/usersDepartamento.png"))); // NOI18N
+        jBotaoDepartamento.setToolTipText("Gerenciar Departamento");
         jBotaoDepartamento.setFocusable(false);
         jBotaoDepartamento.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBotaoDepartamento.setMaximumSize(new java.awt.Dimension(60, 45));
@@ -131,6 +134,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jBarraFerramentas.add(jSeparator5);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/consultas.png"))); // NOI18N
+        jButton2.setToolTipText("Relatorio de Usuarios");
         jButton2.setBorderPainted(false);
         jButton2.setFocusable(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -152,6 +156,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jBarraFerramentas.add(jSeparator8);
 
         jFiltroRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/atividades.png"))); // NOI18N
+        jFiltroRelatorio.setToolTipText("Relatorio de Controle de Atividades");
         jFiltroRelatorio.setBorderPainted(false);
         jFiltroRelatorio.setFocusable(false);
         jFiltroRelatorio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -173,6 +178,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jBarraFerramentas.add(jSeparator9);
 
         jHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/help.png"))); // NOI18N
+        jHelp.setToolTipText("Sobre o SPEJ");
         jHelp.setBorderPainted(false);
         jHelp.setFocusable(false);
         jHelp.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
