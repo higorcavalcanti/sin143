@@ -29,18 +29,134 @@ public class FiltroRelatorioHorasCumpridas extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabelNome = new javax.swing.JLabel();
+        jComboBoxDepartamento = new javax.swing.JComboBox<>();
+        jLabelDepartamento = new javax.swing.JLabel();
+        jComboNome = new javax.swing.JComboBox<>();
+        jBotaoVisualizar = new javax.swing.JButton();
+        jBotaoImprimir = new javax.swing.JButton();
+        jLabelPeriodo = new javax.swing.JLabel();
+        jLabelInicial = new javax.swing.JLabel();
+        jTextDataInicial = new javax.swing.JTextField();
+        jTextDataFinal = new javax.swing.JTextField();
+        jLabelFinal = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(660, 474));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setText("Relatório de Horas Cumpridas");
+
+        jLabelNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelNome.setText("Nome do Usuário");
+
+        jComboBoxDepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxDepartamento.setMinimumSize(new java.awt.Dimension(6, 20));
+        jComboBoxDepartamento.setPreferredSize(new java.awt.Dimension(6, 20));
+
+        jLabelDepartamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelDepartamento.setText("Departamento");
+
+        jComboNome.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboNome.setMaximumSize(new java.awt.Dimension(6, 20));
+        jComboNome.setMinimumSize(new java.awt.Dimension(6, 20));
+        jComboNome.setPreferredSize(new java.awt.Dimension(6, 20));
+
+        jBotaoVisualizar.setText("Visualizar");
+
+        jBotaoImprimir.setText("Imprimir");
+
+        jLabelPeriodo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelPeriodo.setText("Período de filtragem:");
+
+        jLabelInicial.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelInicial.setText("Data Inicial");
+
+        jLabelFinal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelFinal.setText("Data Final");
+
+        javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
+        jPanel.setLayout(jPanelLayout);
+        jPanelLayout.setHorizontalGroup(
+            jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelLayout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelPeriodo)
+                    .addComponent(jComboNome, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabelDepartamento)
+                            .addComponent(jComboBoxDepartamento, 0, 411, Short.MAX_VALUE))
+                        .addGroup(jPanelLayout.createSequentialGroup()
+                            .addComponent(jLabelNome)
+                            .addGap(306, 306, 306)))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextDataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelInicial))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelFinal)
+                            .addComponent(jTextDataFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 135, Short.MAX_VALUE))
+            .addGroup(jPanelLayout.createSequentialGroup()
+                .addGap(167, 167, 167)
+                .addComponent(jBotaoVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85)
+                .addComponent(jBotaoImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(159, 159, 159))
+        );
+        jPanelLayout.setVerticalGroup(
+            jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel2)
+                .addGap(33, 33, 33)
+                .addComponent(jLabelNome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboNome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelDepartamento)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBoxDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelPeriodo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelInicial)
+                    .addComponent(jLabelFinal))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextDataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextDataFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBotaoImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBotaoVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -89,5 +205,18 @@ public class FiltroRelatorioHorasCumpridas extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBotaoImprimir;
+    private javax.swing.JButton jBotaoVisualizar;
+    private javax.swing.JComboBox<String> jComboBoxDepartamento;
+    private javax.swing.JComboBox<String> jComboNome;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelDepartamento;
+    private javax.swing.JLabel jLabelFinal;
+    private javax.swing.JLabel jLabelInicial;
+    private javax.swing.JLabel jLabelNome;
+    private javax.swing.JLabel jLabelPeriodo;
+    private javax.swing.JPanel jPanel;
+    private javax.swing.JTextField jTextDataFinal;
+    private javax.swing.JTextField jTextDataInicial;
     // End of variables declaration//GEN-END:variables
 }
