@@ -6,10 +6,8 @@
 package com.spej.view;
 
 import com.spej.controller.UsuarioController;
-import com.spej.model.Departamento;
 import com.spej.model.DepartamentoComboBoxModel;
 import com.spej.model.Usuario;
-import java.awt.Dialog;
 
 /**
  *
@@ -262,8 +260,11 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         
         usuario.setMatricula( Integer.getInteger(jTextMatricula.getText()) );
         usuario.setNome( jTextNome.getText() );
-        usuario.setCargo( jTextNome.getText() );
+        usuario.setCargo( jTextCargo.getText() );
+        usuario.setDepartamento( 1 );
         //usuario.setDepartamento( jComboDepartamento.getSelectedObjects() );
+        //usuario.setUsername( jTextUsername.getText() );
+        //usuario.setPassword( jTextPassword.getPassword() );
         
         uc.insert();
     }//GEN-LAST:event_jBotaoAcaoActionPerformed
