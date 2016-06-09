@@ -45,7 +45,13 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jSeparator10 = new javax.swing.JToolBar.Separator();
         jBotaoGerenciarUsuario = new javax.swing.JButton();
         jSeparator11 = new javax.swing.JToolBar.Separator();
+        jBotaoDepartamento = new javax.swing.JButton();
+        jSeparator5 = new javax.swing.JToolBar.Separator();
         jButton2 = new javax.swing.JButton();
+        jSeparator8 = new javax.swing.JToolBar.Separator();
+        jFiltroRelatorio = new javax.swing.JButton();
+        jSeparator9 = new javax.swing.JToolBar.Separator();
+        jHelp = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArquivos = new javax.swing.JMenu();
@@ -109,6 +115,21 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jBarraFerramentas.add(jBotaoGerenciarUsuario);
         jBarraFerramentas.add(jSeparator11);
 
+        jBotaoDepartamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/usersDepartamento.png"))); // NOI18N
+        jBotaoDepartamento.setFocusable(false);
+        jBotaoDepartamento.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBotaoDepartamento.setMaximumSize(new java.awt.Dimension(60, 45));
+        jBotaoDepartamento.setMinimumSize(new java.awt.Dimension(60, 45));
+        jBotaoDepartamento.setPreferredSize(new java.awt.Dimension(60, 45));
+        jBotaoDepartamento.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBotaoDepartamento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBotaoDepartamentoMouseClicked(evt);
+            }
+        });
+        jBarraFerramentas.add(jBotaoDepartamento);
+        jBarraFerramentas.add(jSeparator5);
+
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/consultas.png"))); // NOI18N
         jButton2.setBorderPainted(false);
         jButton2.setFocusable(false);
@@ -117,12 +138,59 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jButton2.setMinimumSize(new java.awt.Dimension(60, 45));
         jButton2.setPreferredSize(new java.awt.Dimension(60, 45));
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         jBarraFerramentas.add(jButton2);
+        jBarraFerramentas.add(jSeparator8);
+
+        jFiltroRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/atividades.png"))); // NOI18N
+        jFiltroRelatorio.setBorderPainted(false);
+        jFiltroRelatorio.setFocusable(false);
+        jFiltroRelatorio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jFiltroRelatorio.setMaximumSize(new java.awt.Dimension(60, 45));
+        jFiltroRelatorio.setMinimumSize(new java.awt.Dimension(60, 45));
+        jFiltroRelatorio.setPreferredSize(new java.awt.Dimension(60, 45));
+        jFiltroRelatorio.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jFiltroRelatorio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jFiltroRelatorioMouseClicked(evt);
+            }
+        });
+        jFiltroRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFiltroRelatorioActionPerformed(evt);
+            }
+        });
+        jBarraFerramentas.add(jFiltroRelatorio);
+        jBarraFerramentas.add(jSeparator9);
+
+        jHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/help.png"))); // NOI18N
+        jHelp.setBorderPainted(false);
+        jHelp.setFocusable(false);
+        jHelp.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jHelp.setMaximumSize(new java.awt.Dimension(60, 45));
+        jHelp.setMinimumSize(new java.awt.Dimension(60, 45));
+        jHelp.setPreferredSize(new java.awt.Dimension(60, 45));
+        jHelp.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jHelp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jHelpMouseClicked(evt);
+            }
+        });
+        jHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jHelpActionPerformed(evt);
+            }
+        });
+        jBarraFerramentas.add(jHelp);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -356,6 +424,30 @@ public class AdminPrincipal extends javax.swing.JFrame {
         new BackupImportar(this, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_jMenuSubImportFuncActionPerformed
 
+    private void jBotaoDepartamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBotaoDepartamentoMouseClicked
+        new GerenciarDepartamento(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jBotaoDepartamentoMouseClicked
+
+    private void jHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHelpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jHelpActionPerformed
+
+    private void jHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jHelpMouseClicked
+        new DuvidasAjuda(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jHelpMouseClicked
+
+    private void jFiltroRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFiltroRelatorioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFiltroRelatorioActionPerformed
+
+    private void jFiltroRelatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFiltroRelatorioMouseClicked
+        new FiltroRelatorioControleAtividades(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jFiltroRelatorioMouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        new FiltroRelatorioUsuario(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jButton2MouseClicked
+
 
 
     /**
@@ -396,9 +488,12 @@ public class AdminPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToolBar jBarraFerramentas;
     private javax.swing.JButton jBotaoAdicionar;
+    private javax.swing.JButton jBotaoDepartamento;
     private javax.swing.JButton jBotaoGerenciarUsuario;
     private javax.swing.JButton jButton2;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JButton jFiltroRelatorio;
+    private javax.swing.JButton jHelp;
     private javax.swing.JMenu jMenuAjuda;
     private javax.swing.JMenu jMenuArquivos;
     private javax.swing.JMenuBar jMenuBar1;
@@ -423,8 +518,11 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
     private javax.swing.JPopupMenu.Separator jSeparator7;
+    private javax.swing.JToolBar.Separator jSeparator8;
+    private javax.swing.JToolBar.Separator jSeparator9;
     private javax.swing.JMenuItem menuCadastrarFuncionario;
     private javax.swing.JMenuItem menuGerenciarFuncionario;
     // End of variables declaration//GEN-END:variables
