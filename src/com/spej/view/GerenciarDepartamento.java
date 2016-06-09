@@ -17,6 +17,7 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
     public GerenciarDepartamento(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo( null ); // Centralizar a tela no meio
     }
 
     /**

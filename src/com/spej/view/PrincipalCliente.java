@@ -33,8 +33,8 @@ public class PrincipalCliente extends javax.swing.JFrame {
         jCaixaIdentificacao = new javax.swing.JTextField();
         JBaterPonto = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jListaAtivos = new javax.swing.JList<>();
-        jBotaoAdministracao = new javax.swing.JButton();
+        jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(238, 238, 238));
@@ -60,17 +60,33 @@ public class PrincipalCliente extends javax.swing.JFrame {
             }
         });
 
-        jListaAtivos.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jListaAtivos);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Matrícula", "Nome", "Horário"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
-        jBotaoAdministracao.setText("Administração");
-        jBotaoAdministracao.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Administração");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBotaoAdministracaoActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -79,16 +95,16 @@ public class PrincipalCliente extends javax.swing.JFrame {
         jPainelPrincipalClientesLayout.setHorizontalGroup(
             jPainelPrincipalClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPainelPrincipalClientesLayout.createSequentialGroup()
-                .addContainerGap(130, Short.MAX_VALUE)
+                .addContainerGap(133, Short.MAX_VALUE)
                 .addGroup(jPainelPrincipalClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jBotaoAdministracao)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPainelPrincipalClientesLayout.createSequentialGroup()
                         .addGroup(jPainelPrincipalClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(JLabelLogo)
                             .addComponent(jCaixaIdentificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(JBaterPonto, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(JBaterPonto, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addGap(128, 128, 128))
         );
         jPainelPrincipalClientesLayout.setVerticalGroup(
@@ -100,31 +116,26 @@ public class PrincipalCliente extends javax.swing.JFrame {
                 .addGroup(jPainelPrincipalClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jCaixaIdentificacao)
                     .addComponent(JBaterPonto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBotaoAdministracao)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPainelPrincipalClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPainelPrincipalClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 783, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPainelPrincipalClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
+            .addComponent(jPainelPrincipalClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jBotaoAdministracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoAdministracaoActionPerformed
-        Login login = new Login();
-        login.setVisible(true);
-    }//GEN-LAST:event_jBotaoAdministracaoActionPerformed
 
     private void JBaterPontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBaterPontoActionPerformed
 
@@ -133,6 +144,11 @@ public class PrincipalCliente extends javax.swing.JFrame {
     private void jCaixaIdentificacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCaixaIdentificacaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCaixaIdentificacaoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Login login = new Login();
+        login.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,10 +188,10 @@ public class PrincipalCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBaterPonto;
     private javax.swing.JLabel JLabelLogo;
-    private javax.swing.JButton jBotaoAdministracao;
+    private javax.swing.JButton jButton1;
     private javax.swing.JTextField jCaixaIdentificacao;
-    private javax.swing.JList<String> jListaAtivos;
     private javax.swing.JPanel jPainelPrincipalClientes;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

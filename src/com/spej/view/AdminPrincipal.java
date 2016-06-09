@@ -41,8 +41,10 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jBarraFerramentas = new javax.swing.JToolBar();
         jSeparador = new javax.swing.JToolBar.Separator();
-        jButton1 = new javax.swing.JButton();
+        jBotaoAdicionar = new javax.swing.JButton();
         jSeparator10 = new javax.swing.JToolBar.Separator();
+        jBotaoGerenciarUsuario = new javax.swing.JButton();
+        jSeparator11 = new javax.swing.JToolBar.Separator();
         jButton2 = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -84,15 +86,35 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jBarraFerramentas.setRollover(true);
         jBarraFerramentas.add(jSeparador);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/users.png"))); // NOI18N
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setMaximumSize(new java.awt.Dimension(60, 45));
-        jButton1.setMinimumSize(new java.awt.Dimension(60, 45));
-        jButton1.setPreferredSize(new java.awt.Dimension(60, 45));
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jBarraFerramentas.add(jButton1);
+        jBotaoAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/usersAdd.png"))); // NOI18N
+        jBotaoAdicionar.setFocusable(false);
+        jBotaoAdicionar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBotaoAdicionar.setMaximumSize(new java.awt.Dimension(60, 45));
+        jBotaoAdicionar.setMinimumSize(new java.awt.Dimension(60, 45));
+        jBotaoAdicionar.setPreferredSize(new java.awt.Dimension(60, 45));
+        jBotaoAdicionar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBotaoAdicionar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBotaoAdicionarMouseClicked(evt);
+            }
+        });
+        jBarraFerramentas.add(jBotaoAdicionar);
         jBarraFerramentas.add(jSeparator10);
+
+        jBotaoGerenciarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/users.png"))); // NOI18N
+        jBotaoGerenciarUsuario.setFocusable(false);
+        jBotaoGerenciarUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBotaoGerenciarUsuario.setMaximumSize(new java.awt.Dimension(60, 45));
+        jBotaoGerenciarUsuario.setMinimumSize(new java.awt.Dimension(60, 45));
+        jBotaoGerenciarUsuario.setPreferredSize(new java.awt.Dimension(60, 45));
+        jBotaoGerenciarUsuario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBotaoGerenciarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBotaoGerenciarUsuarioMouseClicked(evt);
+            }
+        });
+        jBarraFerramentas.add(jBotaoGerenciarUsuario);
+        jBarraFerramentas.add(jSeparator11);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/consultas.png"))); // NOI18N
         jButton2.setBorderPainted(false);
@@ -147,7 +169,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
 
         jMenuFuncionario.setText("Usuários");
 
-        menuGerenciarFuncionario.setText("Gerenciar");
+        menuGerenciarFuncionario.setText("Gerenciar Usuário");
         menuGerenciarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuGerenciarFuncionarioActionPerformed(evt);
@@ -155,7 +177,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
         });
         jMenuFuncionario.add(menuGerenciarFuncionario);
 
-        menuCadastrarFuncionario.setText("Cadastrar");
+        menuCadastrarFuncionario.setText("Cadastrar Usuário");
         menuCadastrarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuCadastrarFuncionarioActionPerformed(evt);
@@ -267,6 +289,14 @@ public class AdminPrincipal extends javax.swing.JFrame {
         new GerenciarDepartamento(this, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_jMenuDepartamentosMouseClicked
 
+    private void jBotaoAdicionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBotaoAdicionarMouseClicked
+        new CadastrarUsuario().setVisible(true);
+    }//GEN-LAST:event_jBotaoAdicionarMouseClicked
+
+    private void jBotaoGerenciarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBotaoGerenciarUsuarioMouseClicked
+       new GerenciarUsuario().setVisible(true);
+    }//GEN-LAST:event_jBotaoGerenciarUsuarioMouseClicked
+
 
 
     /**
@@ -306,7 +336,8 @@ public class AdminPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToolBar jBarraFerramentas;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jBotaoAdicionar;
+    private javax.swing.JButton jBotaoGerenciarUsuario;
     private javax.swing.JButton jButton2;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenuAjuda;
@@ -333,6 +364,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparador;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator10;
+    private javax.swing.JToolBar.Separator jSeparator11;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
