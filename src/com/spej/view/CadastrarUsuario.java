@@ -5,6 +5,10 @@
  */
 package com.spej.view;
 
+import com.spej.controller.UsuarioController;
+import com.spej.model.Departamento;
+import com.spej.model.DepartamentoComboBoxModel;
+import com.spej.model.Usuario;
 import java.awt.Dialog;
 
 /**
@@ -43,7 +47,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         jTextCargo = new javax.swing.JTextField();
         jLabelCargo = new javax.swing.JLabel();
         jLabelDepartamento = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboDepartamento = new javax.swing.JComboBox<DepartamentoComboBoxModel>();
         jBotaoAcao = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -106,10 +110,10 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         jLabelDepartamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelDepartamento.setText("Departamento");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Presidencia", "Vice-presidente", "Diretor de Projetos" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jComboDepartamento.setModel(new com.spej.model.DepartamentoComboBoxModel());
+        jComboDepartamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jComboDepartamentoActionPerformed(evt);
             }
         });
 
@@ -162,7 +166,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
                                     .addGroup(JPanelTelaLayout.createSequentialGroup()
                                         .addComponent(jLabelDepartamento)
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                    .addComponent(jComboDepartamento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JPanelTelaLayout.createSequentialGroup()
                         .addGap(215, 215, 215)
                         .addComponent(jLabelCadastroFuncionarioTitulo)
@@ -199,7 +203,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jComboDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JPanelTelaLayout.createSequentialGroup()
                         .addComponent(jLabeNomeCompleto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -247,12 +251,21 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextCargoActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void jComboDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboDepartamentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_jComboDepartamentoActionPerformed
 
     private void jBotaoAcaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoAcaoActionPerformed
         
+        Usuario usuario = new Usuario();
+        UsuarioController uc = new UsuarioController(usuario);
+        
+        usuario.setMatricula( Integer.getInteger(jTextMatricula.getText()) );
+        usuario.setNome( jTextNome.getText() );
+        usuario.setCargo( jTextNome.getText() );
+        //usuario.setDepartamento( jComboDepartamento.getSelectedObjects() );
+        
+        uc.insert();
     }//GEN-LAST:event_jBotaoAcaoActionPerformed
 
     /**
@@ -296,7 +309,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanelTela;
     private javax.swing.JButton jBotaoAcao;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<DepartamentoComboBoxModel> jComboDepartamento;
     private javax.swing.JLabel jLabeNomeCompleto;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelCadastroFuncionarioTitulo;

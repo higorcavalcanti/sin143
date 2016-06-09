@@ -29,21 +29,28 @@ public abstract class Dao<T> {
      * 
      * @return Verdadeiro se conseguiu inserir
      */
-    public abstract boolean insert();
+    public abstract boolean insert(T novo);
     
     
     /**
      * 
      * @return Verdadeiro se conseguiu atualizar
      */
-    public abstract boolean update(T novo);
+    public abstract boolean update(T antigo, T novo);
     
     
     /**
      * 
      * @return Verdadeiro se conseguiu deletar
      */
-    public abstract boolean delete();
+    public abstract boolean delete(T deletar);
+    
+    
+    /**
+     * Retorna todos os itens cadastrados
+     * @return lista de itens
+     */
+    public abstract ArrayList<T> getAll();
     
     
     /**

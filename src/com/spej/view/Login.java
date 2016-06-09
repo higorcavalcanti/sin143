@@ -5,6 +5,8 @@
  */
 package com.spej.view;
 
+import com.spej.controller.UsuarioController;
+
 /**
  *
  * @author Daniel
@@ -37,6 +39,7 @@ public class Login extends javax.swing.JFrame {
         jBotaoEntrar = new javax.swing.JButton();
         jLogomarca = new javax.swing.JLabel();
         jTextSenha = new javax.swing.JPasswordField();
+        jLabelError = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -67,6 +70,8 @@ public class Login extends javax.swing.JFrame {
 
         jLogomarca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/logo_login.png"))); // NOI18N
 
+        jLabelError.setText("ERRO FICA AQUI");
+
         javax.swing.GroupLayout jPanelLoginLayout = new javax.swing.GroupLayout(jPanelLogin);
         jPanelLogin.setLayout(jPanelLoginLayout);
         jPanelLoginLayout.setHorizontalGroup(
@@ -79,9 +84,6 @@ public class Login extends javax.swing.JFrame {
                 .addGap(62, 62, 62)
                 .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelLoginLayout.createSequentialGroup()
-                        .addComponent(jTextSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanelLoginLayout.createSequentialGroup()
                         .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelUsuario)
                             .addComponent(jBotaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -91,7 +93,12 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(jLabelSenha)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLogomarca)
-                        .addGap(83, 83, 83))))
+                        .addGap(83, 83, 83))
+                    .addGroup(jPanelLoginLayout.createSequentialGroup()
+                        .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelError)
+                            .addComponent(jTextSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanelLoginLayout.setVerticalGroup(
             jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,7 +120,9 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jTextSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
                 .addComponent(jBotaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabelError)
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -135,9 +144,19 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextUsuarioActionPerformed
 
     private void jBotaoEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoEntrarActionPerformed
-       AdminPrincipal admPrinc = new AdminPrincipal();
-       admPrinc.setVisible(true);
-       this.setVisible(false);
+       
+        UsuarioController uc = new UsuarioController();
+        
+        if(uc.logar(jTextUsuario.getText(), String.valueOf(jTextSenha.getPassword())) ) 
+        {
+            AdminPrincipal admPrinc = new AdminPrincipal();
+            admPrinc.setVisible(true);
+            this.setVisible(false);
+        } 
+        else {
+            jLabelError.setText("Usuario ou senha inválido!");
+        }
+        
     }//GEN-LAST:event_jBotaoEntrarActionPerformed
 
     /**
@@ -178,6 +197,7 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBotaoEntrar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelError;
     private javax.swing.JLabel jLabelSenha;
     private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JLabel jLogomarca;

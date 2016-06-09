@@ -6,30 +6,17 @@ import java.util.ArrayList;
 
 public class UsuarioDao extends Dao<Usuario> {
 
-    private Usuario usuario;
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
     public UsuarioDao() {
-        this(null);
-    }    
-    public UsuarioDao(Usuario usuario) {
         super();
-        this.usuario = usuario;
-    }
+    }    
     
     private String getStringUsuario() {
         return " matricula = ? nome = ? departamento = ? cargo = ? ";
     }
     
     @Override
-    public boolean update(Usuario novo) {
-         String sql = "UPDATE Usuarios " +
+    public boolean update(Usuario antigo, Usuario novo) {
+        String sql = "UPDATE Usuarios " +
                     "SET " + this.getStringUsuario() + "" +
                     "WHERE " + this.getStringUsuario() + "";
         try {
@@ -42,36 +29,10 @@ public class UsuarioDao extends Dao<Usuario> {
             stmt.setInt(3, novo.getDepartamento());
             stmt.setString(4, novo.getCargo());
             
-            stmt.setInt(5, this.usuario.getMatricula());
-            stmt.setString(6, this.usuario.getNome());
-            stmt.setInt(7, this.usuario.getDepartamento());
-            stmt.setString(8, this.usuario.getCargo());            
-
-            // executa
-            stmt.executeUpdate();
-            stmt.close();
-            
-            return true;
-        }
-        catch(Exception e) {
-            
-        }
-        return false;
-    }
-
-    @Override
-    public boolean delete() {
-        String sql = "DELETE FROM Usuarios " +
-                    "WHERE " + this.getStringUsuario() + "";
-        try {
-            // prepared statement para inserção
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            
-            // seta os valores
-            stmt.setInt(1, this.usuario.getMatricula());
-            stmt.setString(2, this.usuario.getNome());
-            stmt.setInt(3, this.usuario.getDepartamento());
-            stmt.setString(4, this.usuario.getCargo());
+            stmt.setInt(5, antigo.getMatricula());
+            stmt.setString(6, antigo.getNome());
+            stmt.setInt(7, antigo.getDepartamento());
+            stmt.setString(8, antigo.getCargo());            
 
             // executa
             stmt.executeUpdate();
@@ -86,7 +47,33 @@ public class UsuarioDao extends Dao<Usuario> {
     }
 
     @Override
-    public boolean insert() {
+    public boolean delete(Usuario deletar) {
+        String sql = "DELETE FROM Usuarios " +
+                    "WHERE " + this.getStringUsuario() + "";
+        try {
+            // prepared statement para inserção
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            
+            // seta os valores
+            stmt.setInt(1, deletar.getMatricula());
+            stmt.setString(2, deletar.getNome());
+            stmt.setInt(3, deletar.getDepartamento());
+            stmt.setString(4, deletar.getCargo());
+
+            // executa
+            stmt.executeUpdate();
+            stmt.close();
+            
+            return true;
+        }
+        catch(Exception e) {
+            
+        }
+        return false;        
+    }
+
+    @Override
+    public boolean insert(Usuario novo) {
         
         String sql = "INSERT INTO usuarios " +
                     "(matricula,nome,departamento,cargo)" +
@@ -96,10 +83,10 @@ public class UsuarioDao extends Dao<Usuario> {
             stmt = connection.prepareStatement(sql);
 
             // seta os valores
-            stmt.setInt(1, this.usuario.getMatricula());
-            stmt.setString(2, this.usuario.getNome());
-            stmt.setInt(3, this.usuario.getDepartamento());
-            stmt.setString(4, this.usuario.getCargo());
+            stmt.setInt(1, novo.getMatricula());
+            stmt.setString(2, novo.getNome());
+            stmt.setInt(3, novo.getDepartamento());
+            stmt.setString(4, novo.getCargo());
 
             // executa
             stmt.executeUpdate();
@@ -115,7 +102,8 @@ public class UsuarioDao extends Dao<Usuario> {
     public Usuario getByMatricula(int matricula) {
         String sql = "SELECT * " +
                     "FROM Usuarios " +
-                    "WHERE matricula = ?";
+                    "WHERE matricula = ? " +
+                    "LIMIT 1";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setInt(1, matricula);
@@ -124,9 +112,29 @@ public class UsuarioDao extends Dao<Usuario> {
         catch(Exception e) {
             
         }
-        return new Usuario();
+        //return new Usuario();
+        return null;
     }
 
+    
+    public Usuario getByUsuarioSenha(String usuario, String senha) {
+        String sql = "SELECT * " +
+                "FROM Usuarios " +
+                "WHERE username = ? AND password = ? " + 
+                "LIMIT 1";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, usuario);
+            stmt.setString(2, senha);
+            return this.getByPreparedStatement(stmt);
+        }
+        catch(Exception e) {
+
+        }
+        return null;
+    }
+
+    
     public ArrayList<Usuario> getAllByDepartamento(int departamento) {
         String sql = "SELECT * FROM Usuarios WHERE departamento = ?";
         try {
@@ -141,6 +149,7 @@ public class UsuarioDao extends Dao<Usuario> {
     }
     
     
+    @Override
     public ArrayList<Usuario> getAll() {
         String sql = "SELECT * FROM Usuarios";
         try {
