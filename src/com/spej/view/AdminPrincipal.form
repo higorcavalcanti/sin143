@@ -32,13 +32,19 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuSubBackup">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Backup"/>
+                <Property name="text" type="java.lang.String" value="Gerar Backup"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuSubBackupActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuSubImportFunc">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Importar Funcionarios"/>
+                <Property name="text" type="java.lang.String" value="Importar Backup"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuSubImportFuncActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator6">
             </MenuItem>
@@ -104,6 +110,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Controle de Horas"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuSubRelatorioControleHorasActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuSubRelatorioPresencaUsuario">
               <Properties>
@@ -117,6 +126,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Controle de Atividades"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuSubRelatorioControleAtividadesActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -129,20 +141,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="D&#xfa;vidas sobre o sistema"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator9">
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuSubAtualizacao">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Verificar Atualiza&#xe7;&#xe3;o"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator8">
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuSubDadosSistema">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Dados do Sistema"/>
-              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuSubDuvidasActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator7">
             </MenuItem>
@@ -150,6 +151,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sobre o sistema"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuSubSobreSistemaActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
