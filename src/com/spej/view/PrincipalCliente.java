@@ -81,6 +81,7 @@ public class PrincipalCliente extends javax.swing.JFrame {
                 "Matrícula", "Nome", "Horário"
             }
         ));
+        jTable1.setEnabled(false);
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("Administração");
