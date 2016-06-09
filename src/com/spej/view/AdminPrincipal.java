@@ -22,8 +22,9 @@ public class AdminPrincipal extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo( null ); // Centralizar a tela no meio
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE); // FEchar somente uma tela, não o programa todo
+
         //getContentPane().setBackground(new Color(238,238,238));
-        
+
     }
 
     /**
@@ -38,12 +39,12 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        jDesktopPainel = new javax.swing.JDesktopPane();
         jBarraFerramentas = new javax.swing.JToolBar();
         jSeparador = new javax.swing.JToolBar.Separator();
         jButton1 = new javax.swing.JButton();
         jSeparator10 = new javax.swing.JToolBar.Separator();
         jButton2 = new javax.swing.JButton();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArquivos = new javax.swing.JMenu();
         jMenuSubConfig = new javax.swing.JMenuItem();
@@ -81,17 +82,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Painel do Administrador");
 
-        javax.swing.GroupLayout jDesktopPainelLayout = new javax.swing.GroupLayout(jDesktopPainel);
-        jDesktopPainel.setLayout(jDesktopPainelLayout);
-        jDesktopPainelLayout.setHorizontalGroup(
-            jDesktopPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jDesktopPainelLayout.setVerticalGroup(
-            jDesktopPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 646, Short.MAX_VALUE)
-        );
-
         jBarraFerramentas.setFloatable(false);
         jBarraFerramentas.setRollover(true);
         jBarraFerramentas.add(jSeparador);
@@ -120,6 +110,17 @@ public class AdminPrincipal extends javax.swing.JFrame {
             }
         });
         jBarraFerramentas.add(jButton2);
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 526, Short.MAX_VALUE)
+        );
 
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -236,14 +237,14 @@ public class AdminPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jBarraFerramentas, javax.swing.GroupLayout.DEFAULT_SIZE, 950, Short.MAX_VALUE)
-            .addComponent(jDesktopPainel, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jDesktopPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jBarraFerramentas, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDesktopPainel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jDesktopPane1))
         );
 
         pack();
@@ -270,11 +271,14 @@ public class AdminPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_menuCadastrarDepartamentosActionPerformed
 
+
     private void menuGerenciarDepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGerenciarDepartamentosActionPerformed
-        GerenciarDepartamento gerenciarDepar = new GerenciarDepartamento(this, rootPaneCheckingEnabled);
-        gerenciarDepar.setVisible(true);
+        //GerenciarDepartamento gerenciarDepar = new GerenciarDepartamento(this, rootPaneCheckingEnabled);
+        //gerenciarDepar.setVisible(true);
 
     }//GEN-LAST:event_menuGerenciarDepartamentosActionPerformed
+
+
 
     /**
      * @param args the command line arguments
@@ -315,7 +319,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JToolBar jBarraFerramentas;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JDesktopPane jDesktopPainel;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenuAjuda;
     private javax.swing.JMenu jMenuArquivos;
     private javax.swing.JMenuBar jMenuBar1;
