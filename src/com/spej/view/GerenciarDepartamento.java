@@ -34,26 +34,30 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
 
         jPanelGerenciardepartamentos = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextMatricula = new javax.swing.JTextField();
+        jTextCodigo = new javax.swing.JTextField();
         jLabelUsuario = new javax.swing.JLabel();
         jLabelNome = new javax.swing.JLabel();
-        jBotaoBuscar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
         jTextNome = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTb1 = new javax.swing.JTable();
+        jBotaoEditar = new javax.swing.JButton();
+        jBotaoNovo = new javax.swing.JButton();
+        jBotaoSalvar = new javax.swing.JButton();
+        jBotaoExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(660, 474));
+        setPreferredSize(new java.awt.Dimension(618, 446));
 
         jPanelGerenciardepartamentos.setBackground(new java.awt.Color(238, 238, 238));
         jPanelGerenciardepartamentos.setToolTipText("Gerenciar Usuários");
+        jPanelGerenciardepartamentos.setPreferredSize(new java.awt.Dimension(660, 474));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Gerenciar Departamentos");
 
-        jTextMatricula.addActionListener(new java.awt.event.ActionListener() {
+        jTextCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextMatriculaActionPerformed(evt);
+                jTextCodigoActionPerformed(evt);
             }
         });
 
@@ -63,93 +67,108 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
         jLabelNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelNome.setText("Nome");
 
-        jBotaoBuscar.setText("Buscar");
-        jBotaoBuscar.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        jBotaoBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBotaoBuscarActionPerformed(evt);
+        jTb1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Código", "Nome"
             }
-        });
+        ));
+        jScrollPane2.setViewportView(jTb1);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
+        jBotaoEditar.setText("Editar");
+        jBotaoEditar.setEnabled(false);
+
+        jBotaoNovo.setText("Novo");
+
+        jBotaoSalvar.setText("Salvar");
+        jBotaoSalvar.setEnabled(false);
+
+        jBotaoExcluir.setText("Excluir");
+        jBotaoExcluir.setEnabled(false);
 
         javax.swing.GroupLayout jPanelGerenciardepartamentosLayout = new javax.swing.GroupLayout(jPanelGerenciardepartamentos);
         jPanelGerenciardepartamentos.setLayout(jPanelGerenciardepartamentosLayout);
         jPanelGerenciardepartamentosLayout.setHorizontalGroup(
             jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelGerenciardepartamentosLayout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addGroup(jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(jPanelGerenciardepartamentosLayout.createSequentialGroup()
+                .addContainerGap(145, Short.MAX_VALUE)
+                .addGroup(jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelGerenciardepartamentosLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(169, 169, 169))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelGerenciardepartamentosLayout.createSequentialGroup()
                         .addGroup(jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelUsuario)
-                            .addComponent(jTextMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanelGerenciardepartamentosLayout.createSequentialGroup()
-                                .addComponent(jTextNome, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                                .addGroup(jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelUsuario)
+                                    .addComponent(jTextCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelNome)
+                                    .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanelGerenciardepartamentosLayout.createSequentialGroup()
+                                .addComponent(jBotaoNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jBotaoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelGerenciardepartamentosLayout.createSequentialGroup()
-                                .addComponent(jLabelNome)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(91, 91, 91))
-            .addGroup(jPanelGerenciardepartamentosLayout.createSequentialGroup()
-                .addGap(152, 152, 152)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jBotaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(jBotaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jBotaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(117, 117, 117))))
         );
         jPanelGerenciardepartamentosLayout.setVerticalGroup(
             jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelGerenciardepartamentosLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(jLabel1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelGerenciardepartamentosLayout.createSequentialGroup()
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelUsuario)
+                    .addComponent(jLabelNome))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextCodigo)
+                    .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jBotaoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelGerenciardepartamentosLayout.createSequentialGroup()
-                        .addGroup(jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelUsuario)
-                            .addComponent(jLabelNome))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextMatricula)
-                            .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(11, 11, 11)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addGroup(jPanelGerenciardepartamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jBotaoNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBotaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBotaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBotaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(57, 57, 57))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanelGerenciardepartamentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanelGerenciardepartamentos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelGerenciardepartamentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelGerenciardepartamentos, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
         );
+
+        jPanelGerenciardepartamentos.getAccessibleContext().setAccessibleName("Gerenciar Departamento");
+        jPanelGerenciardepartamentos.getAccessibleContext().setAccessibleDescription("Gerenciar Departamento");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextMatriculaActionPerformed
+    private void jTextCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextMatriculaActionPerformed
-
-    private void jBotaoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoBuscarActionPerformed
-
-    }//GEN-LAST:event_jBotaoBuscarActionPerformed
+    }//GEN-LAST:event_jTextCodigoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,14 +214,17 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBotaoBuscar;
+    private javax.swing.JButton jBotaoEditar;
+    private javax.swing.JButton jBotaoExcluir;
+    private javax.swing.JButton jBotaoNovo;
+    private javax.swing.JButton jBotaoSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JLabel jLabelUsuario;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanelGerenciardepartamentos;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextMatricula;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTb1;
+    private javax.swing.JTextField jTextCodigo;
     private javax.swing.JTextField jTextNome;
     // End of variables declaration//GEN-END:variables
 }

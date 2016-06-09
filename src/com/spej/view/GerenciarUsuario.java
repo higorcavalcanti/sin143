@@ -21,6 +21,12 @@ public class GerenciarUsuario extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo( null ); // Centralizar a tela no meio
         getContentPane().setBackground(new Color(238,238,238));
+        setar();
+    }
+    
+    public void setar(){
+        jBotaoEditar.setEnabled(false);
+        jBotaoExcluir.setEnabled(false);
     }
 
     /**
@@ -41,6 +47,8 @@ public class GerenciarUsuario extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jTextNome = new javax.swing.JTextField();
+        jBotaoEditar = new javax.swing.JButton();
+        jBotaoExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -82,6 +90,23 @@ public class GerenciarUsuario extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(jList1);
 
+        jBotaoEditar.setText("Editar");
+        jBotaoEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotaoEditarActionPerformed(evt);
+            }
+        });
+
+        jBotaoExcluir.setText("Excluir");
+        jBotaoExcluir.setMaximumSize(new java.awt.Dimension(61, 23));
+        jBotaoExcluir.setMinimumSize(new java.awt.Dimension(61, 23));
+        jBotaoExcluir.setPreferredSize(new java.awt.Dimension(61, 23));
+        jBotaoExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotaoExcluirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelGerenciarUsuarioLayout = new javax.swing.GroupLayout(jPanelGerenciarUsuario);
         jPanelGerenciarUsuario.setLayout(jPanelGerenciarUsuarioLayout);
         jPanelGerenciarUsuarioLayout.setHorizontalGroup(
@@ -89,7 +114,13 @@ public class GerenciarUsuario extends javax.swing.JDialog {
             .addGroup(jPanelGerenciarUsuarioLayout.createSequentialGroup()
                 .addGap(88, 88, 88)
                 .addGroup(jPanelGerenciarUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelGerenciarUsuarioLayout.createSequentialGroup()
+                        .addComponent(jBotaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBotaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelGerenciarUsuarioLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addGap(221, 221, 221))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelGerenciarUsuarioLayout.createSequentialGroup()
@@ -102,7 +133,7 @@ public class GerenciarUsuario extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanelGerenciarUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanelGerenciarUsuarioLayout.createSequentialGroup()
-                                        .addComponent(jTextNome, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                                        .addComponent(jTextNome, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jBotaoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanelGerenciarUsuarioLayout.createSequentialGroup()
@@ -128,7 +159,11 @@ public class GerenciarUsuario extends javax.swing.JDialog {
                             .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(11, 11, 11)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelGerenciarUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBotaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBotaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -158,6 +193,14 @@ public class GerenciarUsuario extends javax.swing.JDialog {
     private void jBotaoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoBuscarActionPerformed
 
     }//GEN-LAST:event_jBotaoBuscarActionPerformed
+
+    private void jBotaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoEditarActionPerformed
+        
+    }//GEN-LAST:event_jBotaoEditarActionPerformed
+
+    private void jBotaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoExcluirActionPerformed
+         
+    }//GEN-LAST:event_jBotaoExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,6 +239,8 @@ public class GerenciarUsuario extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBotaoBuscar;
+    private javax.swing.JButton jBotaoEditar;
+    private javax.swing.JButton jBotaoExcluir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JLabel jLabelUsuario;
