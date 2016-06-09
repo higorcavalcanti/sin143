@@ -51,7 +51,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         jLabelUsuario = new javax.swing.JLabel();
         jTextUsername = new javax.swing.JTextField();
         jLabelUsuario1 = new javax.swing.JLabel();
-        jTextPassword = new javax.swing.JTextField();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -140,68 +140,65 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         jLabelUsuario1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelUsuario1.setText("Senha");
 
-        jTextPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextPasswordActionPerformed(evt);
-            }
-        });
+        jPasswordField1.setText("jPasswordField1");
 
         javax.swing.GroupLayout JPanelTelaLayout = new javax.swing.GroupLayout(JPanelTela);
         JPanelTela.setLayout(JPanelTelaLayout);
         JPanelTelaLayout.setHorizontalGroup(
             JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelTelaLayout.createSequentialGroup()
-                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JPanelTelaLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
+            .addGroup(JPanelTelaLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPanelTelaLayout.createSequentialGroup()
+                        .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelMatricula1))
+                        .addGap(30, 30, 30)
                         .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanelTelaLayout.createSequentialGroup()
-                                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelMatricula1))
-                                .addGap(30, 30, 30)
-                                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(JPanelTelaLayout.createSequentialGroup()
-                                        .addComponent(jLabeNomeCompleto)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jTextNome)))
+                                .addComponent(jLabeNomeCompleto)
+                                .addGap(0, 504, Short.MAX_VALUE))
                             .addGroup(JPanelTelaLayout.createSequentialGroup()
-                                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelDataNascimento)
-                                    .addComponent(jTextData, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelEmail)
-                                    .addComponent(jTextEmail)))
+                                .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27))))
+                    .addGroup(JPanelTelaLayout.createSequentialGroup()
+                        .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelDataNascimento)
+                            .addComponent(jTextData, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanelTelaLayout.createSequentialGroup()
-                                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelCargo)
-                                    .addComponent(jTextCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelUsuario)
-                                    .addComponent(jTextUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(JPanelTelaLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(JPanelTelaLayout.createSequentialGroup()
-                                                .addComponent(jLabelDepartamento)
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                            .addComponent(jComboDepartamento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    .addGroup(JPanelTelaLayout.createSequentialGroup()
-                                        .addGap(17, 17, 17)
-                                        .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jBotaoAcao, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabelUsuario1)
-                                                .addComponent(jTextPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(0, 0, Short.MAX_VALUE))))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JPanelTelaLayout.createSequentialGroup()
-                        .addGap(215, 215, 215)
-                        .addComponent(jLabelCadastroFuncionarioTitulo)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(63, 63, 63)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
+                                .addComponent(jLabelEmail)
+                                .addContainerGap(558, Short.MAX_VALUE))
+                            .addGroup(JPanelTelaLayout.createSequentialGroup()
+                                .addComponent(jTextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(JPanelTelaLayout.createSequentialGroup()
+                        .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelCargo)
+                            .addComponent(jTextCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelUsuario)
+                            .addComponent(jTextUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JPanelTelaLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelDepartamento)
+                                .addGap(0, 431, Short.MAX_VALUE))
+                            .addGroup(JPanelTelaLayout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabelUsuario1, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jComboDepartamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jBotaoAcao, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+            .addGroup(JPanelTelaLayout.createSequentialGroup()
+                .addGap(215, 215, 215)
+                .addComponent(jLabelCadastroFuncionarioTitulo)
+                .addGap(0, 354, Short.MAX_VALUE))
         );
         JPanelTelaLayout.setVerticalGroup(
             JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,7 +236,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
                             .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(JPanelTelaLayout.createSequentialGroup()
                         .addComponent(jLabelUsuario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -247,10 +244,10 @@ public class CadastrarUsuario extends javax.swing.JDialog {
                     .addGroup(JPanelTelaLayout.createSequentialGroup()
                         .addComponent(jLabelUsuario1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                        .addComponent(jPasswordField1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jBotaoAcao, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(30, 30, 30))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -313,10 +310,6 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextUsernameActionPerformed
 
-    private void jTextPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextPasswordActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -369,12 +362,12 @@ public class CadastrarUsuario extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelMatricula1;
     private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JLabel jLabelUsuario1;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextCargo;
     private javax.swing.JTextField jTextData;
     private javax.swing.JTextField jTextEmail;
     private javax.swing.JTextField jTextMatricula;
     private javax.swing.JTextField jTextNome;
-    private javax.swing.JTextField jTextPassword;
     private javax.swing.JTextField jTextUsername;
     // End of variables declaration//GEN-END:variables
 }
