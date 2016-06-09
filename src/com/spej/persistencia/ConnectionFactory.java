@@ -1,10 +1,14 @@
 package com.spej.persistencia;
 
-import com.spej.dao.UsuarioDao;
-import com.spej.model.Usuario;
 import java.sql.*;
 
 public class ConnectionFactory {
+    
+    private static final String dbhost = "localhost";
+    private static final String dbuser = "root";
+    private static final String dbpass = "";
+    private static final String dbname = "sperj";
+    private static final String URL = "jdbc:mysql://" + dbhost + "/" + dbname;
     
     //private static String file = "bd.db";
     private static Connection conection = null;
@@ -14,11 +18,11 @@ public class ConnectionFactory {
         if(ConnectionFactory.conection == null) {
             //Abre uma nova conexão
             try {
-                Class.forName("org.h2.Driver");
-                ConnectionFactory.conection = DriverManager.getConnection("jdbc:h2:./ponto", "sa", "");
+                Class.forName("com.mysql.jdbc.Driver");
+                ConnectionFactory.conection = DriverManager.getConnection(URL, dbuser, dbpass);
                 return ConnectionFactory.conection;
             }
-            catch(Exception e) {
+            catch(ClassNotFoundException | SQLException e) {
                 System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             }
             return null;
