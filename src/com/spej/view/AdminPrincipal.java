@@ -166,6 +166,11 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenuFuncionario);
 
         jMenuDepartamentos.setText("Departamentos");
+        jMenuDepartamentos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuDepartamentosMouseClicked(evt);
+            }
+        });
         jMenuDepartamentos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuDepartamentosActionPerformed(evt);
@@ -255,8 +260,12 @@ public class AdminPrincipal extends javax.swing.JFrame {
 
 
     private void jMenuDepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuDepartamentosActionPerformed
-       new GerenciarDepartamento(this, rootPaneCheckingEnabled).setVisible(true);
+
     }//GEN-LAST:event_jMenuDepartamentosActionPerformed
+
+    private void jMenuDepartamentosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuDepartamentosMouseClicked
+        new GerenciarDepartamento(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jMenuDepartamentosMouseClicked
 
 
 
