@@ -9,14 +9,15 @@ package com.spej.view;
  *
  * @author Daniel
  */
-public class FiltroRelatorioFuncionarios extends javax.swing.JDialog {
+public class FiltroRelatorioUsuario extends javax.swing.JDialog {
 
     /**
      * Creates new form FiltroRelatorioFuncionarios
      */
-    public FiltroRelatorioFuncionarios(java.awt.Frame parent, boolean modal) {
+    public FiltroRelatorioUsuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo( null ); // Centralizar a tela no meio
     }
 
     /**
@@ -30,17 +31,18 @@ public class FiltroRelatorioFuncionarios extends javax.swing.JDialog {
 
         jPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextNomeUsuarios = new javax.swing.JTextField();
         jLabelCargo = new javax.swing.JLabel();
         jBotaoVisualizar = new javax.swing.JButton();
         jBotaoImprimir = new javax.swing.JButton();
         jLabelNome1 = new javax.swing.JLabel();
-        jComboBoxCargo = new javax.swing.JComboBox<>();
-        jComboBoxDepartamento = new javax.swing.JComboBox<>();
+        jComboCargo = new javax.swing.JComboBox<>();
+        jComboDepartamento = new javax.swing.JComboBox<>();
         jLabelCargo1 = new javax.swing.JLabel();
+        jComboNome = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(660, 474));
+        setType(java.awt.Window.Type.UTILITY);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Relatório de Usuários");
@@ -55,43 +57,52 @@ public class FiltroRelatorioFuncionarios extends javax.swing.JDialog {
         jLabelNome1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelNome1.setText("Nome do Usuário");
 
-        jComboBoxCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxCargo.setMinimumSize(new java.awt.Dimension(6, 20));
-        jComboBoxCargo.setPreferredSize(new java.awt.Dimension(6, 20));
+        jComboCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboCargo.setMinimumSize(new java.awt.Dimension(6, 20));
+        jComboCargo.setPreferredSize(new java.awt.Dimension(6, 20));
 
-        jComboBoxDepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxDepartamento.setMinimumSize(new java.awt.Dimension(6, 20));
-        jComboBoxDepartamento.setPreferredSize(new java.awt.Dimension(6, 20));
+        jComboDepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboDepartamento.setMinimumSize(new java.awt.Dimension(6, 20));
+        jComboDepartamento.setPreferredSize(new java.awt.Dimension(6, 20));
 
         jLabelCargo1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelCargo1.setText("Departamento");
+
+        jComboNome.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboNome.setMaximumSize(new java.awt.Dimension(6, 20));
+        jComboNome.setMinimumSize(new java.awt.Dimension(6, 20));
+        jComboNome.setPreferredSize(new java.awt.Dimension(6, 20));
 
         javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
         jPanel.setLayout(jPanelLayout);
         jPanelLayout.setHorizontalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLayout.createSequentialGroup()
-                .addContainerGap(170, Short.MAX_VALUE)
+                .addContainerGap(156, Short.MAX_VALUE)
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
                         .addComponent(jBotaoVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(94, 94, 94)
+                        .addGap(75, 75, 75)
                         .addComponent(jBotaoImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(161, 161, 161))
+                        .addGap(194, 194, 194))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(189, 189, 189))))
             .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(93, 93, 93)
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabelCargo1)
-                        .addComponent(jComboBoxDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabelNome1)
-                        .addComponent(jTextNomeUsuarios)
-                        .addComponent(jLabelCargo)
-                        .addComponent(jComboBoxCargo, 0, 411, Short.MAX_VALUE)))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jComboNome, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelLayout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabelCargo1)
+                                .addComponent(jComboDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabelNome1)
+                                .addComponent(jLabelCargo)
+                                .addComponent(jComboCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelLayout.setVerticalGroup(
@@ -101,16 +112,16 @@ public class FiltroRelatorioFuncionarios extends javax.swing.JDialog {
                 .addComponent(jLabel2)
                 .addGap(32, 32, 32)
                 .addComponent(jLabelNome1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextNomeUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jComboNome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelCargo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBoxCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelCargo1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBoxDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBotaoVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -135,6 +146,8 @@ public class FiltroRelatorioFuncionarios extends javax.swing.JDialog {
                 .addGap(36, 36, 36))
         );
 
+        getAccessibleContext().setAccessibleName("Relátorio de Usuario");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -155,20 +168,21 @@ public class FiltroRelatorioFuncionarios extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FiltroRelatorioFuncionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FiltroRelatorioUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FiltroRelatorioFuncionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FiltroRelatorioUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FiltroRelatorioFuncionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FiltroRelatorioUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FiltroRelatorioFuncionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FiltroRelatorioUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                FiltroRelatorioFuncionarios dialog = new FiltroRelatorioFuncionarios(new javax.swing.JFrame(), true);
+                FiltroRelatorioUsuario dialog = new FiltroRelatorioUsuario(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -183,13 +197,13 @@ public class FiltroRelatorioFuncionarios extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBotaoImprimir;
     private javax.swing.JButton jBotaoVisualizar;
-    private javax.swing.JComboBox<String> jComboBoxCargo;
-    private javax.swing.JComboBox<String> jComboBoxDepartamento;
+    private javax.swing.JComboBox<String> jComboCargo;
+    private javax.swing.JComboBox<String> jComboDepartamento;
+    private javax.swing.JComboBox<String> jComboNome;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelCargo;
     private javax.swing.JLabel jLabelCargo1;
     private javax.swing.JLabel jLabelNome1;
     private javax.swing.JPanel jPanel;
-    private javax.swing.JTextField jTextNomeUsuarios;
     // End of variables declaration//GEN-END:variables
 }

@@ -63,11 +63,8 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jMenuSubRelatorioFuncionarios = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jMenuSubRelatorioControleHoras = new javax.swing.JMenuItem();
-        jMenuSubRelatorioBancoHoras = new javax.swing.JMenuItem();
-        jMenuSubRelatorioHorarios = new javax.swing.JMenuItem();
+        jMenuSubRelatorioPresencaUsuario = new javax.swing.JMenuItem();
         jMenuSubRelatorioControleAtividades = new javax.swing.JMenuItem();
-        jSeparator5 = new javax.swing.JPopupMenu.Separator();
-        jMenuSubRelatorioControleAdmin = new javax.swing.JMenuItem();
         jMenuAjuda = new javax.swing.JMenu();
         jMenuSubDuvidas = new javax.swing.JMenuItem();
         jSeparator9 = new javax.swing.JPopupMenu.Separator();
@@ -202,25 +199,33 @@ public class AdminPrincipal extends javax.swing.JFrame {
 
         jMenuRelatorio.setText("Relatórios");
 
-        jMenuSubRelatorioFuncionarios.setText("Funcionarios");
+        jMenuSubRelatorioFuncionarios.setText("Usuários");
+        jMenuSubRelatorioFuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuSubRelatorioFuncionariosMouseClicked(evt);
+            }
+        });
+        jMenuSubRelatorioFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuSubRelatorioFuncionariosActionPerformed(evt);
+            }
+        });
         jMenuRelatorio.add(jMenuSubRelatorioFuncionarios);
         jMenuRelatorio.add(jSeparator3);
 
         jMenuSubRelatorioControleHoras.setText("Controle de Horas");
         jMenuRelatorio.add(jMenuSubRelatorioControleHoras);
 
-        jMenuSubRelatorioBancoHoras.setText("Banco de Horas");
-        jMenuRelatorio.add(jMenuSubRelatorioBancoHoras);
-
-        jMenuSubRelatorioHorarios.setText("Horários");
-        jMenuRelatorio.add(jMenuSubRelatorioHorarios);
+        jMenuSubRelatorioPresencaUsuario.setText("Presença de Usuários");
+        jMenuSubRelatorioPresencaUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuSubRelatorioPresencaUsuarioActionPerformed(evt);
+            }
+        });
+        jMenuRelatorio.add(jMenuSubRelatorioPresencaUsuario);
 
         jMenuSubRelatorioControleAtividades.setText("Controle de Atividades");
         jMenuRelatorio.add(jMenuSubRelatorioControleAtividades);
-        jMenuRelatorio.add(jSeparator5);
-
-        jMenuSubRelatorioControleAdmin.setText("Controle Administrativo");
-        jMenuRelatorio.add(jMenuSubRelatorioControleAdmin);
 
         jMenuBar1.add(jMenuRelatorio);
 
@@ -297,6 +302,18 @@ public class AdminPrincipal extends javax.swing.JFrame {
        new GerenciarUsuario().setVisible(true);
     }//GEN-LAST:event_jBotaoGerenciarUsuarioMouseClicked
 
+    private void jMenuSubRelatorioFuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSubRelatorioFuncionariosMouseClicked
+        
+    }//GEN-LAST:event_jMenuSubRelatorioFuncionariosMouseClicked
+
+    private void jMenuSubRelatorioFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSubRelatorioFuncionariosActionPerformed
+        new FiltroRelatorioUsuario(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jMenuSubRelatorioFuncionariosActionPerformed
+
+    private void jMenuSubRelatorioPresencaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSubRelatorioPresencaUsuarioActionPerformed
+        new FiltroRelatorioPresencaUsuario(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jMenuSubRelatorioPresencaUsuarioActionPerformed
+
 
 
     /**
@@ -353,12 +370,10 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuSubDadosSistema;
     private javax.swing.JMenuItem jMenuSubDuvidas;
     private javax.swing.JMenuItem jMenuSubImportFunc;
-    private javax.swing.JMenuItem jMenuSubRelatorioBancoHoras;
-    private javax.swing.JMenuItem jMenuSubRelatorioControleAdmin;
     private javax.swing.JMenuItem jMenuSubRelatorioControleAtividades;
     private javax.swing.JMenuItem jMenuSubRelatorioControleHoras;
     private javax.swing.JMenuItem jMenuSubRelatorioFuncionarios;
-    private javax.swing.JMenuItem jMenuSubRelatorioHorarios;
+    private javax.swing.JMenuItem jMenuSubRelatorioPresencaUsuario;
     private javax.swing.JMenuItem jMenuSubSair;
     private javax.swing.JMenuItem jMenuSubSobreSistema;
     private javax.swing.JToolBar.Separator jSeparador;
@@ -368,7 +383,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
     private javax.swing.JPopupMenu.Separator jSeparator7;
     private javax.swing.JPopupMenu.Separator jSeparator8;

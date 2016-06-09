@@ -91,8 +91,12 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuSubRelatorioFuncionarios">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Funcionarios"/>
+                <Property name="text" type="java.lang.String" value="Usu&#xe1;rios"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuSubRelatorioFuncionariosMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuSubRelatorioFuncionariosActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator3">
             </MenuItem>
@@ -101,26 +105,17 @@
                 <Property name="text" type="java.lang.String" value="Controle de Horas"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuSubRelatorioBancoHoras">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuSubRelatorioPresencaUsuario">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Banco de Horas"/>
+                <Property name="text" type="java.lang.String" value="Presen&#xe7;a de Usu&#xe1;rios"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuSubRelatorioHorarios">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Hor&#xe1;rios"/>
-              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuSubRelatorioPresencaUsuarioActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuSubRelatorioControleAtividades">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Controle de Atividades"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator5">
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuSubRelatorioControleAdmin">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Controle Administrativo"/>
               </Properties>
             </MenuItem>
           </SubComponents>
