@@ -200,6 +200,7 @@
         <Component class="javax.swing.JTextField" name="jTextNome">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextNomeKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelCadastroFuncionarioTitulo">
@@ -316,6 +317,9 @@
               <Format format="#0" subtype="-1" type="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextMatriculaKeyTyped"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

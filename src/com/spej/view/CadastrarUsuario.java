@@ -26,6 +26,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo( null ); // Centralizar a tela no meio
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,7 +48,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         jTextCargo = new javax.swing.JTextField();
         jLabelCargo = new javax.swing.JLabel();
         jLabelDepartamento = new javax.swing.JLabel();
-        jComboDepartamento = new javax.swing.JComboBox<DepartamentoComboBoxModel>();
+        jComboDepartamento = new javax.swing.JComboBox<>();
         jBotaoAcao = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabelUsuario = new javax.swing.JLabel();
@@ -80,6 +81,11 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         jTextNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextNomeActionPerformed(evt);
+            }
+        });
+        jTextNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextNomeKeyTyped(evt);
             }
         });
 
@@ -139,6 +145,11 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         jLabelUsuario1.setText("Senha");
 
         jTextMatricula.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        jTextMatricula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextMatriculaKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPanelTelaLayout = new javax.swing.GroupLayout(JPanelTela);
         JPanelTela.setLayout(JPanelTelaLayout);
@@ -307,6 +318,16 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextUsernameActionPerformed
 
+    private void jTextMatriculaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextMatriculaKeyTyped
+        char c = evt.getKeyChar();
+        if(c<'0'|| c>'9') evt.consume();
+    }//GEN-LAST:event_jTextMatriculaKeyTyped
+
+    private void jTextNomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextNomeKeyTyped
+        
+    }//GEN-LAST:event_jTextNomeKeyTyped
+
+    
     /**
      * @param args the command line arguments
      */
