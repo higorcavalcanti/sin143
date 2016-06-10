@@ -1,12 +1,86 @@
 package com.spej.controller;
 
+import com.spej.dao.Dao;
+import java.util.ArrayList;
+
 public abstract class Controller<T> {
+
+    protected Dao dao;
+    protected T object;
+
+    public Controller(Dao dao, T item) {
+        this.dao = dao;
+        this.object = item;
+    }
     
-    public abstract boolean update(T antigo, T novo) throws RuntimeException;
-    public abstract boolean delete(T deletar) throws RuntimeException;
-    public abstract boolean insert(T novo) throws RuntimeException;
+    public abstract Dao getDao();
     
-    public abstract boolean update(T novo) throws RuntimeException;
-    public abstract boolean delete() throws RuntimeException;
-    public abstract boolean insert() throws RuntimeException;
+    
+    /**
+     * Atualiza um item do banco
+     * @param antigo item antigo (que será atualizado)
+     * @param novo item novo (que será o novo)
+     * @return true ou false
+     * @throws RuntimeException
+     */
+    public boolean update(T antigo, T novo) throws RuntimeException
+    {
+        return this.dao.update(antigo, novo);
+    }
+
+    /**
+     * Deleta um item do banco
+     * @param deletar (Item a deletar)
+     * @return
+     * @throws RuntimeException
+     */
+    public boolean delete(T deletar) throws RuntimeException {
+        return this.dao.delete(deletar);
+    }
+
+    /**
+     * Insere um item no banco
+     * @param novo Item a ser inserido
+     * @return
+     * @throws RuntimeException
+     */
+    public boolean insert(T novo) throws RuntimeException {
+        return this.dao.insert(novo);
+    }
+    
+    /**
+     * Atualiza o item atual no banco
+     * @param novo Novo item (substitui o atual)
+     * @return
+     * @throws RuntimeException
+     */
+    public boolean update(T novo) throws RuntimeException {
+        return this.dao.update(object, novo);
+    }
+
+    /**
+     * Deleta o item atual do banco
+     * @return
+     * @throws RuntimeException
+     */
+    public boolean delete() throws RuntimeException {
+        return this.dao.delete(object);
+    }
+
+    /**
+     * Insere o item atual no banco
+     * @return
+     * @throws RuntimeException
+     */
+    public boolean insert() throws RuntimeException {
+        return this.dao.insert(object);
+    }
+    
+    /**
+     * Retorna todos itens do banco de dados
+     * @return 
+     */
+    public ArrayList<T> getAll() {
+        return this.dao.getAll();
+    }    
 }
