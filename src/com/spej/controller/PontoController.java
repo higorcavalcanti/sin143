@@ -3,6 +3,7 @@ package com.spej.controller;
 import com.spej.dao.PontoDao;
 import com.spej.model.Ponto;
 
+
 public class PontoController  extends Controller<Ponto>{   
     
     @Override

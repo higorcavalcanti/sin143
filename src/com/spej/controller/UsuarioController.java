@@ -13,13 +13,7 @@ public class UsuarioController extends Controller<Usuario> {
         return (UsuarioDao) this.dao;
     }
 
-    public Usuario getUsuario() {
-        return object;
-    }
-    public void setUsuario(Usuario usuario) {
-        this.object = usuario;
-    }
-
+    
     public UsuarioController() {
         this(new UsuarioDao(), null);
     }
@@ -43,6 +37,5 @@ public class UsuarioController extends Controller<Usuario> {
     public boolean logar(String usuario, String senha) {
         logado = this.getDao().getByUsuarioSenha(usuario, senha);
         return (logado != null);
-        //return true;
     }
 }
