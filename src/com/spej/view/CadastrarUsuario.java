@@ -27,6 +27,19 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         setLocationRelativeTo( null ); // Centralizar a tela no meio
     }
     
+    //Limpa os campos após o cadastro
+    public void limparCampos(){
+        jTextMatricula.setText(null);
+        jTextNome.setText(null);
+        jDataNascimento.setText(null);
+        jTextCargo.setText(null);
+        jTextEmail.setText(null);
+        jTextUsername.setText(null);
+        jPasswordField1.setText(null);
+        jComboDepartamento.setSelectedItem(null); 
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -286,6 +299,33 @@ public class CadastrarUsuario extends javax.swing.JDialog {
 
     private void jBotaoAcaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoAcaoActionPerformed
         
+        //Campos para Validação
+        if (jTextMatricula.getText().length() == 0) {
+            Mensagem.aviso(this, "O campo matricula é obrigatório!", "Aviso");
+        }
+        if (jTextNome.getText().length() == 0) {
+            Mensagem.aviso(this, "O campo nome é obrigatório!", "Aviso");
+        }
+        if (jTextEmail.getText().length() == 0) {
+            Mensagem.aviso(this, "O campo email é obrigatório!", "Aviso");
+        }
+        if (jDataNascimento.getText().length() == 0) {
+            Mensagem.aviso(this, "O campo de data de nascimento é obrigatório!", "Aviso");
+        }
+         if (jTextCargo.getText().length() == 0) {
+            Mensagem.aviso(this, "O campo cargo é obrigatório!", "Aviso");
+        }
+        if (jComboDepartamento.getSelectedItem() == null) {
+            Mensagem.aviso(this, "O campo departamento é obrigatório!", "Aviso");
+        }
+        if (jTextUsername.getText().length() == 0) {
+            Mensagem.aviso(this, "O campo usuario é obrigatório!", "Aviso");
+        }
+        if (jPasswordField1.getText().length() == 0) {
+            Mensagem.aviso(this, "O campo senha é obrigatório!", "Aviso");
+        }
+        
+        
         UsuarioController uc = new UsuarioController();
         Usuario usuario = new Usuario();
         
@@ -302,9 +342,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
             uc.insert(usuario);
             
             Mensagem.sucesso(this, "Usuário cadastrado com sucesso!");
-        }
-        catch(NumberFormatException e) {
-            Mensagem.erro(this, "A matricula está em formato inválido", "Falha ao cadastrar usuário");
+            limparCampos();
         }
         catch(RuntimeException e) {
             Mensagem.erro(this, e.getMessage(), "Falha ao cadastrar usuário");
@@ -312,6 +350,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         catch(Exception e) {
             Mensagem.erro(this, "Erro desconhecido!\n" + e.getMessage(), "Falha ao cadastrar usuário");
         }
+        
     }//GEN-LAST:event_jBotaoAcaoActionPerformed
 
     private void jTextUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextUsernameActionPerformed
