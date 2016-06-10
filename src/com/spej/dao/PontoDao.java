@@ -85,9 +85,6 @@ public class PontoDao extends Dao<Ponto> {
             
             // seta os valores
             stmt.setInt(1, deletar.getId());
-            stmt.setInt(2, deletar.getUsuarioMatricula());
-            stmt.setDate(3, deletar.getEntrada());
-            stmt.setDate(4, deletar.getSaida());
 
             // executa
             stmt.executeUpdate();
