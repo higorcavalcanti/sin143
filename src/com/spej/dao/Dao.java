@@ -65,7 +65,7 @@ public abstract class Dao<T> {
         return this.getAll("");
     }
     public ArrayList<T> getAll(String WHERE) {
-        String sql = "SELECT * FROM " + this.table + WHERE;
+        String sql = "SELECT * FROM " + this.table + (WHERE.length() != 0 ? "WHERE "+WHERE : "");
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             return this.getListByPreparedStatement(stmt);
@@ -108,13 +108,15 @@ public abstract class Dao<T> {
         try {
             ResultSet rs = stmt.executeQuery();
             
-            if(!rs.next())
-                throw new RuntimeException("Usuario não encontrado!");
-            
-            T result = this.byResultSet(rs);
-            
-            stmt.close();
-            return result;
+            //if(!rs.next())
+                //throw new RuntimeException("Usuario não encontrado!");
+            if(rs.next()) {
+                T result = this.byResultSet(rs);
+
+                stmt.close();
+                return result;
+            }
+            return null;
         }
         catch(SQLException e) {
             throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());

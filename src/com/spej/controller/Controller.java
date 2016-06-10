@@ -6,11 +6,9 @@ import java.util.ArrayList;
 public abstract class Controller<T> {
 
     protected Dao dao;
-    protected T object;
 
-    public Controller(Dao dao, T item) {
+    public Controller(Dao dao) {
         this.dao = dao;
-        this.object = item;
     }
     
     public abstract Dao getDao();
@@ -55,25 +53,7 @@ public abstract class Controller<T> {
      * @throws RuntimeException
      */
     public boolean update(T novo) throws RuntimeException {
-        return this.dao.update(object, novo);
-    }
-
-    /**
-     * Deleta o item atual do banco
-     * @return
-     * @throws RuntimeException
-     */
-    public boolean delete() throws RuntimeException {
-        return this.dao.delete(object);
-    }
-
-    /**
-     * Insere o item atual no banco
-     * @return
-     * @throws RuntimeException
-     */
-    public boolean insert() throws RuntimeException {
-        return this.dao.insert(object);
+        return this.dao.update(novo, novo);
     }
     
     /**

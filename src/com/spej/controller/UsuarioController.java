@@ -15,13 +15,10 @@ public class UsuarioController extends Controller<Usuario> {
 
     
     public UsuarioController() {
-        this(new UsuarioDao(), null);
+        this(new UsuarioDao());
     }
-    public UsuarioController(Usuario usuario) {
-        this(new UsuarioDao(), usuario);
-    }
-    public UsuarioController(UsuarioDao usuarioDao, Usuario usuario) {
-        super(usuarioDao, usuario);
+    public UsuarioController(UsuarioDao usuarioDao) {
+        super(usuarioDao);
     }
     
     

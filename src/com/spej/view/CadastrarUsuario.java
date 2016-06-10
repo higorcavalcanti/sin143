@@ -286,8 +286,8 @@ public class CadastrarUsuario extends javax.swing.JDialog {
 
     private void jBotaoAcaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoAcaoActionPerformed
         
+        UsuarioController uc = new UsuarioController();
         Usuario usuario = new Usuario();
-        UsuarioController uc = new UsuarioController(usuario);
         
         try {
             Departamento d = (Departamento) jComboDepartamento.getSelectedItem();
@@ -299,7 +299,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
             usuario.setUsername( jTextUsername.getText() );
             usuario.setPassword( String.valueOf(jPasswordField1.getPassword()) );
             
-            uc.insert();
+            uc.insert(usuario);
             
             Mensagem.sucesso(this, "Usuário cadastrado com sucesso!");
         }

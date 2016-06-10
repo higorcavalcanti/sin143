@@ -9,11 +9,7 @@ public class UsuarioDao extends Dao<Usuario> {
     public UsuarioDao() {
         super("usuarios");
     }    
-    
-    private String getStringUsuario() {
-        return " matricula = ? nome = ? departamento = ? cargo = ? username = ? password = ? ";
-    }
-    
+
     
     @Override
     public boolean insert(Usuario novo) {
@@ -50,8 +46,8 @@ public class UsuarioDao extends Dao<Usuario> {
     @Override
     public boolean update(Usuario antigo, Usuario novo) {
         String sql = "UPDATE Usuarios " +
-                    "SET " + this.getStringUsuario() + "" +
-                    "WHERE " + this.getStringUsuario() + "";
+                    "SET matricula = ?, nome = ?, departamento = ?, cargo = ?, username = ?, password = ? " +
+                    "WHERE matricula = ?";
         try {
             // prepared statement para inserção
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -65,11 +61,6 @@ public class UsuarioDao extends Dao<Usuario> {
             stmt.setString(6, novo.getPassword());
             
             stmt.setInt(7, antigo.getMatricula());
-            stmt.setString(8, antigo.getNome());
-            stmt.setInt(9, antigo.getDepartamento());
-            stmt.setString(10, antigo.getCargo());
-            stmt.setString(11, antigo.getUsername());
-            stmt.setString(12, antigo.getPassword());
 
             // executa
             stmt.executeUpdate();
@@ -88,18 +79,13 @@ public class UsuarioDao extends Dao<Usuario> {
     @Override
     public boolean delete(Usuario deletar) {
         String sql = "DELETE FROM Usuarios " +
-                    "WHERE " + this.getStringUsuario() + "";
+                    "WHERE matricula = ?";
         try {
             // prepared statement para inserção
             PreparedStatement stmt = connection.prepareStatement(sql);
             
             // seta os valores
             stmt.setInt(1, deletar.getMatricula());
-            stmt.setString(2, deletar.getNome());
-            stmt.setInt(3, deletar.getDepartamento());
-            stmt.setString(4, deletar.getCargo());
-            stmt.setString(5, deletar.getUsername());
-            stmt.setString(6, deletar.getPassword());
 
             // executa
             stmt.executeUpdate();

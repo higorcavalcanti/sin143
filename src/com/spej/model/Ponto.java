@@ -25,11 +25,11 @@ public class Ponto {
         this.id = id;
     }
 
-    public int getUsuario_id() {
+    public int getUsuarioMatricula() {
         return usuario_id;
     }
 
-    public void setUsuario_id(int usuario_id) {
+    public void setUsuarioMatricula(int usuario_id) {
         this.usuario_id = usuario_id;
     }
 

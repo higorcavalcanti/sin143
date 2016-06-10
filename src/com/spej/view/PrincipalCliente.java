@@ -5,11 +5,17 @@
  */
 package com.spej.view;
 
+import com.spej.controller.PontoController;
+import com.spej.controller.UsuarioController;
+
 /**
  *
  * @author Daniel
  */
 public class PrincipalCliente extends javax.swing.JFrame {
+    
+    private UsuarioController userC;
+    private PontoController pontoC;
 
     /**
      * Creates new form PrincipalCliente
@@ -17,6 +23,9 @@ public class PrincipalCliente extends javax.swing.JFrame {
     public PrincipalCliente() {
         initComponents();
         setLocationRelativeTo( null ); // Centralizar a tela no meio       
+        
+        userC = new UsuarioController();
+        pontoC = new PontoController();
     }
 
     /**
@@ -139,7 +148,18 @@ public class PrincipalCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBaterPontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBaterPontoActionPerformed
-
+        try {
+            pontoC.baterPonto( Integer.parseInt(jCaixaIdentificacao.getText()) );
+        }
+        catch(NumberFormatException e) {
+            Mensagem.erro(this, "Matricula inválida!");
+        }
+        catch(RuntimeException e) {
+            Mensagem.erro(this, e.getMessage(), "Falha ao bater bonto");
+        }
+        catch(Exception e) {
+            Mensagem.erro(this, "Erro desconhecido!\n" + e.getMessage(), "Falha ao bater bonto");
+        }
     }//GEN-LAST:event_JBaterPontoActionPerformed
 
     private void jCaixaIdentificacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCaixaIdentificacaoActionPerformed

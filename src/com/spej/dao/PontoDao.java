@@ -6,6 +6,7 @@
 package com.spej.dao;
 
 import com.spej.model.Ponto;
+import com.spej.model.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,22 +21,18 @@ public class PontoDao extends Dao<Ponto> {
         super("Ponto");
     }
     
-    public String getStringPonto() {
-        return " usuario_id = ? entrada = ? saida = ? ";
-    }
-
     @Override
     public boolean insert(Ponto novo) {
                 
         String sql = "INSERT INTO Ponto " +
-                    "(usuario_id,entrada,saida)" +
+                    "(usuario_matricula,entrada,saida)" +
                     " VALUES (?,?,?)";
         try {
             // prepared statement para inserção
             stmt = connection.prepareStatement(sql);
 
             // seta os valores
-            stmt.setInt(1, novo.getUsuario_id());
+            stmt.setInt(1, novo.getUsuarioMatricula());
             stmt.setDate(2, novo.getEntrada());
             stmt.setDate(3, novo.getSaida());
 
@@ -53,20 +50,19 @@ public class PontoDao extends Dao<Ponto> {
     @Override
     public boolean update(Ponto antigo, Ponto novo) {
         String sql = "UPDATE Ponto " +
-                    "SET " + this.getStringPonto() + "" +
-                    "WHERE " + this.getStringPonto() + "";
+                    "SET id = ?, usuario_matricula = ?, entrada = ?, saida = ? " +
+                    "WHERE id = ?";
         try {
             // prepared statement para inserção
             PreparedStatement stmt = connection.prepareStatement(sql);
             
             // seta os valores
-            stmt.setInt(1, novo.getUsuario_id());
-            stmt.setDate(2, novo.getEntrada());
-            stmt.setDate(3, novo.getSaida());
+            stmt.setInt(1, novo.getId());
+            stmt.setInt(2, novo.getUsuarioMatricula());
+            stmt.setDate(3, novo.getEntrada());
+            stmt.setDate(4, novo.getSaida());
             
-            stmt.setInt(4, novo.getUsuario_id());
-            stmt.setDate(5, novo.getEntrada());
-            stmt.setDate(6, novo.getSaida());
+            stmt.setInt(5, antigo.getId());
 
             // executa
             stmt.executeUpdate();
@@ -82,15 +78,16 @@ public class PontoDao extends Dao<Ponto> {
     @Override
     public boolean delete(Ponto deletar) {
        String sql = "DELETE FROM Ponto " +
-                    "WHERE " + this.getStringPonto()+ "";
+                    "WHERE id = ?";
         try {
             // prepared statement para inserção
             PreparedStatement stmt = connection.prepareStatement(sql);
             
             // seta os valores
-            stmt.setInt(1, deletar.getUsuario_id());
-            stmt.setDate(2, deletar.getEntrada());
-            stmt.setDate(3, deletar.getSaida());
+            stmt.setInt(1, deletar.getId());
+            stmt.setInt(2, deletar.getUsuarioMatricula());
+            stmt.setDate(3, deletar.getEntrada());
+            stmt.setDate(4, deletar.getSaida());
 
             // executa
             stmt.executeUpdate();
@@ -108,7 +105,7 @@ public class PontoDao extends Dao<Ponto> {
         Ponto p = new Ponto();
         try {
             p.setId( user.getInt("id") );
-            p.setUsuario_id( user.getInt("usuario_id") );
+            p.setUsuarioMatricula( user.getInt("usuario_matricula") );
             p.setEntrada( user.getDate("entrada") );
             p.setSaida( user.getDate("saida") );
         }
@@ -116,5 +113,23 @@ public class PontoDao extends Dao<Ponto> {
             throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
         }
         return p;
+    }
+    
+    
+    public Ponto getByUsuarioAtivo(Usuario user) {
+        String sql = "SELECT * " +
+                    "FROM Ponto " +
+                    "WHERE usuario_matricula = ? AND saida IS NULL " +
+                    "ORDER BY id DESC " +
+                    "LIMIT 1";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, user.getMatricula());
+            stmt.setMaxRows(1);
+            return this.getByPreparedStatement(stmt);
+        }
+        catch(SQLException e) {
+            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
+        }
     }
 }

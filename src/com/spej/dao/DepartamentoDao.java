@@ -20,10 +20,6 @@ public class DepartamentoDao extends Dao<Departamento> {
         super("Departamentos");
     }
 
-    private String getStringDepartamento() {
-        return " id = ? nome = ? ";
-    }
-    
     @Override
     public boolean insert(Departamento novo) {
         String sql = "INSERT INTO Departamentos " +
@@ -51,8 +47,8 @@ public class DepartamentoDao extends Dao<Departamento> {
     @Override
     public boolean update(Departamento antigo, Departamento novo) {
         String sql = "UPDATE Departamentos " +
-                    "SET " + this.getStringDepartamento()+ "" +
-                    "WHERE " + this.getStringDepartamento()+ "";
+                    "SET id = ? nome = ?" +
+                    "WHERE id = ?";
         try {
             // prepared statement para inserção
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -61,8 +57,7 @@ public class DepartamentoDao extends Dao<Departamento> {
             stmt.setInt(1, novo.getId());
             stmt.setString(2, novo.getNome());
             
-            stmt.setInt(3, antigo.getId());
-            stmt.setString(4, antigo.getNome());            
+            stmt.setInt(3, antigo.getId());         
 
             // executa
             stmt.executeUpdate();
@@ -79,14 +74,13 @@ public class DepartamentoDao extends Dao<Departamento> {
     @Override
     public boolean delete(Departamento deletar) {
         String sql = "DELETE FROM Usuarios " +
-                    "WHERE " + this.getStringDepartamento()+ "";
+                    "WHERE id = ?";
         try {
             // prepared statement para inserção
             PreparedStatement stmt = connection.prepareStatement(sql);
             
             // seta os valores
             stmt.setInt(1, deletar.getId());
-            stmt.setString(2, deletar.getNome());
 
             // executa
             stmt.executeUpdate();
