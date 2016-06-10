@@ -17,12 +17,9 @@ public class Login extends javax.swing.JFrame {
         //Validação para logar -> Usuario
         if (jTextUsuario.getText().length() == 0) {
             Mensagem.aviso(this, "O campo de usuário é obrigatório!", "Aviso");
-        }
-         //Validação para logar -> Senha
-         if (jTextSenha.getText().length() == 0) {
+        }else if (jTextSenha.getText().length() == 0) {
             Mensagem.aviso(this, "O campo de senha é obrigatório!", "Aviso");
-        }
-        else {             
+        }else {             
             UsuarioController uc = new UsuarioController();
             try{
                 if(uc.logar(jTextUsuario.getText(), String.valueOf(jTextSenha.getPassword())) ) 

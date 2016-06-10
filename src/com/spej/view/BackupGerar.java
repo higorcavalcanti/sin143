@@ -6,6 +6,7 @@
 package com.spej.view;
 
 import java.awt.Color;
+import java.io.File;
 
 /**
  *
@@ -86,16 +87,16 @@ public class BackupGerar extends javax.swing.JDialog {
             .addGroup(jPanelGerenciarUsuarioLayout.createSequentialGroup()
                 .addGroup(jPanelGerenciarUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelGerenciarUsuarioLayout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(texto, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(289, 289, 289)
+                        .addComponent(jLabel1))
                     .addGroup(jPanelGerenciarUsuarioLayout.createSequentialGroup()
                         .addGap(55, 55, 55)
-                        .addComponent(jBotaoGerar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JFC_Salvar_Backup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelGerenciarUsuarioLayout.createSequentialGroup()
-                        .addGap(289, 289, 289)
-                        .addComponent(jLabel1)))
+                        .addGroup(jPanelGerenciarUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(texto, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelGerenciarUsuarioLayout.createSequentialGroup()
+                                .addComponent(jBotaoGerar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JFC_Salvar_Backup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelGerenciarUsuarioLayout.setVerticalGroup(
@@ -130,11 +131,24 @@ public class BackupGerar extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBotaoGerarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBotaoGerarMouseClicked
-        JFC_Salvar_Backup.setVisible(true);
+        
     }//GEN-LAST:event_jBotaoGerarMouseClicked
 
     private void jBotaoGerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoGerarActionPerformed
         
+        try{
+            String arquivo = null;
+            JFC_Salvar_Backup.setVisible(true);
+            
+            int result = JFC_Salvar_Backup.showSaveDialog(null);
+            File file = new File(arquivo); 
+            
+            
+            
+        
+        } catch (Exception e) {
+            Mensagem.erro(this, "Essa pagina ainda está em contrução" + e);
+        }
     }//GEN-LAST:event_jBotaoGerarActionPerformed
 
     /**

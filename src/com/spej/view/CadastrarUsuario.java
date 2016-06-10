@@ -302,53 +302,46 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         //Campos para Validação
         if (jTextMatricula.getText().length() == 0) {
             Mensagem.aviso(this, "O campo matricula é obrigatório!", "Aviso");
-        }
-        if (jTextNome.getText().length() == 0) {
+        }else if (jTextNome.getText().length() == 0) {
             Mensagem.aviso(this, "O campo nome é obrigatório!", "Aviso");
-        }
-        if (jTextEmail.getText().length() == 0) {
+        }else if (jTextEmail.getText().length() == 0) {
             Mensagem.aviso(this, "O campo email é obrigatório!", "Aviso");
-        }
-        if (jDataNascimento.getText().length() == 0) {
+        }else if (jDataNascimento.getText().length() == 0) {
             Mensagem.aviso(this, "O campo de data de nascimento é obrigatório!", "Aviso");
-        }
-        if (jTextCargo.getText().length() == 0) {
+        }else if (jTextCargo.getText().length() == 0) {
             Mensagem.aviso(this, "O campo cargo é obrigatório!", "Aviso");
-        }
-        if (jComboDepartamento.getSelectedItem() == null) {
+        }else if (jComboDepartamento.getSelectedItem() == null) {
             Mensagem.aviso(this, "O campo departamento é obrigatório!", "Aviso");
-        }
-        if (jTextUsername.getText().length() == 0) {
+        }else if (jTextUsername.getText().length() == 0) {
             Mensagem.aviso(this, "O campo usuario é obrigatório!", "Aviso");
-        }
-        if (jPasswordField1.getText().length() == 0) {
+        }else if (jPasswordField1.getText().length() == 0) {
             Mensagem.aviso(this, "O campo senha é obrigatório!", "Aviso");
-        }        
-        
-        UsuarioController uc = new UsuarioController();
-        Usuario usuario = new Usuario();
-        
-        try {
-            Departamento d = (Departamento) jComboDepartamento.getSelectedItem();
-            
-            usuario.setMatricula( Integer.parseInt(jTextMatricula.getText() ) );
-            usuario.setNome( jTextNome.getText() );
-            usuario.setCargo( jTextCargo.getText() );
-            usuario.setDepartamento( d.getId() );
-            usuario.setUsername( jTextUsername.getText() );
-            usuario.setPassword( String.valueOf(jPasswordField1.getPassword()) );
-            
-            uc.insert(usuario);
-            
-            Mensagem.sucesso(this, "Usuário cadastrado com sucesso!");
-            limparCampos();
-        }
-        catch(RuntimeException e) {
-            Mensagem.erro(this, e.getMessage(), "Falha ao cadastrar usuário");
-        }
-        catch(Exception e) {
-            Mensagem.erro(this, "Erro desconhecido!\n" + e.getMessage(), "Falha ao cadastrar usuário");
-        }
+        }else{
+            UsuarioController uc = new UsuarioController();
+            Usuario usuario = new Usuario();
+
+            try {
+                Departamento d = (Departamento) jComboDepartamento.getSelectedItem();
+
+                usuario.setMatricula( Integer.parseInt(jTextMatricula.getText() ) );
+                usuario.setNome( jTextNome.getText() );
+                usuario.setCargo( jTextCargo.getText() );
+                usuario.setDepartamento( d.getId() );
+                usuario.setUsername( jTextUsername.getText() );
+                usuario.setPassword( String.valueOf(jPasswordField1.getPassword()) );
+
+                uc.insert(usuario);
+
+                Mensagem.sucesso(this, "Usuário cadastrado com sucesso!");
+                limparCampos();
+            }
+            catch(RuntimeException e) {
+                Mensagem.erro(this, e.getMessage(), "Falha ao cadastrar usuário");
+            }
+            catch(Exception e) {
+                Mensagem.erro(this, "Erro desconhecido!\n" + e.getMessage(), "Falha ao cadastrar usuário");
+            }
+        }      
         
     }//GEN-LAST:event_jBotaoAcaoActionPerformed
 
