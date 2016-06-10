@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.spej.view;
 
 import com.spej.controller.UsuarioController;
 
-/**
- *
- * @author Daniel
- */
 public class Login extends javax.swing.JFrame {
 
     /**
@@ -30,8 +21,8 @@ public class Login extends javax.swing.JFrame {
          //Validação para logar -> Senha
          if (jTextSenha.getText().length() == 0) {
             Mensagem.aviso(this, "O campo de senha é obrigatório!", "Aviso");
-        }else{
-             
+        }
+        else {             
             UsuarioController uc = new UsuarioController();
             try{
                 if(uc.logar(jTextUsuario.getText(), String.valueOf(jTextSenha.getPassword())) ) 
@@ -39,11 +30,12 @@ public class Login extends javax.swing.JFrame {
                     AdminPrincipal admPrinc = new AdminPrincipal();
                     admPrinc.setVisible(true);
                     this.setVisible(false);
+                    return;
                 } 
-            }catch(Exception e) {
-                Mensagem.erro(this, "Usuario ou senha inválido!", "Falha ao logar");
+            } catch(Exception e) {
+                
             }
-         
+            Mensagem.erro(this, "Usuario ou senha inválidos!", "Falha ao logar");
         }
          
     }
