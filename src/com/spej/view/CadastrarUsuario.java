@@ -6,8 +6,12 @@
 package com.spej.view;
 
 import com.spej.controller.UsuarioController;
+import com.spej.model.Departamento;
 import com.spej.model.DepartamentoComboBoxModel;
 import com.spej.model.Usuario;
+import java.text.ParseException;
+import javax.swing.JOptionPane;
+import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -33,25 +37,31 @@ public class CadastrarUsuario extends javax.swing.JDialog {
     private void initComponents() {
 
         JPanelTela = new javax.swing.JPanel();
-        jTextMatricula = new javax.swing.JTextField();
         jLabelDataNascimento = new javax.swing.JLabel();
         jLabeNomeCompleto = new javax.swing.JLabel();
         jTextNome = new javax.swing.JTextField();
         jLabelCadastroFuncionarioTitulo = new javax.swing.JLabel();
         jLabelMatricula1 = new javax.swing.JLabel();
-        jTextData = new javax.swing.JTextField();
         jTextEmail = new javax.swing.JTextField();
         jLabelEmail = new javax.swing.JLabel();
         jTextCargo = new javax.swing.JTextField();
         jLabelCargo = new javax.swing.JLabel();
         jLabelDepartamento = new javax.swing.JLabel();
-        jComboDepartamento = new javax.swing.JComboBox<>();
+        jComboDepartamento = new javax.swing.JComboBox<DepartamentoComboBoxModel>();
         jBotaoAcao = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabelUsuario = new javax.swing.JLabel();
         jTextUsername = new javax.swing.JTextField();
         jLabelUsuario1 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
+        MaskFormatter maskData = null;
+        try {
+            maskData = new MaskFormatter("##/##/####");
+            maskData.setPlaceholderCharacter('_');
+        } catch(ParseException e) {
+        }
+        jDataNascimento = new javax.swing.JFormattedTextField(maskData);
+        jTextMatricula = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -60,12 +70,6 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         setType(java.awt.Window.Type.UTILITY);
 
         JPanelTela.setBackground(new java.awt.Color(238, 238, 238));
-
-        jTextMatricula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextMatriculaActionPerformed(evt);
-            }
-        });
 
         jLabelDataNascimento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelDataNascimento.setText("Data de nascimento");
@@ -84,12 +88,6 @@ public class CadastrarUsuario extends javax.swing.JDialog {
 
         jLabelMatricula1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelMatricula1.setText("Matricula");
-
-        jTextData.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextDataActionPerformed(evt);
-            }
-        });
 
         jTextEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,7 +138,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         jLabelUsuario1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelUsuario1.setText("Senha");
 
-        jPasswordField1.setText("jPasswordField1");
+        jTextMatricula.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
         javax.swing.GroupLayout JPanelTelaLayout = new javax.swing.GroupLayout(JPanelTela);
         JPanelTela.setLayout(JPanelTelaLayout);
@@ -150,31 +148,26 @@ public class CadastrarUsuario extends javax.swing.JDialog {
                 .addGap(44, 44, 44)
                 .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelTelaLayout.createSequentialGroup()
-                        .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelMatricula1))
-                        .addGap(30, 30, 30)
+                        .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabelMatricula1)
+                            .addComponent(jDataNascimento)
+                            .addComponent(jTextMatricula, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
                         .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanelTelaLayout.createSequentialGroup()
                                 .addComponent(jLabeNomeCompleto)
                                 .addGap(0, 504, Short.MAX_VALUE))
                             .addGroup(JPanelTelaLayout.createSequentialGroup()
-                                .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelEmail))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(27, 27, 27))))
                     .addGroup(JPanelTelaLayout.createSequentialGroup()
-                        .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelDataNascimento)
-                            .addComponent(jTextData, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JPanelTelaLayout.createSequentialGroup()
-                                .addComponent(jLabelEmail)
-                                .addContainerGap(558, Short.MAX_VALUE))
-                            .addGroup(JPanelTelaLayout.createSequentialGroup()
-                                .addComponent(jTextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(jLabelDataNascimento)
+                        .addContainerGap())
                     .addGroup(JPanelTelaLayout.createSequentialGroup()
                         .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelCargo)
@@ -212,15 +205,13 @@ public class CadastrarUsuario extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(JPanelTelaLayout.createSequentialGroup()
-                                .addComponent(jLabelDataNascimento)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextData, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(JPanelTelaLayout.createSequentialGroup()
-                                .addComponent(jLabelEmail)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelDataNascimento)
+                            .addComponent(jLabelEmail))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                            .addComponent(jDataNascimento))
                         .addGap(18, 18, 18)
                         .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelCargo)
@@ -266,17 +257,9 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextMatriculaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextMatriculaActionPerformed
-
     private void jTextNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextNomeActionPerformed
-
-    private void jTextDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextDataActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextDataActionPerformed
 
     private void jTextEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextEmailActionPerformed
         // TODO add your handling code here:
@@ -295,15 +278,29 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         Usuario usuario = new Usuario();
         UsuarioController uc = new UsuarioController(usuario);
         
-        usuario.setMatricula( Integer.getInteger(jTextMatricula.getText()) );
-        usuario.setNome( jTextNome.getText() );
-        usuario.setCargo( jTextCargo.getText() );
-        usuario.setDepartamento( 1 );
-        //usuario.setDepartamento( jComboDepartamento.getSelectedObjects() );
-        //usuario.setUsername( jTextUsername.getText() );
-        //usuario.setPassword( jTextPassword.getPassword() );
-        
-        uc.insert();
+        try {
+            Departamento d = (Departamento) jComboDepartamento.getSelectedItem();
+            
+            usuario.setMatricula( Integer.parseInt(jTextMatricula.getText() ) );
+            usuario.setNome( jTextNome.getText() );
+            usuario.setCargo( jTextCargo.getText() );
+            usuario.setDepartamento( d.getId() );
+            usuario.setUsername( jTextUsername.getText() );
+            usuario.setPassword( String.valueOf(jPasswordField1.getPassword()) );
+            
+            uc.insert();
+            
+            Mensagem.sucesso(this, "Usuário cadastrado com sucesso!");
+        }
+        catch(NumberFormatException e) {
+            Mensagem.erro(this, "A matricula está em formato inválido", "Falha ao cadastrar usuário");
+        }
+        catch(RuntimeException e) {
+            Mensagem.erro(this, e.getMessage(), "Falha ao cadastrar usuário");
+        }
+        catch(Exception e) {
+            Mensagem.erro(this, "Erro desconhecido!\n" + e.getMessage(), "Falha ao cadastrar usuário");
+        }
     }//GEN-LAST:event_jBotaoAcaoActionPerformed
 
     private void jTextUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextUsernameActionPerformed
@@ -352,6 +349,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
     private javax.swing.JPanel JPanelTela;
     private javax.swing.JButton jBotaoAcao;
     private javax.swing.JComboBox<DepartamentoComboBoxModel> jComboDepartamento;
+    private javax.swing.JFormattedTextField jDataNascimento;
     private javax.swing.JLabel jLabeNomeCompleto;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelCadastroFuncionarioTitulo;
@@ -364,9 +362,8 @@ public class CadastrarUsuario extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelUsuario1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextCargo;
-    private javax.swing.JTextField jTextData;
     private javax.swing.JTextField jTextEmail;
-    private javax.swing.JTextField jTextMatricula;
+    private javax.swing.JFormattedTextField jTextMatricula;
     private javax.swing.JTextField jTextNome;
     private javax.swing.JTextField jTextUsername;
     // End of variables declaration//GEN-END:variables

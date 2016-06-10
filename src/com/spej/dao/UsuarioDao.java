@@ -11,7 +11,7 @@ public class UsuarioDao extends Dao<Usuario> {
     }    
     
     private String getStringUsuario() {
-        return " matricula = ? nome = ? departamento = ? cargo = ? ";
+        return " matricula = ? nome = ? departamento = ? cargo = ? username = ? password = ? ";
     }
     
     @Override
@@ -28,11 +28,15 @@ public class UsuarioDao extends Dao<Usuario> {
             stmt.setString(2, novo.getNome());
             stmt.setInt(3, novo.getDepartamento());
             stmt.setString(4, novo.getCargo());
+            stmt.setString(5, novo.getUsername());
+            stmt.setString(6, novo.getPassword());
             
-            stmt.setInt(5, antigo.getMatricula());
-            stmt.setString(6, antigo.getNome());
-            stmt.setInt(7, antigo.getDepartamento());
-            stmt.setString(8, antigo.getCargo());            
+            stmt.setInt(7, antigo.getMatricula());
+            stmt.setString(8, antigo.getNome());
+            stmt.setInt(9, antigo.getDepartamento());
+            stmt.setString(10, antigo.getCargo());
+            stmt.setString(11, antigo.getUsername());
+            stmt.setString(12, antigo.getPassword());
 
             // executa
             stmt.executeUpdate();
@@ -40,10 +44,12 @@ public class UsuarioDao extends Dao<Usuario> {
             
             return true;
         }
-        catch(Exception e) {
-            
+        catch(SQLIntegrityConstraintViolationException e) {
+            throw new RuntimeException("Já existe um usuário com essa matricula!");
+        }        
+        catch(SQLException e) {
+            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
         }
-        return false;        
     }
 
     @Override
@@ -59,6 +65,8 @@ public class UsuarioDao extends Dao<Usuario> {
             stmt.setString(2, deletar.getNome());
             stmt.setInt(3, deletar.getDepartamento());
             stmt.setString(4, deletar.getCargo());
+            stmt.setString(5, deletar.getUsername());
+            stmt.setString(6, deletar.getPassword());
 
             // executa
             stmt.executeUpdate();
@@ -66,18 +74,17 @@ public class UsuarioDao extends Dao<Usuario> {
             
             return true;
         }
-        catch(Exception e) {
-            
+        catch(SQLException e) {
+            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
         }
-        return false;        
     }
 
     @Override
     public boolean insert(Usuario novo) {
         
         String sql = "INSERT INTO usuarios " +
-                    "(matricula,nome,departamento,cargo)" +
-                    " VALUES (?,?,?,?)";
+                    "(matricula,nome,departamento,cargo,username,password)" +
+                    " VALUES (?,?,?,?,?,?)";
         try {
             // prepared statement para inserção
             stmt = connection.prepareStatement(sql);
@@ -87,6 +94,8 @@ public class UsuarioDao extends Dao<Usuario> {
             stmt.setString(2, novo.getNome());
             stmt.setInt(3, novo.getDepartamento());
             stmt.setString(4, novo.getCargo());
+            stmt.setString(5, novo.getUsername());
+            stmt.setString(6, novo.getPassword());
 
             // executa
             stmt.executeUpdate();
@@ -94,8 +103,11 @@ public class UsuarioDao extends Dao<Usuario> {
             
             return true;
         } 
-        catch (SQLException e) {
-            throw new RuntimeException(e);
+        catch(SQLIntegrityConstraintViolationException e) {
+            throw new RuntimeException("Já existe um usuário com essa matricula!");
+        }
+        catch(SQLException e) {
+            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
         }
     }  
     
@@ -109,11 +121,9 @@ public class UsuarioDao extends Dao<Usuario> {
             stmt.setInt(1, matricula);
             return this.getByPreparedStatement(stmt);
         }
-        catch(Exception e) {
-            
+        catch(SQLException e) {
+            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
         }
-        //return new Usuario();
-        return null;
     }
 
     
@@ -128,10 +138,9 @@ public class UsuarioDao extends Dao<Usuario> {
             stmt.setString(2, senha);
             return this.getByPreparedStatement(stmt);
         }
-        catch(Exception e) {
-
+        catch(SQLException e) {
+            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
         }
-        return null;
     }
 
     
@@ -142,10 +151,9 @@ public class UsuarioDao extends Dao<Usuario> {
             stmt.setInt(1, departamento);
             return this.getListByPreparedStatement(stmt);
         }
-        catch(Exception e) {
-            
+        catch(SQLException e) {
+            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
         }
-        return new ArrayList<>();
     }
     
     
@@ -156,10 +164,9 @@ public class UsuarioDao extends Dao<Usuario> {
             PreparedStatement stmt = connection.prepareStatement(sql);
             return this.getListByPreparedStatement(stmt);
         }
-        catch(Exception e) {
-            
+        catch(SQLException e) {
+            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());   
         }
-        return new ArrayList<>();
     }
     
          
@@ -175,8 +182,8 @@ public class UsuarioDao extends Dao<Usuario> {
             }            
             s.close();
         }
-        catch(Exception e) { 
-            
+        catch(SQLException e) { 
+            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
         }
         return users;
     }
@@ -195,10 +202,11 @@ public class UsuarioDao extends Dao<Usuario> {
             return u;
         }
         catch(SQLException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
         }        
     }
     
+    @Override
     public Usuario byResultSet(ResultSet user) {
         Usuario u = new Usuario();
         try {
@@ -206,9 +214,11 @@ public class UsuarioDao extends Dao<Usuario> {
             u.setCargo( user.getString("cargo") );
             u.setDepartamento( user.getInt("departamento") );
             u.setMatricula( user.getInt("matricula") );
+            u.setUsername( user.getString("username") );
+            u.setPassword( user.getString("password") );
         }
-        catch(Exception e) {
-            
+        catch(SQLException e) {
+            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
         }
         return u;
     }

@@ -10,7 +10,8 @@ public class Usuario {
     private String nome;
     private int departamento;
     private String cargo;
-
+    private String username;
+    private String password;
     
     public Usuario() {
     }
@@ -49,6 +50,24 @@ public class Usuario {
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    
  
     @Override
     public String toString() {
