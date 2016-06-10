@@ -7,12 +7,45 @@ import java.util.ArrayList;
 public class UsuarioDao extends Dao<Usuario> {
 
     public UsuarioDao() {
-        super();
+        super("usuarios");
     }    
     
     private String getStringUsuario() {
         return " matricula = ? nome = ? departamento = ? cargo = ? username = ? password = ? ";
     }
+    
+    
+    @Override
+    public boolean insert(Usuario novo) {
+        
+        String sql = "INSERT INTO usuarios " +
+                    "(matricula,nome,departamento,cargo,username,password)" +
+                    " VALUES (?,?,?,?,?,?)";
+        try {
+            // prepared statement para inserção
+            stmt = connection.prepareStatement(sql);
+
+            // seta os valores
+            stmt.setInt(1, novo.getMatricula());
+            stmt.setString(2, novo.getNome());
+            stmt.setInt(3, novo.getDepartamento());
+            stmt.setString(4, novo.getCargo());
+            stmt.setString(5, novo.getUsername());
+            stmt.setString(6, novo.getPassword());
+
+            // executa
+            stmt.executeUpdate();
+            stmt.close();
+            
+            return true;
+        } 
+        catch(SQLIntegrityConstraintViolationException e) {
+            throw new RuntimeException("Já existe um usuário com essa matricula!");
+        }
+        catch(SQLException e) {
+            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
+        }
+    }  
     
     @Override
     public boolean update(Usuario antigo, Usuario novo) {
@@ -78,38 +111,6 @@ public class UsuarioDao extends Dao<Usuario> {
             throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
         }
     }
-
-    @Override
-    public boolean insert(Usuario novo) {
-        
-        String sql = "INSERT INTO usuarios " +
-                    "(matricula,nome,departamento,cargo,username,password)" +
-                    " VALUES (?,?,?,?,?,?)";
-        try {
-            // prepared statement para inserção
-            stmt = connection.prepareStatement(sql);
-
-            // seta os valores
-            stmt.setInt(1, novo.getMatricula());
-            stmt.setString(2, novo.getNome());
-            stmt.setInt(3, novo.getDepartamento());
-            stmt.setString(4, novo.getCargo());
-            stmt.setString(5, novo.getUsername());
-            stmt.setString(6, novo.getPassword());
-
-            // executa
-            stmt.executeUpdate();
-            stmt.close();
-            
-            return true;
-        } 
-        catch(SQLIntegrityConstraintViolationException e) {
-            throw new RuntimeException("Já existe um usuário com essa matricula!");
-        }
-        catch(SQLException e) {
-            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
-        }
-    }  
     
     public Usuario getByMatricula(int matricula) {
         String sql = "SELECT * " +
@@ -155,57 +156,8 @@ public class UsuarioDao extends Dao<Usuario> {
             throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
         }
     }
-    
-    
-    @Override
-    public ArrayList<Usuario> getAll() {
-        String sql = "SELECT * FROM Usuarios";
-        try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            return this.getListByPreparedStatement(stmt);
-        }
-        catch(SQLException e) {
-            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());   
-        }
-    }
-    
-         
-    @Override
-    public ArrayList<Usuario> getListByPreparedStatement( PreparedStatement s ) {
-        
-        ArrayList<Usuario> users = new ArrayList<>();
-        try {
+           
 
-            ResultSet rs = s.executeQuery();
-            while (rs.next()) {
-                users.add( this.byResultSet(rs) );
-            }            
-            s.close();
-        }
-        catch(SQLException e) { 
-            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
-        }
-        return users;
-    }
-    
-    @Override
-    public Usuario getByPreparedStatement( PreparedStatement s ) {
-        try {
-            ResultSet rs = s.executeQuery();
-            
-            if(!rs.next())
-                throw new RuntimeException("Usuario não encontrado!");
-            
-            Usuario u = this.byResultSet(rs);
-            
-            s.close();
-            return u;
-        }
-        catch(SQLException e) {
-            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
-        }        
-    }
-    
     @Override
     public Usuario byResultSet(ResultSet user) {
         Usuario u = new Usuario();

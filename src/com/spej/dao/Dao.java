@@ -9,6 +9,7 @@ import com.spej.persistencia.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -20,9 +21,11 @@ public abstract class Dao<T> {
     
     protected Connection connection;  
     protected PreparedStatement stmt;
+    protected String table;
 
-    public Dao() {
+    public Dao(String table) {
         this.connection = ConnectionFactory.getConnection();
+        this.table = table;
     }
     
     /**
@@ -45,12 +48,32 @@ public abstract class Dao<T> {
      */
     public abstract boolean delete(T deletar);
     
+        
+    /**
+     * 
+     * @param rs
+     * @return 
+     */
+    public abstract T byResultSet(ResultSet rs);
+    
     
     /**
      * Retorna todos os itens cadastrados
      * @return lista de itens
      */
-    public abstract ArrayList<T> getAll();
+    public ArrayList<T> getAll() {
+        return this.getAll("");
+    }
+    public ArrayList<T> getAll(String WHERE) {
+        String sql = "SELECT * FROM " + this.table + WHERE;
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            return this.getListByPreparedStatement(stmt);
+        }
+        catch(SQLException e) {
+            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());   
+        }
+    }
     
     
     /**
@@ -58,7 +81,22 @@ public abstract class Dao<T> {
      * @param stmt
      * @return 
      */
-    public abstract ArrayList<T> getListByPreparedStatement(PreparedStatement stmt);
+    public ArrayList<T> getListByPreparedStatement( PreparedStatement stmt ) {
+        
+        ArrayList<T> list = new ArrayList<>();
+        try {
+
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                list.add( this.byResultSet(rs) );
+            }            
+            stmt.close();
+        }
+        catch(SQLException e) { 
+            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
+        }
+        return list;
+    }
     
     
     /**
@@ -66,12 +104,20 @@ public abstract class Dao<T> {
      * @param stmt 
      * @return Object
      */
-    public abstract T getByPreparedStatement(PreparedStatement stmt);
-    
-    /**
-     * 
-     * @param rs
-     * @return 
-     */
-    public abstract T byResultSet(ResultSet rs);
+        public T getByPreparedStatement( PreparedStatement stmt ) {
+        try {
+            ResultSet rs = stmt.executeQuery();
+            
+            if(!rs.next())
+                throw new RuntimeException("Usuario não encontrado!");
+            
+            T result = this.byResultSet(rs);
+            
+            stmt.close();
+            return result;
+        }
+        catch(SQLException e) {
+            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
+        }        
+    }
 }

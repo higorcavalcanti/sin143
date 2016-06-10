@@ -9,13 +9,16 @@ import com.spej.model.Departamento;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 /**
  *
  * @author Higor
  */
 public class DepartamentoDao extends Dao<Departamento> {
+
+    public DepartamentoDao() {
+        super("Departamentos");
+    }
 
     private String getStringDepartamento() {
         return " id = ? nome = ? ";
@@ -95,55 +98,6 @@ public class DepartamentoDao extends Dao<Departamento> {
             
         }
         return false;        
-    }
-    
-    @Override
-    public ArrayList<Departamento> getAll() {
-        String sql = "SELECT * FROM Departamentos";
-        try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            return this.getListByPreparedStatement(stmt);
-        }
-        catch(Exception e) {
-            
-        }
-        return new ArrayList<>();
-    }
-
-    @Override
-    public ArrayList<Departamento> getListByPreparedStatement(PreparedStatement stmt) {
-                
-        ArrayList<Departamento> depts = new ArrayList<>();
-        try {
-
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                depts.add( this.byResultSet(rs) );
-            }            
-            stmt.close();
-        }
-        catch(Exception e) { 
-            
-        }
-        return depts;
-    }
-
-    @Override
-    public Departamento getByPreparedStatement(PreparedStatement stmt) {
-        try {
-            ResultSet rs = stmt.executeQuery();
-            
-            if(!rs.next())
-                throw new RuntimeException("Departamento não encontrado!");
-            
-            Departamento d = this.byResultSet(rs);
-            
-            stmt.close();
-            return d;
-        }
-        catch(SQLException e) {
-            throw new RuntimeException(e);
-        }        
     }
 
     @Override
