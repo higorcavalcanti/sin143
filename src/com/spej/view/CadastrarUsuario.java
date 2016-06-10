@@ -312,7 +312,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         if (jDataNascimento.getText().length() == 0) {
             Mensagem.aviso(this, "O campo de data de nascimento é obrigatório!", "Aviso");
         }
-         if (jTextCargo.getText().length() == 0) {
+        if (jTextCargo.getText().length() == 0) {
             Mensagem.aviso(this, "O campo cargo é obrigatório!", "Aviso");
         }
         if (jComboDepartamento.getSelectedItem() == null) {
@@ -323,8 +323,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         }
         if (jPasswordField1.getText().length() == 0) {
             Mensagem.aviso(this, "O campo senha é obrigatório!", "Aviso");
-        }
-        
+        }        
         
         UsuarioController uc = new UsuarioController();
         Usuario usuario = new Usuario();

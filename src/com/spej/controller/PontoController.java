@@ -23,8 +23,7 @@ public class PontoController  extends Controller<Ponto> {
     public Ponto getByUsuarioAtivo(Usuario user) {
         return this.getDao().getByUsuarioAtivo(user);
     }
-    
-    
+
     public void baterPonto(int matricula) {
         UsuarioController userC = new UsuarioController();        
         this.baterPonto( userC.getByMatricula( matricula ) );

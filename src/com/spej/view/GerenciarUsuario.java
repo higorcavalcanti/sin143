@@ -5,6 +5,7 @@
  */
 package com.spej.view;
 
+import com.spej.controller.PontoController;
 import java.awt.Color;
 import java.awt.Dialog;
 
