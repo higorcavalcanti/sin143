@@ -1,18 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.spej.view;
-import java.awt.Dialog;
-/**
- *
- * @author Daniel
- */
+
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+
 public class GerenciarDepartamento extends javax.swing.JDialog {
 
     /**
      * Creates new form GerenciarDepartamento
+     * @param parent
+     * @param modal
      */
     public GerenciarDepartamento(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -36,14 +34,13 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
         jLabelNome = new javax.swing.JLabel();
         jLabeCadigo = new javax.swing.JLabel();
         jTb1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableDepartamentos = new javax.swing.JTable();
         jBotaoNovo = new javax.swing.JButton();
         jBotaoEditar = new javax.swing.JButton();
         jBotaoExcluir = new javax.swing.JButton();
         jBotaoSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(660, 474));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Gerenciar Departamento");
@@ -60,21 +57,19 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
         jLabeCadigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabeCadigo.setText("Código");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Código", "Nome"
+        jTableDepartamentos.setAutoCreateRowSorter(true);
+        jTableDepartamentos.setModel( new com.spej.model.DepartamentoTableModel() );
+        jTableDepartamentos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
+        jTableDepartamentos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTb1.setViewportView(jTableDepartamentos);
+        /*
+        jTableDepartamentos.getColumnModel().getColumn(0).setWidth(10);
+        jTableDepartamentos.getSelectionModel().addListSelectionListener( new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e) {
+                jTableDepartamentoOnSelect(e);
             }
-        ));
-        jTb1.setViewportView(jTable1);
+        });
+        */
 
         jBotaoNovo.setText("Novo");
 
@@ -165,7 +160,24 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
     private void jTextCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextCodigoActionPerformed
+    
+    
+    /*
+    private void jTableDepartamentoOnSelect(ListSelectionEvent e) {
+        String selectedData = null;
 
+        int[] selectedRow = jTableDepartamentos.getSelectedRows();
+        int[] selectedColumns = jTableDepartamentos.getSelectedColumns();
+
+        for (int i = 0; i < selectedRow.length; i++) {
+          for (int j = 0; j < selectedColumns.length; j++) {
+            selectedData = (String) jTableDepartamentos.getValueAt(selectedRow[i], selectedColumns[j]);
+          }
+        }
+        System.out.println("Selected: " + selectedData);        
+    }
+    */
+    
     /**
      * @param args the command line arguments
      */
@@ -217,7 +229,7 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JPanel jPanel;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableDepartamentos;
     private javax.swing.JScrollPane jTb1;
     private javax.swing.JTextField jTextCodigo;
     private javax.swing.JTextField jTextNome;
