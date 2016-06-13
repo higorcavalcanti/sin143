@@ -7,7 +7,7 @@ public class ConnectionFactory {
     private static final String dbhost = "localhost";
     private static final String dbuser = "root";
     private static final String dbpass = "";
-    private static final String dbname = "sperj";
+    private static final String dbname = "spej";
     private static final String URL = "jdbc:mysql://" + dbhost + "/" + dbname;
     
     //private static String file = "bd.db";
