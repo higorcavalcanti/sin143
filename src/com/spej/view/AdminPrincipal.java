@@ -130,6 +130,11 @@ public class AdminPrincipal extends javax.swing.JFrame {
                 jBotaoDepartamentoMouseClicked(evt);
             }
         });
+        jBotaoDepartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotaoDepartamentoActionPerformed(evt);
+            }
+        });
         jBarraFerramentas.add(jBotaoDepartamento);
         jBarraFerramentas.add(jSeparator5);
 
@@ -453,6 +458,10 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         new FiltroRelatorioUsuario(this, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jBotaoDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoDepartamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBotaoDepartamentoActionPerformed
 
 
 

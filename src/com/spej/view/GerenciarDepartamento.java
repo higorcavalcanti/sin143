@@ -51,6 +51,12 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
             }
         });
 
+        jTextNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextNomeActionPerformed(evt);
+            }
+        });
+
         jLabelNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelNome.setText("Nome");
 
@@ -72,6 +78,11 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
         */
 
         jBotaoNovo.setText("Novo");
+        jBotaoNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotaoNovoActionPerformed(evt);
+            }
+        });
 
         jBotaoEditar.setText("Editar");
         jBotaoEditar.setEnabled(false);
@@ -160,6 +171,14 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
     private void jTextCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextCodigoActionPerformed
+
+    private void jBotaoNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoNovoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBotaoNovoActionPerformed
+
+    private void jTextNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextNomeActionPerformed
     
     
     /*

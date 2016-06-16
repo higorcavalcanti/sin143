@@ -127,6 +127,9 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextNome">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelNome">
           <Properties>
@@ -189,6 +192,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Novo"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBotaoNovoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jBotaoEditar">
           <Properties>
