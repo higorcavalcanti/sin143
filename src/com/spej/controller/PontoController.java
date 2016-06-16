@@ -40,14 +40,14 @@ public class PontoController  extends Controller<Ponto> {
         if(p != null) {
             System.out.println("nao null");
             
-            p.setSaida( new java.sql.Date(Calendar.getInstance().getTime().getTime()) );
+            p.setSaida( new java.sql.Timestamp(Calendar.getInstance().getTime().getTime()) );
             this.update(p);
         }
         else //Usuário não está logado (não existe entrada em saida)
         {
             System.out.println("null");
             p = new Ponto();
-            p.setEntrada( new java.sql.Date(Calendar.getInstance().getTime().getTime()) );
+            p.setEntrada( new java.sql.Timestamp(Calendar.getInstance().getTime().getTime()) );
             p.setSaida(null);
             p.setUsuarioMatricula(user.getMatricula());
             this.insert(p);

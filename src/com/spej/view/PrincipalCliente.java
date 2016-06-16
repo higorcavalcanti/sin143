@@ -69,27 +69,7 @@ public class PrincipalCliente extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Matrícula", "Nome", "Horário"
-            }
-        ));
+        jTable1.setModel(new com.spej.model.PontoTableModel() );
         jTable1.setEnabled(false);
         jScrollPane1.setViewportView(jTable1);
 
@@ -160,6 +140,7 @@ public class PrincipalCliente extends javax.swing.JFrame {
         catch(Exception e) {
             Mensagem.erro(this, "Erro desconhecido!\n" + e.getMessage(), "Falha ao bater bonto");
         }
+        jTable1.setModel( new com.spej.model.PontoTableModel() );
     }//GEN-LAST:event_JBaterPontoActionPerformed
 
     private void jCaixaIdentificacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCaixaIdentificacaoActionPerformed

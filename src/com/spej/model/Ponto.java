@@ -6,6 +6,7 @@
 package com.spej.model;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  *
@@ -14,8 +15,10 @@ import java.sql.Date;
 public class Ponto {
     private int id;
     private int usuario_id;
-    private Date entrada;
-    private Date saida;
+    private Timestamp entrada;
+    private Timestamp saida;
+    
+    private Usuario usuario;
 
     public int getId() {
         return id;
@@ -33,20 +36,27 @@ public class Ponto {
         this.usuario_id = usuario_id;
     }
 
-    public Date getEntrada() {
+    public Timestamp getEntrada() {
         return entrada;
     }
 
-    public void setEntrada(Date entrada) {
+    public void setEntrada(Timestamp entrada) {
         this.entrada = entrada;
     }
 
-    public Date getSaida() {
+    public Timestamp getSaida() {
         return saida;
     }
 
-    public void setSaida(Date saida) {
+    public void setSaida(Timestamp saida) {
         this.saida = saida;
     }
-    
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 }

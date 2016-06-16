@@ -33,8 +33,8 @@ public class PontoDao extends Dao<Ponto> {
 
             // seta os valores
             stmt.setInt(1, novo.getUsuarioMatricula());
-            stmt.setDate(2, novo.getEntrada());
-            stmt.setDate(3, novo.getSaida());
+            stmt.setTimestamp(2, novo.getEntrada());
+            stmt.setTimestamp(3, novo.getSaida());
 
             // executa
             stmt.executeUpdate();
@@ -59,8 +59,8 @@ public class PontoDao extends Dao<Ponto> {
             // seta os valores
             stmt.setInt(1, novo.getId());
             stmt.setInt(2, novo.getUsuarioMatricula());
-            stmt.setDate(3, novo.getEntrada());
-            stmt.setDate(4, novo.getSaida());
+            stmt.setTimestamp(3, novo.getEntrada());
+            stmt.setTimestamp(4, novo.getSaida());
             
             stmt.setInt(5, antigo.getId());
 
@@ -103,8 +103,8 @@ public class PontoDao extends Dao<Ponto> {
         try {
             p.setId( user.getInt("id") );
             p.setUsuarioMatricula( user.getInt("usuario_matricula") );
-            p.setEntrada( user.getDate("entrada") );
-            p.setSaida( user.getDate("saida") );
+            p.setEntrada( user.getTimestamp("entrada") );
+            p.setSaida( user.getTimestamp("saida") );
         }
         catch(SQLException e) {
             throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
