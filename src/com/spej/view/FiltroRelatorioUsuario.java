@@ -31,14 +31,9 @@ public class FiltroRelatorioUsuario extends javax.swing.JDialog {
 
         jPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabelCargo = new javax.swing.JLabel();
         jBotaoVisualizar = new javax.swing.JButton();
-        jBotaoImprimir = new javax.swing.JButton();
         jLabelNome1 = new javax.swing.JLabel();
-        jComboCargo = new javax.swing.JComboBox<>();
-        jComboDepartamento = new javax.swing.JComboBox<>();
-        jLabelCargo1 = new javax.swing.JLabel();
-        jComboNome = new javax.swing.JComboBox<>();
+        jComboNome = new javax.swing.JComboBox<String>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(660, 474));
@@ -47,85 +42,51 @@ public class FiltroRelatorioUsuario extends javax.swing.JDialog {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Relatório de Usuários");
 
-        jLabelCargo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelCargo.setText("Cargo");
-
         jBotaoVisualizar.setText("Visualizar");
 
-        jBotaoImprimir.setText("Imprimir");
-
         jLabelNome1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelNome1.setText("Nome do Usuário");
+        jLabelNome1.setText("Departamento");
 
-        jComboCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboCargo.setMinimumSize(new java.awt.Dimension(6, 20));
-        jComboCargo.setPreferredSize(new java.awt.Dimension(6, 20));
-
-        jComboDepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboDepartamento.setMinimumSize(new java.awt.Dimension(6, 20));
-        jComboDepartamento.setPreferredSize(new java.awt.Dimension(6, 20));
-
-        jLabelCargo1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelCargo1.setText("Departamento");
-
-        jComboNome.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboNome.setModel(new com.spej.model.DepartamentoComboBoxModel());
         jComboNome.setMaximumSize(new java.awt.Dimension(6, 20));
         jComboNome.setMinimumSize(new java.awt.Dimension(6, 20));
         jComboNome.setPreferredSize(new java.awt.Dimension(6, 20));
+        jComboNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboNomeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
         jPanel.setLayout(jPanelLayout);
         jPanelLayout.setHorizontalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLayout.createSequentialGroup()
-                .addContainerGap(156, Short.MAX_VALUE)
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
-                        .addComponent(jBotaoVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(75, 75, 75)
-                        .addComponent(jBotaoImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(194, 194, 194))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(189, 189, 189))))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jComboNome, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelLayout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabelCargo1)
-                                .addComponent(jComboDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelNome1)
-                                .addComponent(jLabelCargo)
-                                .addComponent(jComboCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(53, 53, 53)
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelNome1)
+                            .addComponent(jComboNome, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addComponent(jBotaoVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanelLayout.setVerticalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(32, 32, 32)
-                .addComponent(jLabelNome1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboNome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelCargo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelNome1)
                 .addGap(18, 18, 18)
-                .addComponent(jLabelCargo1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBotaoVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBotaoImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jComboNome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(jBotaoVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -133,23 +94,24 @@ public class FiltroRelatorioUsuario extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(36, 36, 36))
+                .addContainerGap())
         );
 
         getAccessibleContext().setAccessibleName("Relátorio de Usuario");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jComboNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboNomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,14 +157,9 @@ public class FiltroRelatorioUsuario extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBotaoImprimir;
     private javax.swing.JButton jBotaoVisualizar;
-    private javax.swing.JComboBox<String> jComboCargo;
-    private javax.swing.JComboBox<String> jComboDepartamento;
     private javax.swing.JComboBox<String> jComboNome;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabelCargo;
-    private javax.swing.JLabel jLabelCargo1;
     private javax.swing.JLabel jLabelNome1;
     private javax.swing.JPanel jPanel;
     // End of variables declaration//GEN-END:variables
