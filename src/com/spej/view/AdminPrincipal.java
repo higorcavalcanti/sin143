@@ -40,9 +40,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jBarraFerramentas = new javax.swing.JToolBar();
-        jSeparador = new javax.swing.JToolBar.Separator();
-        jBotaoAdicionar = new javax.swing.JButton();
-        jSeparator10 = new javax.swing.JToolBar.Separator();
         jBotaoGerenciarUsuario = new javax.swing.JButton();
         jSeparator11 = new javax.swing.JToolBar.Separator();
         jBotaoDepartamento = new javax.swing.JButton();
@@ -65,6 +62,8 @@ public class AdminPrincipal extends javax.swing.JFrame {
         menuGerenciarFuncionario = new javax.swing.JMenuItem();
         menuCadastrarFuncionario = new javax.swing.JMenuItem();
         jMenuDepartamentos = new javax.swing.JMenu();
+        jMenuGerenciarDepartamentos = new javax.swing.JMenuItem();
+        jMenuCadastrarDepartamento = new javax.swing.JMenuItem();
         jMenuRelatorio = new javax.swing.JMenu();
         jMenuSubRelatorioFuncionarios = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
@@ -83,23 +82,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
 
         jBarraFerramentas.setFloatable(false);
         jBarraFerramentas.setRollover(true);
-        jBarraFerramentas.add(jSeparador);
-
-        jBotaoAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/usersAdd.png"))); // NOI18N
-        jBotaoAdicionar.setToolTipText("Cadastrar Usuário");
-        jBotaoAdicionar.setFocusable(false);
-        jBotaoAdicionar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBotaoAdicionar.setMaximumSize(new java.awt.Dimension(60, 45));
-        jBotaoAdicionar.setMinimumSize(new java.awt.Dimension(60, 45));
-        jBotaoAdicionar.setPreferredSize(new java.awt.Dimension(60, 45));
-        jBotaoAdicionar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jBotaoAdicionar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jBotaoAdicionarMouseClicked(evt);
-            }
-        });
-        jBarraFerramentas.add(jBotaoAdicionar);
-        jBarraFerramentas.add(jSeparator10);
 
         jBotaoGerenciarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/users.png"))); // NOI18N
         jBotaoGerenciarUsuario.setToolTipText("Gerenciar Usuário");
@@ -112,6 +94,11 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jBotaoGerenciarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBotaoGerenciarUsuarioMouseClicked(evt);
+            }
+        });
+        jBotaoGerenciarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotaoGerenciarUsuarioActionPerformed(evt);
             }
         });
         jBarraFerramentas.add(jBotaoGerenciarUsuario);
@@ -251,7 +238,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
 
         jMenuFuncionario.setText("Usuários");
 
-        menuGerenciarFuncionario.setText("Gerenciar Usuário");
+        menuGerenciarFuncionario.setText("Gerenciar Usuários");
         menuGerenciarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuGerenciarFuncionarioActionPerformed(evt);
@@ -280,11 +267,28 @@ public class AdminPrincipal extends javax.swing.JFrame {
                 jMenuDepartamentosActionPerformed(evt);
             }
         });
+
+        jMenuGerenciarDepartamentos.setText("Gerenciar Departamentos");
+        jMenuGerenciarDepartamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuGerenciarDepartamentosActionPerformed(evt);
+            }
+        });
+        jMenuDepartamentos.add(jMenuGerenciarDepartamentos);
+
+        jMenuCadastrarDepartamento.setText("Cadastrar Departamento");
+        jMenuCadastrarDepartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuCadastrarDepartamentoActionPerformed(evt);
+            }
+        });
+        jMenuDepartamentos.add(jMenuCadastrarDepartamento);
+
         jMenuBar1.add(jMenuDepartamentos);
 
         jMenuRelatorio.setText("Relatórios");
 
-        jMenuSubRelatorioFuncionarios.setText("Usuários");
+        jMenuSubRelatorioFuncionarios.setText("Usuários cadastrados");
         jMenuSubRelatorioFuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenuSubRelatorioFuncionariosMouseClicked(evt);
@@ -388,15 +392,11 @@ public class AdminPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuDepartamentosActionPerformed
 
     private void jMenuDepartamentosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuDepartamentosMouseClicked
-        new GerenciarDepartamento(this, rootPaneCheckingEnabled).setVisible(true);
+
     }//GEN-LAST:event_jMenuDepartamentosMouseClicked
 
-    private void jBotaoAdicionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBotaoAdicionarMouseClicked
-        new CadastrarUsuario().setVisible(true);
-    }//GEN-LAST:event_jBotaoAdicionarMouseClicked
-
     private void jBotaoGerenciarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBotaoGerenciarUsuarioMouseClicked
-       new GerenciarUsuario().setVisible(true);
+
     }//GEN-LAST:event_jBotaoGerenciarUsuarioMouseClicked
 
     private void jMenuSubRelatorioFuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSubRelatorioFuncionariosMouseClicked
@@ -463,6 +463,18 @@ public class AdminPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBotaoDepartamentoActionPerformed
 
+    private void jBotaoGerenciarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoGerenciarUsuarioActionPerformed
+        new GerenciarUsuario().setVisible(true);
+    }//GEN-LAST:event_jBotaoGerenciarUsuarioActionPerformed
+
+    private void jMenuCadastrarDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadastrarDepartamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuCadastrarDepartamentoActionPerformed
+
+    private void jMenuGerenciarDepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuGerenciarDepartamentosActionPerformed
+        new GerenciarDepartamento(this, true).setVisible(true);
+    }//GEN-LAST:event_jMenuGerenciarDepartamentosActionPerformed
+
 
 
     /**
@@ -502,7 +514,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToolBar jBarraFerramentas;
-    private javax.swing.JButton jBotaoAdicionar;
     private javax.swing.JButton jBotaoDepartamento;
     private javax.swing.JButton jBotaoGerenciarUsuario;
     private javax.swing.JButton jButton2;
@@ -512,8 +523,10 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuAjuda;
     private javax.swing.JMenu jMenuArquivos;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuCadastrarDepartamento;
     private javax.swing.JMenu jMenuDepartamentos;
     private javax.swing.JMenu jMenuFuncionario;
+    private javax.swing.JMenuItem jMenuGerenciarDepartamentos;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu jMenuRelatorio;
     private javax.swing.JMenuItem jMenuSubBackup;
@@ -526,9 +539,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuSubRelatorioPresencaUsuario;
     private javax.swing.JMenuItem jMenuSubSair;
     private javax.swing.JMenuItem jMenuSubSobreSistema;
-    private javax.swing.JToolBar.Separator jSeparador;
     private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JToolBar.Separator jSeparator10;
     private javax.swing.JToolBar.Separator jSeparator11;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
