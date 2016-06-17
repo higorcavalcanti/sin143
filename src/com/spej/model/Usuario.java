@@ -1,5 +1,9 @@
 package com.spej.model;
 
+import com.mysql.fabric.xmlrpc.base.Data;
+import java.sql.Date;
+import java.sql.Timestamp;
+
 /**
  *
  * @author Higor
@@ -12,6 +16,8 @@ public class Usuario {
     private String cargo;
     private String username;
     private String password;
+    private Date nascimento;
+    private String email;
     
     public Usuario() {
     }
@@ -66,7 +72,22 @@ public class Usuario {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
+    public Date getNascimento() {
+        return nascimento;
+    }
+
+    public void setNascimento(Date nascimento) {
+        this.nascimento = nascimento;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
     
  
     @Override

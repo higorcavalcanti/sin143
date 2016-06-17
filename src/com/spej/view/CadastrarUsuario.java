@@ -10,6 +10,7 @@ import com.spej.model.Departamento;
 import com.spej.model.DepartamentoComboBoxModel;
 import com.spej.model.Usuario;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 
@@ -321,6 +322,9 @@ public class CadastrarUsuario extends javax.swing.JDialog {
             Usuario usuario = new Usuario();
 
             try {
+                
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                
                 Departamento d = (Departamento) jComboDepartamento.getSelectedItem();
 
                 usuario.setMatricula( Integer.parseInt(jTextMatricula.getText() ) );
@@ -329,6 +333,8 @@ public class CadastrarUsuario extends javax.swing.JDialog {
                 usuario.setDepartamento( d.getId() );
                 usuario.setUsername( jTextUsername.getText() );
                 usuario.setPassword( String.valueOf(jPasswordField1.getPassword()) );
+                usuario.setNascimento( new java.sql.Date(dateFormat.parse(jDataNascimento.getText()).getTime()) );
+                usuario.setEmail( jTextEmail.getText() );
 
                 uc.insert(usuario);
 

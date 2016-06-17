@@ -8,7 +8,8 @@ public class ConnectionFactory {
     private static final String dbuser = "root";
     private static final String dbpass = "";
     private static final String dbname = "spej";
-    private static final String URL = "jdbc:mysql://" + dbhost + "/" + dbname;
+    private static final String dbopts = "zeroDateTimeBehavior=convertToNull";
+    private static final String URL = "jdbc:mysql://" + dbhost + "/" + dbname + "?" + dbopts;
     
     //private static String file = "bd.db";
     private static Connection conection = null;

@@ -15,8 +15,8 @@ public class UsuarioDao extends Dao<Usuario> {
     public boolean insert(Usuario novo) {
         
         String sql = "INSERT INTO usuarios " +
-                    "(matricula,nome,departamento,cargo,username,password)" +
-                    " VALUES (?,?,?,?,?,?)";
+                    "(matricula,nome,departamento,cargo,username,password,nascimento,email)" +
+                    " VALUES (?,?,?,?,?,?,?,?)";
         try {
             // prepared statement para inserção
             stmt = connection.prepareStatement(sql);
@@ -28,6 +28,8 @@ public class UsuarioDao extends Dao<Usuario> {
             stmt.setString(4, novo.getCargo());
             stmt.setString(5, novo.getUsername());
             stmt.setString(6, novo.getPassword());
+            stmt.setDate(7, novo.getNascimento());
+            stmt.setString(8, novo.getEmail());
 
             // executa
             stmt.executeUpdate();
@@ -46,7 +48,8 @@ public class UsuarioDao extends Dao<Usuario> {
     @Override
     public boolean update(Usuario antigo, Usuario novo) {
         String sql = "UPDATE Usuarios " +
-                    "SET matricula = ?, nome = ?, departamento = ?, cargo = ?, username = ?, password = ? " +
+                    "SET matricula = ?, nome = ?, departamento = ?, cargo = ?, " +
+                        "username = ?, password = ?, nascimento = ?, email = ? " +
                     "WHERE matricula = ?";
         try {
             // prepared statement para inserção
@@ -59,8 +62,10 @@ public class UsuarioDao extends Dao<Usuario> {
             stmt.setString(4, novo.getCargo());
             stmt.setString(5, novo.getUsername());
             stmt.setString(6, novo.getPassword());
+            stmt.setDate(7, novo.getNascimento());
+            stmt.setString(8, novo.getEmail());
             
-            stmt.setInt(7, antigo.getMatricula());
+            stmt.setInt(9, antigo.getMatricula());
 
             // executa
             stmt.executeUpdate();
@@ -154,6 +159,8 @@ public class UsuarioDao extends Dao<Usuario> {
             u.setMatricula( user.getInt("matricula") );
             u.setUsername( user.getString("username") );
             u.setPassword( user.getString("password") );
+            u.setNascimento( user.getDate("nascimento") );
+            u.setEmail( user.getString("email") );
         }
         catch(SQLException e) {
             throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
