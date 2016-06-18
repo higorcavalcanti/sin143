@@ -33,17 +33,14 @@ public class AdminPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jSeparator4 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
         jBarraFerramentas = new javax.swing.JToolBar();
         jBotaoGerenciarUsuario = new javax.swing.JButton();
         jSeparator11 = new javax.swing.JToolBar.Separator();
         jBotaoDepartamento = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JToolBar.Separator();
-        jButton2 = new javax.swing.JButton();
+        jBotaoRelatorioUsuarios = new javax.swing.JButton();
         jSeparator8 = new javax.swing.JToolBar.Separator();
-        jFiltroRelatorio = new javax.swing.JButton();
+        jBotaoRelatorios = new javax.swing.JButton();
         jSeparator9 = new javax.swing.JToolBar.Separator();
         jHelp = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
@@ -68,8 +65,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jMenuSubDuvidas = new javax.swing.JMenuItem();
         jSeparator7 = new javax.swing.JPopupMenu.Separator();
         jMenuSubSobreSistema = new javax.swing.JMenuItem();
-
-        jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Painel do Administrador");
@@ -119,48 +114,48 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jBarraFerramentas.add(jBotaoDepartamento);
         jBarraFerramentas.add(jSeparator5);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/usersRelatorio.png"))); // NOI18N
-        jButton2.setToolTipText("Relatorio de Usuarios");
-        jButton2.setBorderPainted(false);
-        jButton2.setFocusable(false);
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setMaximumSize(new java.awt.Dimension(60, 45));
-        jButton2.setMinimumSize(new java.awt.Dimension(60, 45));
-        jButton2.setPreferredSize(new java.awt.Dimension(60, 45));
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jBotaoRelatorioUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/usersRelatorio.png"))); // NOI18N
+        jBotaoRelatorioUsuarios.setToolTipText("Relatorio de Usuarios");
+        jBotaoRelatorioUsuarios.setBorderPainted(false);
+        jBotaoRelatorioUsuarios.setFocusable(false);
+        jBotaoRelatorioUsuarios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBotaoRelatorioUsuarios.setMaximumSize(new java.awt.Dimension(60, 45));
+        jBotaoRelatorioUsuarios.setMinimumSize(new java.awt.Dimension(60, 45));
+        jBotaoRelatorioUsuarios.setPreferredSize(new java.awt.Dimension(60, 45));
+        jBotaoRelatorioUsuarios.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBotaoRelatorioUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                jBotaoRelatorioUsuariosMouseClicked(evt);
             }
         });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jBotaoRelatorioUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jBotaoRelatorioUsuariosActionPerformed(evt);
             }
         });
-        jBarraFerramentas.add(jButton2);
+        jBarraFerramentas.add(jBotaoRelatorioUsuarios);
         jBarraFerramentas.add(jSeparator8);
 
-        jFiltroRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/consultas.png"))); // NOI18N
-        jFiltroRelatorio.setToolTipText("Relatorio de Controle de Atividades");
-        jFiltroRelatorio.setBorderPainted(false);
-        jFiltroRelatorio.setFocusable(false);
-        jFiltroRelatorio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jFiltroRelatorio.setMaximumSize(new java.awt.Dimension(60, 45));
-        jFiltroRelatorio.setMinimumSize(new java.awt.Dimension(60, 45));
-        jFiltroRelatorio.setPreferredSize(new java.awt.Dimension(60, 45));
-        jFiltroRelatorio.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jFiltroRelatorio.addMouseListener(new java.awt.event.MouseAdapter() {
+        jBotaoRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/consultas.png"))); // NOI18N
+        jBotaoRelatorios.setToolTipText("Relatorio de Controle de Atividades");
+        jBotaoRelatorios.setBorderPainted(false);
+        jBotaoRelatorios.setFocusable(false);
+        jBotaoRelatorios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBotaoRelatorios.setMaximumSize(new java.awt.Dimension(60, 45));
+        jBotaoRelatorios.setMinimumSize(new java.awt.Dimension(60, 45));
+        jBotaoRelatorios.setPreferredSize(new java.awt.Dimension(60, 45));
+        jBotaoRelatorios.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBotaoRelatorios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jFiltroRelatorioMouseClicked(evt);
+                jBotaoRelatoriosMouseClicked(evt);
             }
         });
-        jFiltroRelatorio.addActionListener(new java.awt.event.ActionListener() {
+        jBotaoRelatorios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFiltroRelatorioActionPerformed(evt);
+                jBotaoRelatoriosActionPerformed(evt);
             }
         });
-        jBarraFerramentas.add(jFiltroRelatorio);
+        jBarraFerramentas.add(jBotaoRelatorios);
         jBarraFerramentas.add(jSeparator9);
 
         jHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/help.png"))); // NOI18N
@@ -358,9 +353,9 @@ public class AdminPrincipal extends javax.swing.JFrame {
         new CadastrarUsuario().setVisible(true);
     }//GEN-LAST:event_menuCadastrarFuncionarioActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jBotaoRelatorioUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoRelatorioUsuariosActionPerformed
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jBotaoRelatorioUsuariosActionPerformed
 
 
     private void jMenuDepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuDepartamentosActionPerformed
@@ -415,17 +410,17 @@ public class AdminPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jHelpMouseClicked
 
-    private void jFiltroRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFiltroRelatorioActionPerformed
+    private void jBotaoRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoRelatoriosActionPerformed
         new RelatoriosView(this, true).setVisible(true);
-    }//GEN-LAST:event_jFiltroRelatorioActionPerformed
+    }//GEN-LAST:event_jBotaoRelatoriosActionPerformed
 
-    private void jFiltroRelatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFiltroRelatorioMouseClicked
+    private void jBotaoRelatoriosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBotaoRelatoriosMouseClicked
         //new FiltroRelatorioControleAtividades(this, true).setVisible(true);
-    }//GEN-LAST:event_jFiltroRelatorioMouseClicked
+    }//GEN-LAST:event_jBotaoRelatoriosMouseClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void jBotaoRelatorioUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBotaoRelatorioUsuariosMouseClicked
         new FiltroRelatorioUsuario(this, true).setVisible(true);
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_jBotaoRelatorioUsuariosMouseClicked
 
     private void jBotaoDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoDepartamentoActionPerformed
         // TODO add your handling code here:
@@ -484,9 +479,9 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JToolBar jBarraFerramentas;
     private javax.swing.JButton jBotaoDepartamento;
     private javax.swing.JButton jBotaoGerenciarUsuario;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jBotaoRelatorioUsuarios;
+    private javax.swing.JButton jBotaoRelatorios;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JButton jFiltroRelatorio;
     private javax.swing.JButton jHelp;
     private javax.swing.JMenu jMenuAjuda;
     private javax.swing.JMenu jMenuArquivos;
@@ -495,7 +490,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuDepartamentos;
     private javax.swing.JMenu jMenuFuncionario;
     private javax.swing.JMenuItem jMenuGerenciarDepartamentos;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu jMenuRelatorio;
     private javax.swing.JMenuItem jMenuSubBackup;
     private javax.swing.JMenuItem jMenuSubConfig;
@@ -507,8 +501,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuSubSobreSistema;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator11;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
     private javax.swing.JPopupMenu.Separator jSeparator7;
