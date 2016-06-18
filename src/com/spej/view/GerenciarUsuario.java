@@ -5,9 +5,11 @@
  */
 package com.spej.view;
 
+import com.spej.controller.UsuarioController;
 import com.spej.model.Usuario;
 import com.spej.model.UsuarioTableModel;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -212,6 +214,19 @@ public class GerenciarUsuario extends javax.swing.JDialog {
     }//GEN-LAST:event_jBotaoEditarActionPerformed
 
     private void jBotaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoExcluirActionPerformed
+        UsuarioTableModel ut = (UsuarioTableModel) jTableUsuarios.getModel();
+        Usuario u = ut.getRowObject( jTableUsuarios.getSelectedRow() );
+        
+        int dialogResult = JOptionPane.showConfirmDialog (this, 
+                "Tem certeza que deseja deletar este usuário?\n" + u,
+                "Aviso", 
+                JOptionPane.YES_NO_OPTION
+        );
+        
+        if( dialogResult == JOptionPane.YES_OPTION) {
+            UsuarioController uc = new UsuarioController();
+            uc.delete(u);
+        }        
         jTableUsuarios.setModel( new com.spej.model.UsuarioTableModel() );
     }//GEN-LAST:event_jBotaoExcluirActionPerformed
 
