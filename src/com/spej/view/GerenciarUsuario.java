@@ -84,6 +84,11 @@ public class GerenciarUsuario extends javax.swing.JDialog {
         });
 
         jTableUsuarios.setModel( new com.spej.model.UsuarioTableModel() );
+        jTableUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableUsuariosMouseClicked(evt);
+            }
+        });
         jTb1.setViewportView(jTableUsuarios);
         jTableUsuarios.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
             public void valueChanged(ListSelectionEvent event) {
@@ -203,11 +208,7 @@ public class GerenciarUsuario extends javax.swing.JDialog {
     }//GEN-LAST:event_jBotaoNovoActionPerformed
 
     private void jBotaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoEditarActionPerformed
-        UsuarioTableModel ut = (UsuarioTableModel) jTableUsuarios.getModel();
-        Usuario u = ut.getRowObject( jTableUsuarios.getSelectedRow() );
-
-        new CadastrarUsuario(u).setVisible(true);        
-        jTableUsuarios.setModel( new com.spej.model.UsuarioTableModel() );
+        this.editarUsuario();
     }//GEN-LAST:event_jBotaoEditarActionPerformed
 
     private void jBotaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoExcluirActionPerformed
@@ -229,7 +230,22 @@ public class GerenciarUsuario extends javax.swing.JDialog {
     private void jTextNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextNomeKeyPressed
         
     }//GEN-LAST:event_jTextNomeKeyPressed
+
+    private void jTableUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableUsuariosMouseClicked
+        if (evt.getClickCount() == 2) {
+            this.editarUsuario();
+        }
+    }//GEN-LAST:event_jTableUsuariosMouseClicked
        
+    
+    private void editarUsuario() {
+        UsuarioTableModel ut = (UsuarioTableModel) jTableUsuarios.getModel();
+        Usuario u = ut.getRowObject( jTableUsuarios.getSelectedRow() );
+
+        new CadastrarUsuario(u).setVisible(true);        
+        jTableUsuarios.setModel( new com.spej.model.UsuarioTableModel() );
+    }
+    
     /**
      * @param args the command line arguments
      */
