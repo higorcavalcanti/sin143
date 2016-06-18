@@ -38,7 +38,7 @@ public class UsuarioDao extends Dao<Usuario> {
             return true;
         } 
         catch(SQLIntegrityConstraintViolationException e) {
-            throw new RuntimeException("Já existe um usuário com essa matricula!");
+            throw new RuntimeException("Já existe um usuário com algum desses dados! \nMensagem: \n" + e.getMessage());
         }
         catch(SQLException e) {
             throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
@@ -74,7 +74,7 @@ public class UsuarioDao extends Dao<Usuario> {
             return true;
         }
         catch(SQLIntegrityConstraintViolationException e) {
-            throw new RuntimeException("Já existe um usuário com essa matricula!");
+            throw new RuntimeException("Já existe um usuário com algum desses dados! \nMensagem:\n" + e.getMessage());
         }        
         catch(SQLException e) {
             throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());

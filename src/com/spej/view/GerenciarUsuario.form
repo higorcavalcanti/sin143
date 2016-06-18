@@ -153,9 +153,10 @@
           <SubComponents>
             <Component class="javax.swing.JTable" name="jTableUsuarios">
               <Properties>
-                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="this.atualizarTabela();">
                   <Connection code=" new com.spej.model.UsuarioTableModel() " type="code"/>
                 </Property>
+                <Property name="autoResizeMode" type="int" value="3"/>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" postCode="jTableUsuarios.getSelectionModel().addListSelectionListener(new ListSelectionListener(){&#xa;    public void valueChanged(ListSelectionEvent event) {&#xa;        if(jTableUsuarios.getSelectedRowCount() &gt; 0) {&#xa;            jBotaoEditar.setEnabled(true);  &#xa;            jBotaoExcluir.setEnabled(true);&#xa;        } else {&#xa;            jBotaoEditar.setEnabled(false);  &#xa;            jBotaoExcluir.setEnabled(false);            &#xa;        }&#xa;    }&#xa;});">
                   <TableColumnModel selectionModel="0">
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">

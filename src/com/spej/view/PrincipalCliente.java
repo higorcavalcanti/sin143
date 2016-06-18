@@ -72,9 +72,10 @@ public class PrincipalCliente extends javax.swing.JFrame {
         });
 
         jTablePonto.setModel(new com.spej.model.PontoTableModel() );
-        jTablePonto.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jTablePonto.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jTablePonto.setEnabled(false);
         jScrollPane1.setViewportView(jTablePonto);
+        this.atualizarTabela();
 
         jButton1.setText("Administração");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +156,7 @@ public class PrincipalCliente extends javax.swing.JFrame {
         catch(Exception e) {
             Mensagem.erro(this, "Erro desconhecido!\n" + e.getMessage(), "Falha ao bater bonto");
         }
-        jTablePonto.setModel( new com.spej.model.PontoTableModel() );
+        this.atualizarTabela();
     }//GEN-LAST:event_JBaterPontoActionPerformed
 
     private void jCaixaIdentificacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCaixaIdentificacaoActionPerformed
@@ -171,6 +172,21 @@ public class PrincipalCliente extends javax.swing.JFrame {
         new SobreAjuda(this, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_jSobreActionPerformed
 
+    private void atualizarTabela() {
+        jTablePonto.setModel( new com.spej.model.PontoTableModel() );
+        jTablePonto.getColumnModel().getColumn(0).setMinWidth(80);
+        jTablePonto.getColumnModel().getColumn(0).setMaxWidth(80);
+        jTablePonto.getColumnModel().getColumn(0).setPreferredWidth(80);
+
+        jTablePonto.getColumnModel().getColumn(1).setMinWidth(265);
+        jTablePonto.getColumnModel().getColumn(1).setMaxWidth(265);
+        jTablePonto.getColumnModel().getColumn(1).setPreferredWidth(265);
+
+        jTablePonto.getColumnModel().getColumn(2).setMinWidth(170);
+        jTablePonto.getColumnModel().getColumn(2).setMaxWidth(170);
+        jTablePonto.getColumnModel().getColumn(2).setPreferredWidth(170);        
+    }
+    
     /**
      * @param args the command line arguments
      */

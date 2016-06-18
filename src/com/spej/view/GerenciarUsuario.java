@@ -85,6 +85,8 @@ public class GerenciarUsuario extends javax.swing.JDialog {
         });
 
         jTableUsuarios.setModel( new com.spej.model.UsuarioTableModel() );
+        this.atualizarTabela();
+        jTableUsuarios.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
         jTableUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableUsuariosMouseClicked(evt);
@@ -230,7 +232,7 @@ public class GerenciarUsuario extends javax.swing.JDialog {
     }//GEN-LAST:event_jBotaoExcluirActionPerformed
 
     private void jBotaoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoBuscarActionPerformed
-        jTableUsuarios.setModel( new com.spej.model.UsuarioTableModel(jTextNome.getText()) );
+        this.atualizarTabela(jTextNome.getText());
     }//GEN-LAST:event_jBotaoBuscarActionPerformed
 
     private void jTextNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNomeActionPerformed
@@ -238,7 +240,7 @@ public class GerenciarUsuario extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextNomeActionPerformed
 
     private void jTextNomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextNomeKeyTyped
-        jTableUsuarios.setModel( new com.spej.model.UsuarioTableModel(jTextNome.getText()) );
+        this.atualizarTabela(jTextNome.getText());
     }//GEN-LAST:event_jTextNomeKeyTyped
 
     private void jTextNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextNomeKeyPressed
@@ -261,42 +263,14 @@ public class GerenciarUsuario extends javax.swing.JDialog {
     }
     
     private void atualizarTabela() {
-        jTableUsuarios.setModel( new com.spej.model.UsuarioTableModel() );
+        this.atualizarTabela("");
     }
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GerenciarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GerenciarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GerenciarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GerenciarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GerenciarUsuario().setVisible(true);
-            }
-        });
+    private void atualizarTabela(String search) {
+        jTableUsuarios.setModel( new com.spej.model.UsuarioTableModel( search ) );
+        
+        jTableUsuarios.getColumnModel().getColumn(0).setMinWidth(80);
+        jTableUsuarios.getColumnModel().getColumn(0).setMaxWidth(80);
+        jTableUsuarios.getColumnModel().getColumn(0).setPreferredWidth(80);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
