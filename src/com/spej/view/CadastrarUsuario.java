@@ -44,8 +44,15 @@ public class CadastrarUsuario extends javax.swing.JDialog {
     //Limpa os campos após o cadastro
     public void limparCampos(){
         
-        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
-        String date = DATE_FORMAT.format( this.user.getNascimento().getTime() );
+        
+        String date;
+        try {
+            SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+            date = DATE_FORMAT.format( this.user.getNascimento().getTime() );
+        } 
+        catch (Exception e) {
+            date = "01/01/2016";
+        }
 
         DepartamentoDao dd = new DepartamentoDao();
         Departamento d = dd.getById( this.user.getDepartamento() );
