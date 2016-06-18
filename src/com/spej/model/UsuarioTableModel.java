@@ -17,6 +17,9 @@ public class UsuarioTableModel extends AbstractTableModel {
 
     private ArrayList<Usuario> users;
     
+    public UsuarioTableModel(String nome) {
+        this( new UsuarioDao().find(nome) );
+    }   
     public UsuarioTableModel() {
         this( new UsuarioDao().getAll("matricula > 0") );
     }

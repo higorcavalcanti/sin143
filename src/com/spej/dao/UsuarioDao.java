@@ -122,7 +122,7 @@ public class UsuarioDao extends Dao<Usuario> {
     public Usuario getByUsuarioSenha(String usuario, String senha) {
         String sql = "SELECT * " +
                 "FROM Usuarios " +
-                "WHERE username = ? AND password = ? " + 
+                "WHERE username = ? AND password = ?" + 
                 "LIMIT 1";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -137,7 +137,7 @@ public class UsuarioDao extends Dao<Usuario> {
 
     
     public ArrayList<Usuario> getAllByDepartamento(int departamento) {
-        String sql = "SELECT * FROM Usuarios WHERE departamento = ?";
+        String sql = "SELECT * FROM Usuarios WHERE departamento = ? AND matricula > 0";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setInt(1, departamento);
@@ -147,8 +147,8 @@ public class UsuarioDao extends Dao<Usuario> {
             throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
         }
     }
-           
-
+    
+    
     @Override
     public Usuario byResultSet(ResultSet user) {
         Usuario u = new Usuario();
@@ -167,4 +167,18 @@ public class UsuarioDao extends Dao<Usuario> {
         }
         return u;
     }
+
+        
+    public ArrayList<Usuario> find(String name) {
+        String sql = "SELECT * FROM Usuarios WHERE nome LIKE ? AND matricula > 0";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, "%" + name + "%");
+            return this.getListByPreparedStatement(stmt);
+        }
+        catch(SQLException e) {
+            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
+        }
+    }    
+           
 }
