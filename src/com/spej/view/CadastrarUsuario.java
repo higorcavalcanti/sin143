@@ -12,7 +12,6 @@ import com.spej.model.DepartamentoComboBoxModel;
 import com.spej.model.Usuario;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import javax.swing.text.MaskFormatter;
 
 /**
@@ -30,6 +29,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
     public CadastrarUsuario() {
         this( new Usuario() );
         this.criando = true;
+        limparCampos();
     }
     public CadastrarUsuario(Usuario usuario) {
         
@@ -64,7 +64,12 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         jTextEmail.setText( this.user.getEmail() );
         jTextUsername.setText( this.user.getUsername() );
         jPasswordField1.setText( this.user.getPassword() );
-        jComboDepartamento.getModel().setSelectedItem( d );    
+        jComboDepartamento.getModel().setSelectedItem( d );
+        jCheckAdministrador.setSelected( this.user.isAdmin() );
+        
+        jCheckAdministrador.setEnabled( 
+            this.criando || !this.user.equals(UsuarioController.getLogado()) 
+        );
     }
     
     
@@ -89,7 +94,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         jTextCargo = new javax.swing.JTextField();
         jLabelCargo = new javax.swing.JLabel();
         jLabelDepartamento = new javax.swing.JLabel();
-        jComboDepartamento = new javax.swing.JComboBox<>();
+        jComboDepartamento = new javax.swing.JComboBox<DepartamentoComboBoxModel>();
         jBotaoAcao = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabelUsuario = new javax.swing.JLabel();
@@ -194,6 +199,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         });
 
         jCheckAdministrador.setText("Administrador");
+        jCheckAdministrador.setEnabled( !this.user.equals( UsuarioController.getLogado() ) );
 
         javax.swing.GroupLayout JPanelTelaLayout = new javax.swing.GroupLayout(JPanelTela);
         JPanelTela.setLayout(JPanelTelaLayout);
@@ -346,11 +352,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
             Mensagem.aviso(this, "O campo cargo é obrigatório!", "Aviso");
         }else if (jComboDepartamento.getSelectedItem() == null) {
             Mensagem.aviso(this, "O campo departamento é obrigatório!", "Aviso");
-        /*}else if (jTextUsername.getText().length() == 0) {
-            Mensagem.aviso(this, "O campo usuario é obrigatório!", "Aviso");
-        }else if (jPasswordField1.getText().length() == 0) {
-            Mensagem.aviso(this, "O campo senha é obrigatório!", "Aviso");
-        */}else{
+        } else {
             UsuarioController uc = new UsuarioController();
             Usuario usuario = new Usuario();
 
@@ -368,6 +370,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
                 usuario.setPassword( String.valueOf(jPasswordField1.getPassword()) );
                 usuario.setNascimento( new java.sql.Date(dateFormat.parse(jDataNascimento.getText()).getTime()) );
                 usuario.setEmail( jTextEmail.getText() );
+                usuario.setAdmin( jCheckAdministrador.isSelected() );
 
                 if(this.criando) {
                     uc.insert(usuario);

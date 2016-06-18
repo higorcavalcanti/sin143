@@ -329,6 +329,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Administrador"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jCheckAdministrador.setEnabled( !this.user.equals( UsuarioController.getLogado() ) );"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

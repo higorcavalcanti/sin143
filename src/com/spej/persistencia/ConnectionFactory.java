@@ -3,7 +3,7 @@ package com.spej.persistencia;
 import java.sql.*;
 
 public class ConnectionFactory {
-    
+
     private static final String dbhost = "localhost";
     private static final String dbuser = "root";
     private static final String dbpass = "";
@@ -12,9 +12,15 @@ public class ConnectionFactory {
     private static final String URL = "jdbc:mysql://" + dbhost + "/" + dbname + "?" + dbopts;
     
     //private static String file = "bd.db";
+    
     private static Connection conection = null;
 
     public static Connection getConnection() {
+        return getConnectionMysql(); 
+    }
+    
+    
+    private static Connection getConnectionMysql() {
         //Se a conexão for nula
         if(ConnectionFactory.conection == null) {
             //Abre uma nova conexão

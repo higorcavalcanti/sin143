@@ -15,8 +15,8 @@ public class UsuarioDao extends Dao<Usuario> {
     public boolean insert(Usuario novo) {
         
         String sql = "INSERT INTO usuarios " +
-                    "(matricula,nome,departamento,cargo,username,password,nascimento,email)" +
-                    " VALUES (?,?,?,?,?,?,?,?)";
+                    "(matricula,nome,departamento,cargo,username,password,nascimento,email,admin)" +
+                    " VALUES (?,?,?, ?,?,?, ?,?,?)";
         try {
             // prepared statement para inserção
             stmt = connection.prepareStatement(sql);
@@ -30,6 +30,7 @@ public class UsuarioDao extends Dao<Usuario> {
             stmt.setString(6, novo.getPassword());
             stmt.setDate(7, novo.getNascimento());
             stmt.setString(8, novo.getEmail());
+            stmt.setBoolean(9, novo.isAdmin());
 
             // executa
             stmt.executeUpdate();
@@ -49,7 +50,7 @@ public class UsuarioDao extends Dao<Usuario> {
     public boolean update(Usuario antigo, Usuario novo) {
         String sql = "UPDATE Usuarios " +
                     "SET matricula = ?, nome = ?, departamento = ?, cargo = ?, " +
-                        "username = ?, password = ?, nascimento = ?, email = ? " +
+                        "username = ?, password = ?, nascimento = ?, email = ?, admin = ?" +
                     "WHERE matricula = ?";
         try {
             // prepared statement para inserção
@@ -64,8 +65,9 @@ public class UsuarioDao extends Dao<Usuario> {
             stmt.setString(6, novo.getPassword());
             stmt.setDate(7, novo.getNascimento());
             stmt.setString(8, novo.getEmail());
+            stmt.setBoolean(9, novo.isAdmin());
             
-            stmt.setInt(9, antigo.getMatricula());
+            stmt.setInt(10, antigo.getMatricula());
 
             // executa
             stmt.executeUpdate();
@@ -137,7 +139,7 @@ public class UsuarioDao extends Dao<Usuario> {
 
     
     public ArrayList<Usuario> getAllByDepartamento(int departamento) {
-        String sql = "SELECT * FROM Usuarios WHERE departamento = ? AND matricula > 0";
+        String sql = "SELECT * FROM Usuarios WHERE departamento = ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setInt(1, departamento);
@@ -161,6 +163,7 @@ public class UsuarioDao extends Dao<Usuario> {
             u.setPassword( user.getString("password") );
             u.setNascimento( user.getDate("nascimento") );
             u.setEmail( user.getString("email") );
+            u.setAdmin( user.getBoolean("admin") );
         }
         catch(SQLException e) {
             throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
@@ -170,7 +173,7 @@ public class UsuarioDao extends Dao<Usuario> {
 
         
     public ArrayList<Usuario> find(String name) {
-        String sql = "SELECT * FROM Usuarios WHERE nome LIKE ? AND matricula > 0";
+        String sql = "SELECT * FROM Usuarios WHERE nome LIKE ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, "%" + name + "%");

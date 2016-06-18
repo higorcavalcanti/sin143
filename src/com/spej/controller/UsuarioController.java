@@ -6,7 +6,15 @@ import java.util.ArrayList;
 
 public class UsuarioController extends Controller<Usuario> {
         
-    protected Usuario logado;
+    private static Usuario logado;
+
+    public static Usuario getLogado() {
+        return logado;
+    }
+    public static void setLogado(Usuario logado) {
+        UsuarioController.logado = logado;
+    }
+    
     
     @Override
     public UsuarioDao getDao() {
@@ -25,15 +33,14 @@ public class UsuarioController extends Controller<Usuario> {
     public Usuario getByMatricula(int matricula) {
         return this.getDao().getByMatricula(matricula);
     }
-
     public ArrayList<Usuario> getAllByDepartamento(int departamento) {
         return this.getDao().getAllByDepartamento(departamento);
     }
     
     
     public boolean logar(String usuario, String senha) {
-        logado = this.getDao().getByUsuarioSenha(usuario, senha);
-        return (logado != null);
+        UsuarioController.setLogado( this.getDao().getByUsuarioSenha(usuario, senha) );
+        return (UsuarioController.getLogado() != null);
         //return true;
     }
 }

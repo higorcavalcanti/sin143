@@ -1,8 +1,7 @@
 package com.spej.model;
 
-import com.mysql.fabric.xmlrpc.base.Data;
 import java.sql.Date;
-import java.sql.Timestamp;
+import java.util.Objects;
 
 /**
  *
@@ -18,6 +17,7 @@ public class Usuario {
     private String password;
     private Date nascimento;
     private String email;
+    private boolean admin;
     
     public Usuario() {
     }
@@ -88,7 +88,43 @@ public class Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
     
+    
+    @Override
+    public boolean equals(Object other) {
+       if (!(other instanceof Usuario))
+            return false;
+       
+        if (other == this)
+            return true;
+
+        Usuario u = (Usuario) other;
+        return (
+            this.getMatricula() == u.getMatricula() &&
+            this.getUsername().equals( u.getUsername() ) &&
+            this.getEmail().equals( u.getEmail() ) &&
+            this.getPassword().equals( u.getPassword() )
+        );
+    }    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 61 * hash + this.matricula;
+        hash = 61 * hash + Objects.hashCode(this.username);
+        hash = 61 * hash + Objects.hashCode(this.password);
+        hash = 61 * hash + Objects.hashCode(this.email);
+        hash = 61 * hash + (this.admin ? 1 : 0);
+        return hash;
+    }
  
     @Override
     public String toString() {
