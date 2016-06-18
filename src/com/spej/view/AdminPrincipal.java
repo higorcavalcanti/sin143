@@ -54,12 +54,15 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jMenuSubSair = new javax.swing.JMenuItem();
         jMenuFuncionario = new javax.swing.JMenu();
         menuGerenciarFuncionario = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
         menuCadastrarFuncionario = new javax.swing.JMenuItem();
         jMenuDepartamentos = new javax.swing.JMenu();
         jMenuGerenciarDepartamentos = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jMenuCadastrarDepartamento = new javax.swing.JMenuItem();
         jMenuRelatorio = new javax.swing.JMenu();
         jMenuSubRelatorioFuncionarios = new javax.swing.JMenuItem();
+        jSeparator4 = new javax.swing.JPopupMenu.Separator();
         jMenuSubRelatorios = new javax.swing.JMenuItem();
         jMenuAjuda = new javax.swing.JMenu();
         jMenuSubDuvidas = new javax.swing.JMenuItem();
@@ -234,6 +237,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
             }
         });
         jMenuFuncionario.add(menuGerenciarFuncionario);
+        jMenuFuncionario.add(jSeparator2);
 
         menuCadastrarFuncionario.setText("Cadastrar Usuário");
         menuCadastrarFuncionario.addActionListener(new java.awt.event.ActionListener() {
@@ -264,6 +268,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
             }
         });
         jMenuDepartamentos.add(jMenuGerenciarDepartamentos);
+        jMenuDepartamentos.add(jSeparator3);
 
         jMenuCadastrarDepartamento.setText("Cadastrar Departamento");
         jMenuCadastrarDepartamento.addActionListener(new java.awt.event.ActionListener() {
@@ -289,6 +294,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
             }
         });
         jMenuRelatorio.add(jMenuSubRelatorioFuncionarios);
+        jMenuRelatorio.add(jSeparator4);
 
         jMenuSubRelatorios.setText("Outros relatórios");
         jMenuSubRelatorios.addActionListener(new java.awt.event.ActionListener() {
@@ -501,6 +507,9 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuSubSobreSistema;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator11;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
     private javax.swing.JPopupMenu.Separator jSeparator7;
