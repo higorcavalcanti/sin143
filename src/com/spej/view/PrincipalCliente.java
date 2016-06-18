@@ -43,7 +43,7 @@ public class PrincipalCliente extends javax.swing.JFrame {
         JBaterPonto = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablePonto = new javax.swing.JTable();
-        jTablePonto.setRowHeight(33);
+        jTablePonto.setRowHeight(40);
         jButton1 = new javax.swing.JButton();
         jSobre = new javax.swing.JButton();
 
@@ -152,19 +152,7 @@ public class PrincipalCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBaterPontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBaterPontoActionPerformed
-        try {
-            pontoC.baterPonto( Integer.parseInt(jCaixaIdentificacao.getText()) );
-        }
-        catch(NumberFormatException e) {
-            Mensagem.erro(this, "Matricula inválida!");
-        }
-        catch(RuntimeException e) {
-            Mensagem.erro(this, e.getMessage(), "Falha ao bater bonto");
-        }
-        catch(Exception e) {
-            Mensagem.erro(this, "Erro desconhecido!\n" + e.getMessage(), "Falha ao bater bonto");
-        }
-        this.atualizarTabela();
+        this.baterPonto();
     }//GEN-LAST:event_JBaterPontoActionPerformed
 
     private void jCaixaIdentificacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCaixaIdentificacaoActionPerformed
@@ -181,7 +169,9 @@ public class PrincipalCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jSobreActionPerformed
 
     private void jCaixaIdentificacaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jCaixaIdentificacaoKeyPressed
-        // TODO add your handling code here:
+        if (evt.getKeyCode() == evt.VK_ENTER){  
+            this.baterPonto();
+        }  
     }//GEN-LAST:event_jCaixaIdentificacaoKeyPressed
 
     private void atualizarTabela() {
@@ -197,6 +187,23 @@ public class PrincipalCliente extends javax.swing.JFrame {
         jTablePonto.getColumnModel().getColumn(2).setMinWidth(170);
         jTablePonto.getColumnModel().getColumn(2).setMaxWidth(170);
         jTablePonto.getColumnModel().getColumn(2).setPreferredWidth(170);        
+    }
+    
+    private void baterPonto() {
+        try {
+            pontoC.baterPonto( Integer.parseInt(jCaixaIdentificacao.getText()) );
+            jCaixaIdentificacao.setText("");
+        }
+        catch(NumberFormatException e) {
+            Mensagem.erro(this, "Matricula inválida!");
+        }
+        catch(RuntimeException e) {
+            Mensagem.erro(this, e.getMessage(), "Falha ao bater bonto");
+        }
+        catch(Exception e) {
+            Mensagem.erro(this, "Erro desconhecido!\n" + e.getMessage(), "Falha ao bater bonto");
+        }
+        this.atualizarTabela();
     }
     
     /**

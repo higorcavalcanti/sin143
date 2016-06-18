@@ -100,19 +100,23 @@ public class Usuario {
     
     @Override
     public boolean equals(Object other) {
-       if (!(other instanceof Usuario))
-            return false;
-       
-        if (other == this)
-            return true;
+        
+        try {
+            if (!(other instanceof Usuario))
+                return false;
 
-        Usuario u = (Usuario) other;
-        return (
-            this.getMatricula() == u.getMatricula() &&
-            this.getUsername().equals( u.getUsername() ) &&
-            this.getEmail().equals( u.getEmail() ) &&
-            this.getPassword().equals( u.getPassword() )
-        );
+            if (other == this)
+                return true;
+
+            Usuario u = (Usuario) other;    
+
+            return (                
+                this.getMatricula() == u.getMatricula() &&
+                this.getUsername().equals( u.getUsername() ) 
+            );
+        } catch(Exception e) {
+            return false;
+        }
     }    
 
     @Override

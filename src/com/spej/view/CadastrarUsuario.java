@@ -377,11 +377,17 @@ public class CadastrarUsuario extends javax.swing.JDialog {
                 usuario.setNome( jTextNome.getText() );
                 usuario.setCargo( jTextCargo.getText() );
                 usuario.setDepartamento( d.getId() );
-                usuario.setUsername( jTextUsername.getText() );
-                usuario.setPassword( String.valueOf(jPasswordField1.getPassword()) );
                 usuario.setNascimento( new java.sql.Date(dateFormat.parse(jDataNascimento.getText()).getTime()) );
                 usuario.setEmail( jTextEmail.getText() );
                 usuario.setAdmin( jCheckAdministrador.isSelected() );
+                if(jCheckAdministrador.isSelected()) {
+                    usuario.setUsername( jTextUsername.getText() );
+                    usuario.setPassword( String.valueOf(jPasswordField1.getPassword()) );
+                } 
+                else {
+                    usuario.setUsername( null );
+                    usuario.setPassword( null );
+                }
 
                 if(this.criando) {
                     uc.insert(usuario);
