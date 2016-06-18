@@ -104,7 +104,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         }
         jDataNascimento = new javax.swing.JFormattedTextField(maskData);
         jTextMatricula = new javax.swing.JFormattedTextField();
-        jLabelCargo1 = new javax.swing.JLabel();
+        jCheckAdministrador = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -193,8 +193,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
             }
         });
 
-        jLabelCargo1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelCargo1.setText("Só preencha os campos abaixo para criar outros administradores.");
+        jCheckAdministrador.setText("Administrador");
 
         javax.swing.GroupLayout JPanelTelaLayout = new javax.swing.GroupLayout(JPanelTela);
         JPanelTela.setLayout(JPanelTelaLayout);
@@ -240,7 +239,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
                         .addContainerGap())
                     .addGroup(JPanelTelaLayout.createSequentialGroup()
                         .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelCargo1)
+                            .addComponent(jCheckAdministrador)
                             .addGroup(JPanelTelaLayout.createSequentialGroup()
                                 .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelUsuario)
@@ -285,8 +284,6 @@ public class CadastrarUsuario extends javax.swing.JDialog {
                         .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(13, 13, 13)
-                .addComponent(jLabelCargo1)
                 .addGap(18, 18, 18)
                 .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(JPanelTelaLayout.createSequentialGroup()
@@ -297,7 +294,9 @@ public class CadastrarUsuario extends javax.swing.JDialog {
                         .addComponent(jLabelUsuario1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
+                .addComponent(jCheckAdministrador)
+                .addGap(17, 17, 17)
                 .addComponent(jBotaoAcao, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(32, Short.MAX_VALUE))
         );
@@ -405,13 +404,13 @@ public class CadastrarUsuario extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanelTela;
     private javax.swing.JButton jBotaoAcao;
+    private javax.swing.JCheckBox jCheckAdministrador;
     private javax.swing.JComboBox<DepartamentoComboBoxModel> jComboDepartamento;
     private javax.swing.JFormattedTextField jDataNascimento;
     private javax.swing.JLabel jLabeNomeCompleto;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelCadastroFuncionarioTitulo;
     private javax.swing.JLabel jLabelCargo;
-    private javax.swing.JLabel jLabelCargo1;
     private javax.swing.JLabel jLabelDataNascimento;
     private javax.swing.JLabel jLabelDepartamento;
     private javax.swing.JLabel jLabelEmail;
