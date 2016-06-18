@@ -50,7 +50,7 @@ public class UsuarioDao extends Dao<Usuario> {
     public boolean update(Usuario antigo, Usuario novo) {
         String sql = "UPDATE Usuarios " +
                     "SET matricula = ?, nome = ?, departamento = ?, cargo = ?, " +
-                        "username = ?, password = ?, nascimento = ?, email = ?, admin = ?" +
+                        "username = ?, password = ?, nascimento = ?, email = ?, admin = ? " +
                     "WHERE matricula = ?";
         try {
             // prepared statement para inserção

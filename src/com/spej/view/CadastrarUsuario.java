@@ -352,7 +352,18 @@ public class CadastrarUsuario extends javax.swing.JDialog {
             Mensagem.aviso(this, "O campo cargo é obrigatório!", "Aviso");
         }else if (jComboDepartamento.getSelectedItem() == null) {
             Mensagem.aviso(this, "O campo departamento é obrigatório!", "Aviso");
-        } else {
+        } 
+        else if( jCheckAdministrador.isSelected() ) 
+        {            
+            if (jTextUsername.getText().length() == 0) {
+                Mensagem.aviso(this, "O campo usuario é obrigatório!", "Aviso");
+            }
+            else if (jPasswordField1.getText().length() == 0) {
+                Mensagem.aviso(this, "O campo senha é obrigatório!", "Aviso");
+            }
+        }
+        else{
+            
             UsuarioController uc = new UsuarioController();
             Usuario usuario = new Usuario();
 
