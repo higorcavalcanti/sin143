@@ -41,7 +41,7 @@ public class DepartamentoDao extends Dao<Departamento> {
             return true;
         } 
         catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Falha ao inserir departamento!\nMensagem:\n" + e.getMessage());
         }
     }
 
@@ -67,9 +67,8 @@ public class DepartamentoDao extends Dao<Departamento> {
             return true;
         }
         catch(Exception e) {
-            
+            throw new RuntimeException("Falha ao atualizar departamento!\nMensagem:\n" + e.getMessage());
         }
-        return false;    
     }
 
     @Override
@@ -90,9 +89,8 @@ public class DepartamentoDao extends Dao<Departamento> {
             return true;
         }
         catch(Exception e) {
-            
+            throw new RuntimeException("Falha ao deletar departamento!\nMensagem:\n" + e.getMessage());
         }
-        return false;        
     }
 
     @Override

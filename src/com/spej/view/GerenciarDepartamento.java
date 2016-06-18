@@ -180,10 +180,12 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
         DepartamentoController dc = new DepartamentoController();
         Departamento dep = new Departamento();
         
-        dep.setNome( this.inputGetNome(null) );
-        dc.insert(dep);
-        
-        this.atualizarTabela();
+        String nome = this.inputGetNome(null);
+        if(nome != null) {
+            dep.setNome( nome );
+            dc.insert(dep);        
+            this.atualizarTabela();
+        }
     }//GEN-LAST:event_jBotaoNovoActionPerformed
 
     private void jTextNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNomeActionPerformed
@@ -231,8 +233,10 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
     }
     
     private String inputGetNome(Departamento d) {
-        String nome = (d != null ? d.getNome() : "");
-        return JOptionPane.showInputDialog(this, "Digite o nome do departamento", nome);
+        return JOptionPane.showInputDialog(this, 
+            "Digite o nome do departamento", 
+            (d != null ? d.getNome() : "")
+        );
     }
     
     private void editarDepartamento() {
@@ -242,10 +246,13 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
         
         DepartamentoController dc = new DepartamentoController();
         
-        d.setNome( this.inputGetNome(d) );        
-        dc.update(d);
-        
-        this.atualizarTabela();
+        String nome = this.inputGetNome(d);
+        if(nome != null) {
+            d.setNome( nome );
+            dc.update(d);
+            
+            this.atualizarTabela();
+        }
     }
 
     

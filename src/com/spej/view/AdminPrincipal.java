@@ -59,7 +59,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jMenuDepartamentos = new javax.swing.JMenu();
         jMenuGerenciarDepartamentos = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
-        jMenuCadastrarDepartamento = new javax.swing.JMenuItem();
         jMenuRelatorio = new javax.swing.JMenu();
         jMenuSubRelatorioFuncionarios = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
@@ -270,14 +269,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jMenuDepartamentos.add(jMenuGerenciarDepartamentos);
         jMenuDepartamentos.add(jSeparator3);
 
-        jMenuCadastrarDepartamento.setText("Cadastrar Departamento");
-        jMenuCadastrarDepartamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuCadastrarDepartamentoActionPerformed(evt);
-            }
-        });
-        jMenuDepartamentos.add(jMenuCadastrarDepartamento);
-
         jMenuBar1.add(jMenuDepartamentos);
 
         jMenuRelatorio.setText("Relatórios");
@@ -436,10 +427,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
         new GerenciarUsuario().setVisible(true);
     }//GEN-LAST:event_jBotaoGerenciarUsuarioActionPerformed
 
-    private void jMenuCadastrarDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadastrarDepartamentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuCadastrarDepartamentoActionPerformed
-
     private void jMenuGerenciarDepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuGerenciarDepartamentosActionPerformed
         new GerenciarDepartamento(this, true).setVisible(true);
     }//GEN-LAST:event_jMenuGerenciarDepartamentosActionPerformed
@@ -492,7 +479,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuAjuda;
     private javax.swing.JMenu jMenuArquivos;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuCadastrarDepartamento;
     private javax.swing.JMenu jMenuDepartamentos;
     private javax.swing.JMenu jMenuFuncionario;
     private javax.swing.JMenuItem jMenuGerenciarDepartamentos;
