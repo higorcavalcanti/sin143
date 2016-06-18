@@ -5,6 +5,7 @@
  */
 package com.spej.view;
 
+
 /**
  *
  * @author Daniel
@@ -15,7 +16,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
      * Creates new form AdminPrincipal
      */
     public AdminPrincipal() {
-        //setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        setExtendedState(MAXIMIZED_BOTH);
         initComponents();
         setLocationRelativeTo( null ); // Centralizar a tela no meio
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE); // FEchar somente uma tela, não o programa todo

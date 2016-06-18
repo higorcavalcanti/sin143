@@ -89,7 +89,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         jTextCargo = new javax.swing.JTextField();
         jLabelCargo = new javax.swing.JLabel();
         jLabelDepartamento = new javax.swing.JLabel();
-        jComboDepartamento = new javax.swing.JComboBox<DepartamentoComboBoxModel>();
+        jComboDepartamento = new javax.swing.JComboBox<>();
         jBotaoAcao = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabelUsuario = new javax.swing.JLabel();
@@ -104,6 +104,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         }
         jDataNascimento = new javax.swing.JFormattedTextField(maskData);
         jTextMatricula = new javax.swing.JFormattedTextField();
+        jLabelCargo1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -192,10 +193,17 @@ public class CadastrarUsuario extends javax.swing.JDialog {
             }
         });
 
+        jLabelCargo1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelCargo1.setText("Só preencha os campos abaixo para criar outros administradores.");
+
         javax.swing.GroupLayout JPanelTelaLayout = new javax.swing.GroupLayout(JPanelTela);
         JPanelTela.setLayout(JPanelTelaLayout);
         JPanelTelaLayout.setHorizontalGroup(
             JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanelTelaLayout.createSequentialGroup()
+                .addGap(215, 215, 215)
+                .addComponent(jLabelCadastroFuncionarioTitulo)
+                .addGap(0, 354, Short.MAX_VALUE))
             .addGroup(JPanelTelaLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,37 +221,36 @@ public class CadastrarUsuario extends javax.swing.JDialog {
                                 .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelEmail))
+                                    .addComponent(jLabelEmail)
+                                    .addGroup(JPanelTelaLayout.createSequentialGroup()
+                                        .addGap(91, 91, 91)
+                                        .addComponent(jLabelDepartamento)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(27, 27, 27))))
                     .addGroup(JPanelTelaLayout.createSequentialGroup()
-                        .addComponent(jLabelDataNascimento)
+                        .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelDataNascimento)
+                            .addGroup(JPanelTelaLayout.createSequentialGroup()
+                                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelCargo)
+                                    .addComponent(jTextCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(14, 14, 14)
+                                .addComponent(jComboDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())
                     .addGroup(JPanelTelaLayout.createSequentialGroup()
                         .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelCargo)
-                            .addComponent(jTextCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelUsuario)
-                            .addComponent(jTextUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelCargo1)
                             .addGroup(JPanelTelaLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabelDepartamento)
-                                .addGap(0, 431, Short.MAX_VALUE))
-                            .addGroup(JPanelTelaLayout.createSequentialGroup()
+                                .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelUsuario)
+                                    .addComponent(jTextUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(14, 14, 14)
                                 .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabelUsuario1, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jComboDepartamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jBotaoAcao, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-            .addGroup(JPanelTelaLayout.createSequentialGroup()
-                .addGap(215, 215, 215)
-                .addComponent(jLabelCadastroFuncionarioTitulo)
-                .addGap(0, 354, Short.MAX_VALUE))
+                                    .addComponent(jBotaoAcao, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelUsuario1, javax.swing.GroupLayout.Alignment.LEADING))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         JPanelTelaLayout.setVerticalGroup(
             JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,6 +285,8 @@ public class CadastrarUsuario extends javax.swing.JDialog {
                         .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(13, 13, 13)
+                .addComponent(jLabelCargo1)
                 .addGap(18, 18, 18)
                 .addGroup(JPanelTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(JPanelTelaLayout.createSequentialGroup()
@@ -287,10 +296,10 @@ public class CadastrarUsuario extends javax.swing.JDialog {
                     .addGroup(JPanelTelaLayout.createSequentialGroup()
                         .addComponent(jLabelUsuario1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPasswordField1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(28, 28, 28)
                 .addComponent(jBotaoAcao, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -301,9 +310,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(JPanelTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(JPanelTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -340,11 +347,11 @@ public class CadastrarUsuario extends javax.swing.JDialog {
             Mensagem.aviso(this, "O campo cargo é obrigatório!", "Aviso");
         }else if (jComboDepartamento.getSelectedItem() == null) {
             Mensagem.aviso(this, "O campo departamento é obrigatório!", "Aviso");
-        }else if (jTextUsername.getText().length() == 0) {
+        /*}else if (jTextUsername.getText().length() == 0) {
             Mensagem.aviso(this, "O campo usuario é obrigatório!", "Aviso");
         }else if (jPasswordField1.getText().length() == 0) {
             Mensagem.aviso(this, "O campo senha é obrigatório!", "Aviso");
-        }else{
+        */}else{
             UsuarioController uc = new UsuarioController();
             Usuario usuario = new Usuario();
 
@@ -443,6 +450,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelCadastroFuncionarioTitulo;
     private javax.swing.JLabel jLabelCargo;
+    private javax.swing.JLabel jLabelCargo1;
     private javax.swing.JLabel jLabelDataNascimento;
     private javax.swing.JLabel jLabelDepartamento;
     private javax.swing.JLabel jLabelEmail;

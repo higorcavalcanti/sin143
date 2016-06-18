@@ -34,10 +34,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="JPanelTela" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
+          <Component id="JPanelTela" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -52,6 +49,11 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
+                  <Component id="jLabelCadastroFuncionarioTitulo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="354" max="32767" attributes="0"/>
+              </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -72,6 +74,10 @@
                                       <Component id="jTextNome" min="-2" pref="392" max="-2" attributes="0"/>
                                       <Component id="jTextEmail" min="-2" pref="392" max="-2" attributes="0"/>
                                       <Component id="jLabelEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                                          <Component id="jLabelDepartamento" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="jLabel2" min="-2" pref="148" max="-2" attributes="0"/>
@@ -80,42 +86,38 @@
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Component id="jLabelDataNascimento" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabelDataNascimento" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabelCargo" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextCargo" min="-2" pref="217" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                  <Component id="jComboDepartamento" min="-2" pref="301" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabelCargo" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextCargo" min="-2" pref="217" max="-2" attributes="0"/>
-                              <Component id="jLabelUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextUsername" alignment="0" min="-2" pref="217" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabelDepartamento" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="431" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelCargo1" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabelUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextUsername" alignment="0" min="-2" pref="217" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="jPasswordField1" alignment="1" min="-2" pref="301" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jLabelUsuario1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboDepartamento" alignment="0" min="-2" pref="301" max="-2" attributes="0"/>
-                                      </Group>
                                       <Component id="jBotaoAcao" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="jLabelUsuario1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
-                  <Component id="jLabelCadastroFuncionarioTitulo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="354" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -160,22 +162,24 @@
                           </Group>
                       </Group>
                   </Group>
+                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                  <Component id="jLabelCargo1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabelUsuario" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jTextUsername" min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabelUsuario1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPasswordField1" max="32767" attributes="0"/>
+                          <Component id="jPasswordField1" min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="35" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="jBotaoAcao" min="-2" pref="33" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace pref="32" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -320,6 +324,14 @@
           <Events>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextMatriculaKeyTyped"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelCargo1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="S&#xf3; preencha os campos abaixo para criar outros administradores."/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
