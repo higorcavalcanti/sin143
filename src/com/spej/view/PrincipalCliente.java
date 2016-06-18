@@ -63,6 +63,11 @@ public class PrincipalCliente extends javax.swing.JFrame {
                 jCaixaIdentificacaoActionPerformed(evt);
             }
         });
+        jCaixaIdentificacao.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jCaixaIdentificacaoKeyPressed(evt);
+            }
+        });
 
         JBaterPonto.setText("Bater Ponto");
         JBaterPonto.addActionListener(new java.awt.event.ActionListener() {
@@ -174,6 +179,10 @@ public class PrincipalCliente extends javax.swing.JFrame {
     private void jSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSobreActionPerformed
         new SobreAjuda(this, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_jSobreActionPerformed
+
+    private void jCaixaIdentificacaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jCaixaIdentificacaoKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCaixaIdentificacaoKeyPressed
 
     private void atualizarTabela() {
         jTablePonto.setModel( new com.spej.model.PontoTableModel() );

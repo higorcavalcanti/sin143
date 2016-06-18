@@ -42,7 +42,7 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelLogin = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jTexto = new javax.swing.JLabel();
         jTextUsuario = new javax.swing.JTextField();
         jLabelUsuario = new javax.swing.JLabel();
         jLabelSenha = new javax.swing.JLabel();
@@ -55,8 +55,8 @@ public class Login extends javax.swing.JFrame {
 
         jPanelLogin.setBackground(new java.awt.Color(238, 238, 238));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Administração do sistema");
+        jTexto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jTexto.setText("Administração do sistema");
 
         jTextUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,8 +77,13 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLogomarca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/logo_login.png"))); // NOI18N
+        jLogomarca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/logo.png"))); // NOI18N
 
+        jTextSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextSenhaActionPerformed(evt);
+            }
+        });
         jTextSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextSenhaKeyPressed(evt);
@@ -95,42 +100,41 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(jPanelLoginLayout.createSequentialGroup()
                         .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelUsuario)
-                            .addComponent(jBotaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jBotaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanelLoginLayout.createSequentialGroup()
-                        .addComponent(jLabelSenha)
+                        .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelSenha)
+                            .addComponent(jTextSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLogomarca)
-                        .addGap(83, 83, 83))
-                    .addGroup(jPanelLoginLayout.createSequentialGroup()
-                        .addComponent(jTextSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(79, 79, 79))))
             .addGroup(jPanelLoginLayout.createSequentialGroup()
                 .addGap(188, 188, 188)
-                .addComponent(jLabel1)
+                .addComponent(jTexto)
                 .addContainerGap(201, Short.MAX_VALUE))
         );
         jPanelLoginLayout.setVerticalGroup(
             jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLoginLayout.createSequentialGroup()
-                .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanelLoginLayout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLogomarca))
+                .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelLoginLayout.createSequentialGroup()
                         .addGap(147, 147, 147)
                         .addComponent(jLabelUsuario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16)
-                        .addComponent(jLabelSenha)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jBotaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelSenha)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBotaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLoginLayout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(jTexto)
+                        .addGap(77, 77, 77)
+                        .addComponent(jLogomarca)))
                 .addContainerGap(150, Short.MAX_VALUE))
         );
 
@@ -162,15 +166,19 @@ public class Login extends javax.swing.JFrame {
         }  
     }//GEN-LAST:event_jTextSenhaKeyPressed
 
+    private void jTextSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextSenhaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBotaoEntrar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelSenha;
     private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JLabel jLogomarca;
     private javax.swing.JPanel jPanelLogin;
     private javax.swing.JPasswordField jTextSenha;
     private javax.swing.JTextField jTextUsuario;
+    private javax.swing.JLabel jTexto;
     // End of variables declaration//GEN-END:variables
 }
