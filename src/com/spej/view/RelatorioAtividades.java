@@ -5,16 +5,24 @@
  */
 package com.spej.view;
 
+import com.spej.model.Usuario;
+
 /**
  *
  * @author Daniel
  */
 public class RelatorioAtividades extends javax.swing.JDialog {
 
+    private Usuario user;
+    
     /**
      * Creates new form RelatorioAtividades
+     * @param u
      */
-    public RelatorioAtividades() {
+    public RelatorioAtividades(Usuario user) {
+        
+        this.user = user;
+        
         initComponents();
         setLocationRelativeTo( null ); // Centralizar a tela no meio
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE); // FEchar somente uma tela, não o programa todo
@@ -38,6 +46,7 @@ public class RelatorioAtividades extends javax.swing.JDialog {
         jLabelObservacoes = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextAreaObservacao = new javax.swing.JTextArea();
+        jLabelUsuario = new javax.swing.JLabel();
         jBotaoEnviar = new javax.swing.JButton();
         jBotaoLimpar = new javax.swing.JButton();
 
@@ -69,6 +78,9 @@ public class RelatorioAtividades extends javax.swing.JDialog {
         jTextAreaObservacao.setRows(5);
         jScrollPane2.setViewportView(jTextAreaObservacao);
 
+        jLabelUsuario.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabelUsuario.setText("Nome do Usuário");
+
         javax.swing.GroupLayout jPainelRelatorioAtividadesLayout = new javax.swing.GroupLayout(jPainelRelatorioAtividades);
         jPainelRelatorioAtividades.setLayout(jPainelRelatorioAtividadesLayout);
         jPainelRelatorioAtividadesLayout.setHorizontalGroup(
@@ -76,6 +88,7 @@ public class RelatorioAtividades extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPainelRelatorioAtividadesLayout.createSequentialGroup()
                 .addContainerGap(50, Short.MAX_VALUE)
                 .addGroup(jPainelRelatorioAtividadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelUsuario)
                     .addComponent(jlLabelTituloRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelMensagemSubtitulo)
                     .addComponent(jLabelDescricao)
@@ -91,8 +104,10 @@ public class RelatorioAtividades extends javax.swing.JDialog {
                 .addGap(32, 32, 32)
                 .addComponent(jlLabelTituloRelatorio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelMensagemSubtitulo)
+                .addComponent(jLabelUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelMensagemSubtitulo)
+                .addGap(18, 18, 18)
                 .addComponent(jLabelDescricao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -153,47 +168,13 @@ public class RelatorioAtividades extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBotaoLimparActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RelatorioAtividades.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RelatorioAtividades.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RelatorioAtividades.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RelatorioAtividades.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RelatorioAtividades().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBotaoEnviar;
     private javax.swing.JButton jBotaoLimpar;
     private javax.swing.JLabel jLabelDescricao;
     private javax.swing.JLabel jLabelMensagemSubtitulo;
     private javax.swing.JLabel jLabelObservacoes;
+    private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JPanel jPainelRelatorioAtividades;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
