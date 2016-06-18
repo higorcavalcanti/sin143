@@ -6,10 +6,10 @@
 package com.spej.dao;
 
 import com.spej.model.Departamento;
-import com.spej.view.Mensagem;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -48,7 +48,7 @@ public class DepartamentoDao extends Dao<Departamento> {
     @Override
     public boolean update(Departamento antigo, Departamento novo) {
         String sql = "UPDATE Departamentos " +
-                    "SET id = ? nome = ?" +
+                    "SET id = ?, nome = ?" +
                     "WHERE id = ?";
         try {
             // prepared statement para inserção
@@ -74,7 +74,7 @@ public class DepartamentoDao extends Dao<Departamento> {
 
     @Override
     public boolean delete(Departamento deletar) {
-        String sql = "DELETE FROM Usuarios " +
+        String sql = "DELETE FROM Departamentos " +
                     "WHERE id = ?";
         try {
             // prepared statement para inserção
@@ -122,4 +122,16 @@ public class DepartamentoDao extends Dao<Departamento> {
             throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
         }
     }
+    
+    public ArrayList<Departamento> find(String name) {
+        String sql = "SELECT * FROM Departamentos WHERE nome LIKE ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, "%" + name + "%");
+            return this.getListByPreparedStatement(stmt);
+        }
+        catch(SQLException e) {
+            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
+        }
+    }        
 }

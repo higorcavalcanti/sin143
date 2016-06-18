@@ -205,7 +205,7 @@ public class GerenciarUsuario extends javax.swing.JDialog {
 
     private void jBotaoNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoNovoActionPerformed
         new CadastrarUsuario().setVisible(true);
-        jTableUsuarios.setModel( new com.spej.model.UsuarioTableModel() );
+        this.atualizarTabela();
     }//GEN-LAST:event_jBotaoNovoActionPerformed
 
     private void jBotaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoEditarActionPerformed
@@ -226,7 +226,7 @@ public class GerenciarUsuario extends javax.swing.JDialog {
             UsuarioController uc = new UsuarioController();
             uc.delete(u);
         }        
-        jTableUsuarios.setModel( new com.spej.model.UsuarioTableModel() );
+        this.atualizarTabela();
     }//GEN-LAST:event_jBotaoExcluirActionPerformed
 
     private void jBotaoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoBuscarActionPerformed
@@ -257,6 +257,10 @@ public class GerenciarUsuario extends javax.swing.JDialog {
         Usuario u = ut.getRowObject( jTableUsuarios.getSelectedRow() );
 
         new CadastrarUsuario(u).setVisible(true);        
+        this.atualizarTabela();
+    }
+    
+    private void atualizarTabela() {
         jTableUsuarios.setModel( new com.spej.model.UsuarioTableModel() );
     }
     

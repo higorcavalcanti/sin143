@@ -1,6 +1,9 @@
 package com.spej.view;
 
-import javax.swing.ListSelectionModel;
+import com.spej.controller.DepartamentoController;
+import com.spej.model.Departamento;
+import com.spej.model.DepartamentoTableModel;
+import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -29,53 +32,55 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
 
         jPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextCodigo = new javax.swing.JTextField();
         jTextNome = new javax.swing.JTextField();
         jLabelNome = new javax.swing.JLabel();
-        jLabeCadigo = new javax.swing.JLabel();
         jTb1 = new javax.swing.JScrollPane();
         jTableDepartamentos = new javax.swing.JTable();
         jBotaoNovo = new javax.swing.JButton();
         jBotaoEditar = new javax.swing.JButton();
         jBotaoExcluir = new javax.swing.JButton();
-        jBotaoSalvar = new javax.swing.JButton();
+        jBotaoBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setText("Gerenciar Departamento");
-
-        jTextCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextCodigoActionPerformed(evt);
-            }
-        });
+        jLabel2.setText("Gerenciar Departamentos");
 
         jTextNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextNomeActionPerformed(evt);
             }
         });
+        jTextNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextNomeKeyTyped(evt);
+            }
+        });
 
         jLabelNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelNome.setText("Nome");
-
-        jLabeCadigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabeCadigo.setText("Código");
 
         jTableDepartamentos.setAutoCreateRowSorter(true);
         jTableDepartamentos.setModel( new com.spej.model.DepartamentoTableModel() );
         jTableDepartamentos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
         jTableDepartamentos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jTb1.setViewportView(jTableDepartamentos);
-        /*
-        jTableDepartamentos.getColumnModel().getColumn(0).setWidth(10);
-        jTableDepartamentos.getSelectionModel().addListSelectionListener( new ListSelectionListener() {
-            public void valueChanged(ListSelectionEvent e) {
-                jTableDepartamentoOnSelect(e);
+        jTableDepartamentos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableDepartamentosMouseClicked(evt);
             }
         });
-        */
+        jTb1.setViewportView(jTableDepartamentos);
+        jTableDepartamentos.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+            public void valueChanged(ListSelectionEvent event) {
+                if(jTableDepartamentos.getSelectedRowCount() == 1) {
+                    jBotaoEditar.setEnabled(true);
+                    jBotaoExcluir.setEnabled(true);
+                } else {
+                    jBotaoEditar.setEnabled(false);
+                    jBotaoExcluir.setEnabled(false);
+                }
+            }
+        });
 
         jBotaoNovo.setText("Novo");
         jBotaoNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -86,43 +91,49 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
 
         jBotaoEditar.setText("Editar");
         jBotaoEditar.setEnabled(false);
+        jBotaoEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotaoEditarActionPerformed(evt);
+            }
+        });
 
         jBotaoExcluir.setText("Excluir");
         jBotaoExcluir.setEnabled(false);
+        jBotaoExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotaoExcluirActionPerformed(evt);
+            }
+        });
 
-        jBotaoSalvar.setText("Salvar");
-        jBotaoSalvar.setEnabled(false);
+        jBotaoBuscar.setText("Buscar");
+        jBotaoBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotaoBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
         jPanel.setLayout(jPanelLayout);
         jPanelLayout.setHorizontalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLayout.createSequentialGroup()
-                .addContainerGap(134, Short.MAX_VALUE)
-                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
-                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTb1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanelLayout.createSequentialGroup()
-                                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabeCadigo)
-                                    .addComponent(jTextCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelNome)
-                                    .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanelLayout.createSequentialGroup()
-                                .addComponent(jBotaoNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jBotaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jBotaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jBotaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(96, 96, 96))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(189, 189, 189))))
+                .addContainerGap(52, Short.MAX_VALUE)
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jTb1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabelNome, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelLayout.createSequentialGroup()
+                        .addComponent(jBotaoNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBotaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBotaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelLayout.createSequentialGroup()
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBotaoBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)))
+                .addGap(39, 39, 39))
         );
         jPanelLayout.setVerticalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,21 +141,18 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
                 .addGap(34, 34, 34)
                 .addComponent(jLabel2)
                 .addGap(32, 32, 32)
-                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabeCadigo)
-                    .addComponent(jLabelNome))
+                .addComponent(jLabelNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextCodigo)
-                    .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBotaoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTb1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBotaoNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBotaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBotaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBotaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBotaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
@@ -154,48 +162,92 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(36, 36, 36))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextCodigoActionPerformed
-
     private void jBotaoNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoNovoActionPerformed
-        // TODO add your handling code here:
+        DepartamentoController dc = new DepartamentoController();
+        Departamento dep = new Departamento();
+        
+        dep.setNome( this.inputGetNome(null) );
+        dc.insert(dep);
+        
+        this.atualizarTabela();
     }//GEN-LAST:event_jBotaoNovoActionPerformed
 
     private void jTextNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextNomeActionPerformed
-    
-    
-    /*
-    private void jTableDepartamentoOnSelect(ListSelectionEvent e) {
-        String selectedData = null;
 
-        int[] selectedRow = jTableDepartamentos.getSelectedRows();
-        int[] selectedColumns = jTableDepartamentos.getSelectedColumns();
+    private void jBotaoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoBuscarActionPerformed
+        jTableDepartamentos.setModel( new com.spej.model.DepartamentoTableModel( jTextNome.getText() ) );
+    }//GEN-LAST:event_jBotaoBuscarActionPerformed
 
-        for (int i = 0; i < selectedRow.length; i++) {
-          for (int j = 0; j < selectedColumns.length; j++) {
-            selectedData = (String) jTableDepartamentos.getValueAt(selectedRow[i], selectedColumns[j]);
-          }
+    private void jBotaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoEditarActionPerformed
+        this.editarDepartamento();
+    }//GEN-LAST:event_jBotaoEditarActionPerformed
+
+    private void jBotaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoExcluirActionPerformed
+        DepartamentoTableModel dt = (DepartamentoTableModel) jTableDepartamentos.getModel();
+        Departamento d = dt.getRowObject( jTableDepartamentos.getSelectedRow() );
+        
+        int dialogResult = JOptionPane.showConfirmDialog (this, 
+                "Tem certeza que deseja deletar o departamento '" + d + "'?",
+                "Aviso", 
+                JOptionPane.YES_NO_OPTION
+        );
+        
+        if( dialogResult == JOptionPane.YES_OPTION) {
+            DepartamentoController dc = new DepartamentoController();
+            dc.delete(d);
+        }        
+        this.atualizarTabela();
+    }//GEN-LAST:event_jBotaoExcluirActionPerformed
+
+    private void jTextNomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextNomeKeyTyped
+        jTableDepartamentos.setModel( new com.spej.model.DepartamentoTableModel( jTextNome.getText() ) );
+    }//GEN-LAST:event_jTextNomeKeyTyped
+
+    private void jTableDepartamentosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableDepartamentosMouseClicked
+        if (evt.getClickCount() == 2) {
+            this.editarDepartamento();
         }
-        System.out.println("Selected: " + selectedData);        
+    }//GEN-LAST:event_jTableDepartamentosMouseClicked
+
+    
+    private void atualizarTabela() {
+        jTableDepartamentos.setModel( new com.spej.model.DepartamentoTableModel() );
     }
-    */
+    
+    private String inputGetNome(Departamento d) {
+        String nome = (d != null ? d.getNome() : "");
+        return JOptionPane.showInputDialog(this, "Digite o nome do departamento", nome);
+    }
+    
+    private void editarDepartamento() {
+        
+        DepartamentoTableModel dt = (DepartamentoTableModel) jTableDepartamentos.getModel();
+        Departamento d = dt.getRowObject( jTableDepartamentos.getSelectedRow() );
+        
+        DepartamentoController dc = new DepartamentoController();
+        
+        d.setNome( this.inputGetNome(d) );        
+        dc.update(d);
+        
+        this.atualizarTabela();
+    }
+
     
     /**
      * @param args the command line arguments
@@ -240,17 +292,15 @@ public class GerenciarDepartamento extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBotaoBuscar;
     private javax.swing.JButton jBotaoEditar;
     private javax.swing.JButton jBotaoExcluir;
     private javax.swing.JButton jBotaoNovo;
-    private javax.swing.JButton jBotaoSalvar;
-    private javax.swing.JLabel jLabeCadigo;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JPanel jPanel;
     private javax.swing.JTable jTableDepartamentos;
     private javax.swing.JScrollPane jTb1;
-    private javax.swing.JTextField jTextCodigo;
     private javax.swing.JTextField jTextNome;
     // End of variables declaration//GEN-END:variables
 }

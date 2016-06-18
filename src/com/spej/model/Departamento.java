@@ -39,6 +39,6 @@ public class Departamento {
     
     @Override
     public String toString() {
-        return this.getId() + " - " + this.getNome();
+        return this.getNome();
     }
 }

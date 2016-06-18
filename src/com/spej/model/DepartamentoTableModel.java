@@ -17,6 +17,9 @@ public class DepartamentoTableModel extends AbstractTableModel {
 
     private ArrayList<Departamento> deps;
     
+    public DepartamentoTableModel(String nome) {
+        this( new DepartamentoDao().find(nome) );
+    } 
     public DepartamentoTableModel() {
         this( new DepartamentoDao().getAll() );
     }
@@ -31,14 +34,15 @@ public class DepartamentoTableModel extends AbstractTableModel {
     }
     @Override
     public int getColumnCount() {
-        return 2;
+        return 1;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         try {
-            if(columnIndex == 0) return this.deps.get(rowIndex).getId();
-            else if(columnIndex == 1) return this.deps.get(rowIndex).getNome();
+            //if(columnIndex == 0) return this.deps.get(rowIndex).getId();
+            //else if(columnIndex == 1) return this.deps.get(rowIndex).getNome();
+            return this.deps.get(rowIndex).getNome();
         } 
         catch(IndexOutOfBoundsException e) {            
         }
@@ -47,8 +51,9 @@ public class DepartamentoTableModel extends AbstractTableModel {
     
     @Override
     public String getColumnName(int column) {
-        if(column == 0) return "ID";
-        else return "Nome";
+        //if(column == 0) return "ID";
+        //else return "Nome";
+        return "Nome";
     }
     
     
@@ -57,7 +62,7 @@ public class DepartamentoTableModel extends AbstractTableModel {
         return false; 
     }  
     
-    public Departamento getRow(int rowIndex) {
+    public Departamento getRowObject(int rowIndex) {
         try {
             return this.deps.get(rowIndex);
         } 
