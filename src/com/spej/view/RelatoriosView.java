@@ -5,6 +5,9 @@
  */
 package com.spej.view;
 
+import java.text.ParseException;
+import javax.swing.text.MaskFormatter;
+
 /**
  *
  * @author Daniel
@@ -47,10 +50,16 @@ public class RelatoriosView extends javax.swing.JDialog {
         jList4 = new javax.swing.JList();
         jPanelDatas = new javax.swing.JPanel();
         jLabelInicial = new javax.swing.JLabel();
-        jTextDataInicial = new javax.swing.JTextField();
         jLabelFinal = new javax.swing.JLabel();
-        jTextDataFinal = new javax.swing.JTextField();
         jLabelPeriodo = new javax.swing.JLabel();
+        MaskFormatter maskData = null;
+        try {
+            maskData = new MaskFormatter("##/##/####");
+            maskData.setPlaceholderCharacter('_');
+        } catch(ParseException e) {
+        }
+        jDataInicial = new javax.swing.JFormattedTextField(maskData);
+        jDataFinal = new javax.swing.JFormattedTextField(maskData);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Relatórios do Sistema");
@@ -189,17 +198,18 @@ public class RelatoriosView extends javax.swing.JDialog {
                     .addGroup(jPanelDatasLayout.createSequentialGroup()
                         .addGroup(jPanelDatasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelInicial)
-                            .addComponent(jTextDataInicial))
-                        .addGap(18, 18, 18)
+                            .addComponent(jDataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
                         .addGroup(jPanelDatasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelDatasLayout.createSequentialGroup()
                                 .addComponent(jLabelFinal)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jTextDataFinal)))
+                            .addGroup(jPanelDatasLayout.createSequentialGroup()
+                                .addComponent(jDataFinal)
+                                .addContainerGap())))
                     .addGroup(jPanelDatasLayout.createSequentialGroup()
                         .addComponent(jLabelPeriodo)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanelDatasLayout.setVerticalGroup(
             jPanelDatasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,12 +219,12 @@ public class RelatoriosView extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelDatasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelInicial)
-                    .addComponent(jLabelFinal))
+                    .addComponent(jLabelFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDatasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextDataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextDataFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jDataFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
@@ -333,6 +343,8 @@ public class RelatoriosView extends javax.swing.JDialog {
     private javax.swing.JButton jBotaoAtividades;
     private javax.swing.JButton jBotaoCompleto;
     private javax.swing.JButton jBotaoPresenca;
+    private javax.swing.JFormattedTextField jDataFinal;
+    private javax.swing.JFormattedTextField jDataInicial;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelFinal;
@@ -348,7 +360,5 @@ public class RelatoriosView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanelUsuario;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextField jTextDataFinal;
-    private javax.swing.JTextField jTextDataInicial;
     // End of variables declaration//GEN-END:variables
 }
