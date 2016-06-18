@@ -37,6 +37,7 @@ public class SobreAjuda extends javax.swing.JDialog {
         Fundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/sobreSpej.png"))); // NOI18N
 

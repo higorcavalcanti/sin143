@@ -122,30 +122,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuSubRelatorioFuncionariosActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator3">
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuSubRelatorioControleHoras">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuSubRelatorios">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Controle de Horas"/>
+                <Property name="text" type="java.lang.String" value="Outros relat&#xf3;rios"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuSubRelatorioControleHorasActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuSubRelatorioPresencaUsuario">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Presen&#xe7;a de Usu&#xe1;rios"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuSubRelatorioPresencaUsuarioActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuSubRelatorioControleAtividades">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Controle de Atividades"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuSubRelatorioControleAtividadesActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuSubRelatoriosActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -280,7 +262,7 @@
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/com/spej/imagem/consultas.png"/>
+              <Image iconType="3" name="/com/spej/imagem/usersRelatorio.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Relatorio de Usuarios"/>
             <Property name="borderPainted" type="boolean" value="false"/>
@@ -307,7 +289,7 @@
         <Component class="javax.swing.JButton" name="jFiltroRelatorio">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/com/spej/imagem/atividades.png"/>
+              <Image iconType="3" name="/com/spej/imagem/consultas.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Relatorio de Controle de Atividades"/>
             <Property name="borderPainted" type="boolean" value="false"/>

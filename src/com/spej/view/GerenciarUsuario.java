@@ -5,9 +5,7 @@
  */
 package com.spej.view;
 
-import com.spej.controller.PontoController;
 import java.awt.Color;
-import java.awt.Dialog;
 
 /**
  *
@@ -22,10 +20,7 @@ public class GerenciarUsuario extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo( null ); // Centralizar a tela no meio
         getContentPane().setBackground(new Color(238,238,238));
-        setar();
-    }
-    
-    public void setar(){
+        
         jBotaoEditar.setEnabled(false);
         jBotaoExcluir.setEnabled(false);
     }
@@ -55,6 +50,7 @@ public class GerenciarUsuario extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(238, 238, 238));
+        setModal(true);
         setResizable(false);
         setType(java.awt.Window.Type.UTILITY);
 

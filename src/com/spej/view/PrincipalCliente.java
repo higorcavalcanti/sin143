@@ -44,6 +44,7 @@ public class PrincipalCliente extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jSobre = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(238, 238, 238));
@@ -80,6 +81,13 @@ public class PrincipalCliente extends javax.swing.JFrame {
             }
         });
 
+        jSobre.setText("Sobre");
+        jSobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jSobreActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPainelPrincipalClientesLayout = new javax.swing.GroupLayout(jPainelPrincipalClientes);
         jPainelPrincipalClientes.setLayout(jPainelPrincipalClientesLayout);
         jPainelPrincipalClientesLayout.setHorizontalGroup(
@@ -94,7 +102,10 @@ public class PrincipalCliente extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(JBaterPonto, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addGroup(jPainelPrincipalClientesLayout.createSequentialGroup()
+                        .addComponent(jSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)))
                 .addGap(128, 128, 128))
         );
         jPainelPrincipalClientesLayout.setVerticalGroup(
@@ -109,8 +120,10 @@ public class PrincipalCliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGroup(jPainelPrincipalClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -151,6 +164,10 @@ public class PrincipalCliente extends javax.swing.JFrame {
         Login login = new Login();
         login.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSobreActionPerformed
+        new SobreAjuda(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jSobreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,6 +211,7 @@ public class PrincipalCliente extends javax.swing.JFrame {
     private javax.swing.JTextField jCaixaIdentificacao;
     private javax.swing.JPanel jPainelPrincipalClientes;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jSobre;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

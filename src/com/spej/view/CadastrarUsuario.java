@@ -11,7 +11,6 @@ import com.spej.model.DepartamentoComboBoxModel;
 import com.spej.model.Usuario;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 
 /**
