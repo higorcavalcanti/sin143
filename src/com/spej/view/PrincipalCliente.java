@@ -42,7 +42,8 @@ public class PrincipalCliente extends javax.swing.JFrame {
         jCaixaIdentificacao = new javax.swing.JTextField();
         JBaterPonto = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTablePonto = new javax.swing.JTable();
+        jTablePonto.setRowHeight(33);
         jButton1 = new javax.swing.JButton();
         jSobre = new javax.swing.JButton();
 
@@ -70,9 +71,10 @@ public class PrincipalCliente extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new com.spej.model.PontoTableModel() );
-        jTable1.setEnabled(false);
-        jScrollPane1.setViewportView(jTable1);
+        jTablePonto.setModel(new com.spej.model.PontoTableModel() );
+        jTablePonto.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jTablePonto.setEnabled(false);
+        jScrollPane1.setViewportView(jTablePonto);
 
         jButton1.setText("Administração");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +155,7 @@ public class PrincipalCliente extends javax.swing.JFrame {
         catch(Exception e) {
             Mensagem.erro(this, "Erro desconhecido!\n" + e.getMessage(), "Falha ao bater bonto");
         }
-        jTable1.setModel( new com.spej.model.PontoTableModel() );
+        jTablePonto.setModel( new com.spej.model.PontoTableModel() );
     }//GEN-LAST:event_JBaterPontoActionPerformed
 
     private void jCaixaIdentificacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCaixaIdentificacaoActionPerformed
@@ -212,6 +214,6 @@ public class PrincipalCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPainelPrincipalClientes;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jSobre;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTablePonto;
     // End of variables declaration//GEN-END:variables
 }

@@ -29,12 +29,10 @@ public class GerenciarUsuario extends javax.swing.JDialog {
         
         jBotaoEditar.setEnabled(false);
         jBotaoExcluir.setEnabled(false);
+        
+        
     }
     
-    private void hue(int a) {
-        Mensagem.sucesso(this, "ASDSADA");
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,6 +48,7 @@ public class GerenciarUsuario extends javax.swing.JDialog {
         jTextNome = new javax.swing.JTextField();
         jTb1 = new javax.swing.JScrollPane();
         jTableUsuarios = new javax.swing.JTable();
+        jTableUsuarios.setRowHeight(23);
         jBotaoEditar = new javax.swing.JButton();
         jBotaoExcluir = new javax.swing.JButton();
         jBotaoBuscar = new javax.swing.JButton();

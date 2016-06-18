@@ -92,6 +92,6 @@ public class Usuario {
  
     @Override
     public String toString() {
-        return "[" + this.getMatricula() + "]" + this.getNome();
+        return "[" + this.getMatricula() + "] " + this.getNome();
     }
 }

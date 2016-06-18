@@ -51,7 +51,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
             date = DATE_FORMAT.format( this.user.getNascimento().getTime() );
         } 
         catch (Exception e) {
-            date = DATE_FORMAT.format( new java.sql.Timestamp(Calendar.getInstance().getTime().getTime()) );
+            date = "";
         }
 
         DepartamentoDao dd = new DepartamentoDao();
