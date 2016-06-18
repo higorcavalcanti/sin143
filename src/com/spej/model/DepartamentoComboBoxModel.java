@@ -54,5 +54,4 @@ public class DepartamentoComboBoxModel implements ComboBoxModel {
     public void removeListDataListener(ListDataListener l) {
         
     }
-    
 }

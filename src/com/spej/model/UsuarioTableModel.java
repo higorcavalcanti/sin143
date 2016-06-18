@@ -5,7 +5,7 @@
  */
 package com.spej.model;
 
-import com.spej.dao.DepartamentoDao;
+import com.spej.dao.UsuarioDao;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
@@ -13,21 +13,21 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author Higor
  */
-public class DepartamentoTableModel extends AbstractTableModel {
+public class UsuarioTableModel extends AbstractTableModel {
 
-    private ArrayList<Departamento> deps;
+    private ArrayList<Usuario> users;
     
-    public DepartamentoTableModel() {
-        this( new DepartamentoDao().getAll() );
+    public UsuarioTableModel() {
+        this( new UsuarioDao().getAll("matricula > 0") );
     }
-    public DepartamentoTableModel(ArrayList<Departamento> deps) {
+    public UsuarioTableModel(ArrayList<Usuario> users) {
         super();
-        this.deps = deps;
+        this.users = users;
     }
     
     @Override
     public int getRowCount() {
-        return this.deps.size();
+        return this.users.size();
     }
     @Override
     public int getColumnCount() {
@@ -37,8 +37,8 @@ public class DepartamentoTableModel extends AbstractTableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         try {
-            if(columnIndex == 0) return this.deps.get(rowIndex).getId();
-            else if(columnIndex == 1) return this.deps.get(rowIndex).getNome();
+            if(columnIndex == 0) return this.users.get(rowIndex).getMatricula();
+            else if(columnIndex == 1) return this.users.get(rowIndex).getNome();
         } 
         catch(IndexOutOfBoundsException e) {            
         }
@@ -47,7 +47,7 @@ public class DepartamentoTableModel extends AbstractTableModel {
     
     @Override
     public String getColumnName(int column) {
-        if(column == 0) return "ID";
+        if(column == 0) return "Matricula";
         else return "Nome";
     }
     
@@ -57,9 +57,9 @@ public class DepartamentoTableModel extends AbstractTableModel {
         return false; 
     }  
     
-    public Departamento getRow(int rowIndex) {
+    public Usuario getRowObject(int rowIndex) {
         try {
-            return this.deps.get(rowIndex);
+            return this.users.get(rowIndex);
         } 
         catch(IndexOutOfBoundsException e) {            
         }

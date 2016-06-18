@@ -65,6 +65,13 @@ public class PontoTableModel extends AbstractTableModel {
     }
     
     @Override
+    public String getColumnName(int column) {
+        if(column == 0) return "Matricula";
+        else if(column == 1) return "Nome";
+        else return "Horário de entrada";
+    }
+    
+    @Override
     public boolean isCellEditable(int row, int col) { 
         return false; 
     }    

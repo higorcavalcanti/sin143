@@ -1,6 +1,7 @@
 package com.spej.dao;
 
 import com.spej.persistencia.ConnectionFactory;
+import com.spej.view.Mensagem;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -106,7 +107,6 @@ public abstract class Dao<T> {
                 //throw new RuntimeException("Usuario não encontrado!");
             if(rs.next()) {
                 T result = this.byResultSet(rs);
-
                 stmt.close();
                 return result;
             }

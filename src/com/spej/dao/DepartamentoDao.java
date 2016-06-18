@@ -6,6 +6,7 @@
 package com.spej.dao;
 
 import com.spej.model.Departamento;
+import com.spej.view.Mensagem;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -105,5 +106,20 @@ public class DepartamentoDao extends Dao<Departamento> {
             
         }
         return d;
+    }
+    
+    public Departamento getById(int id) {
+        String sql = "SELECT * " +
+            "FROM Departamentos " +
+            "WHERE id = ? " +
+            "LIMIT 1";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, id);
+            return this.getByPreparedStatement(stmt);
+        }
+        catch(SQLException e) {
+            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
+        }
     }
 }

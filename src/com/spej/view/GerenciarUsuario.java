@@ -5,7 +5,11 @@
  */
 package com.spej.view;
 
+import com.spej.model.Usuario;
+import com.spej.model.UsuarioTableModel;
 import java.awt.Color;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  *
@@ -24,6 +28,10 @@ public class GerenciarUsuario extends javax.swing.JDialog {
         jBotaoEditar.setEnabled(false);
         jBotaoExcluir.setEnabled(false);
     }
+    
+    private void hue(int a) {
+        Mensagem.sucesso(this, "ASDSADA");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,7 +49,7 @@ public class GerenciarUsuario extends javax.swing.JDialog {
         jLabelNome = new javax.swing.JLabel();
         jTextNome = new javax.swing.JTextField();
         jTb1 = new javax.swing.JScrollPane();
-        jTb = new javax.swing.JTable();
+        jTableUsuarios = new javax.swing.JTable();
         jBotaoEditar = new javax.swing.JButton();
         jBotaoExcluir = new javax.swing.JButton();
         jBotaoBuscar = new javax.swing.JButton();
@@ -72,30 +80,35 @@ public class GerenciarUsuario extends javax.swing.JDialog {
         jLabelNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelNome.setText("Nome");
 
-        jTb.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Código", "Nome"
+        jTableUsuarios.setModel( new com.spej.model.UsuarioTableModel() );
+        jTb1.setViewportView(jTableUsuarios);
+        jTableUsuarios.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+            public void valueChanged(ListSelectionEvent event) {
+                if(jTableUsuarios.getSelectedRowCount() > 0) {
+                    jBotaoEditar.setEnabled(true);
+                    jBotaoExcluir.setEnabled(true);
+                } else {
+                    jBotaoEditar.setEnabled(false);
+                    jBotaoExcluir.setEnabled(false);
+                }
             }
-        ));
-        jTb1.setViewportView(jTb);
+        });
 
         jBotaoEditar.setText("Editar");
         jBotaoEditar.setEnabled(false);
+        jBotaoEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotaoEditarActionPerformed(evt);
+            }
+        });
 
         jBotaoExcluir.setText("Excluir");
         jBotaoExcluir.setEnabled(false);
+        jBotaoExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotaoExcluirActionPerformed(evt);
+            }
+        });
 
         jBotaoBuscar.setText("Buscar");
 
@@ -189,8 +202,21 @@ public class GerenciarUsuario extends javax.swing.JDialog {
 
     private void jBotaoNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoNovoActionPerformed
         new CadastrarUsuario().setVisible(true);
+        jTableUsuarios.setModel( new com.spej.model.UsuarioTableModel() );
     }//GEN-LAST:event_jBotaoNovoActionPerformed
 
+    private void jBotaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoEditarActionPerformed
+        UsuarioTableModel ut = (UsuarioTableModel) jTableUsuarios.getModel();
+        Usuario u = ut.getRowObject( jTableUsuarios.getSelectedRow() );
+
+        new CadastrarUsuario(u).setVisible(true);        
+        jTableUsuarios.setModel( new com.spej.model.UsuarioTableModel() );
+    }//GEN-LAST:event_jBotaoEditarActionPerformed
+
+    private void jBotaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoExcluirActionPerformed
+        jTableUsuarios.setModel( new com.spej.model.UsuarioTableModel() );
+    }//GEN-LAST:event_jBotaoExcluirActionPerformed
+       
     /**
      * @param args the command line arguments
      */
@@ -235,7 +261,7 @@ public class GerenciarUsuario extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JPanel jPanelGerenciarUsuario;
-    private javax.swing.JTable jTb;
+    private javax.swing.JTable jTableUsuarios;
     private javax.swing.JScrollPane jTb1;
     private javax.swing.JTextField jTextMatricula;
     private javax.swing.JTextField jTextNome;

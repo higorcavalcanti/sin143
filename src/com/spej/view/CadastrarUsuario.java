@@ -6,6 +6,7 @@
 package com.spej.view;
 
 import com.spej.controller.UsuarioController;
+import com.spej.dao.DepartamentoDao;
 import com.spej.model.Departamento;
 import com.spej.model.DepartamentoComboBoxModel;
 import com.spej.model.Usuario;
@@ -19,24 +20,45 @@ import javax.swing.text.MaskFormatter;
  */
 public class CadastrarUsuario extends javax.swing.JDialog {
 
+    private Usuario user;
+    private boolean criando;
+    
     /**
      * Creates new form CadastroFuncionario
      */
     public CadastrarUsuario() {
+        this( new Usuario() );
+        this.criando = true;
+    }
+    public CadastrarUsuario(Usuario usuario) {
+        
+        this.criando = false;
+        this.user = usuario;
+ 
         initComponents();
-        setLocationRelativeTo( null ); // Centralizar a tela no meio
+        setLocationRelativeTo( null ); // Centralizar a tela no meio    
+        
+        limparCampos();
     }
     
     //Limpa os campos após o cadastro
     public void limparCampos(){
-        jTextMatricula.setText(null);
-        jTextNome.setText(null);
-        jDataNascimento.setText(null);
-        jTextCargo.setText(null);
-        jTextEmail.setText(null);
-        jTextUsername.setText(null);
-        jPasswordField1.setText(null);
-        jComboDepartamento.setSelectedItem(null); 
+        
+        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+        String date = DATE_FORMAT.format( this.user.getNascimento().getTime() );
+
+        DepartamentoDao dd = new DepartamentoDao();
+        Departamento d = dd.getById( this.user.getDepartamento() );
+        
+        jTextMatricula.setText( this.user.getMatricula() + "" );
+        jTextNome.setText( this.user.getNome() );
+        jDataNascimento.setText( date );
+        jTextCargo.setText( this.user.getCargo() );
+        jTextEmail.setText( this.user.getEmail() );
+        jTextUsername.setText( this.user.getUsername() );
+        jPasswordField1.setText( this.user.getPassword() );
+        jComboDepartamento.getModel().setSelectedItem( d );
+        
     }
     
     
@@ -61,7 +83,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         jTextCargo = new javax.swing.JTextField();
         jLabelCargo = new javax.swing.JLabel();
         jLabelDepartamento = new javax.swing.JLabel();
-        jComboDepartamento = new javax.swing.JComboBox<>();
+        jComboDepartamento = new javax.swing.JComboBox<DepartamentoComboBoxModel>();
         jBotaoAcao = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabelUsuario = new javax.swing.JLabel();
@@ -136,7 +158,7 @@ public class CadastrarUsuario extends javax.swing.JDialog {
             }
         });
 
-        jBotaoAcao.setText("Cadastrar");
+        jBotaoAcao.setText("Salvar");
         jBotaoAcao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBotaoAcaoActionPerformed(evt);
@@ -335,16 +357,20 @@ public class CadastrarUsuario extends javax.swing.JDialog {
                 usuario.setNascimento( new java.sql.Date(dateFormat.parse(jDataNascimento.getText()).getTime()) );
                 usuario.setEmail( jTextEmail.getText() );
 
-                uc.insert(usuario);
-
-                Mensagem.sucesso(this, "Usuário cadastrado com sucesso!");
-                limparCampos();
+                if(this.criando) {
+                    uc.insert(usuario);
+                } 
+                else {
+                    uc.update(user, usuario);
+                }
+                Mensagem.sucesso(this, "Usuário " + (criando ? "cadastrado" : "editado") + " com sucesso!");
+                dispose();
             }
             catch(RuntimeException e) {
-                Mensagem.erro(this, e.getMessage(), "Falha ao cadastrar usuário");
+                Mensagem.erro(this, e.getMessage(), "Falha ao " + (criando ? "criar" : "editar") + " usuário");
             }
             catch(Exception e) {
-                Mensagem.erro(this, "Erro desconhecido!\n" + e.getMessage(), "Falha ao cadastrar usuário");
+                Mensagem.erro(this, "Erro desconhecido!\n" + e.getMessage(), "Falha ao " + (criando ? "criar" : "editar") + " usuário");
             }
         }      
         
