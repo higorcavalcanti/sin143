@@ -70,6 +70,14 @@ public class CadastrarUsuario extends javax.swing.JDialog {
         jCheckAdministrador.setEnabled( 
             this.criando || !this.user.equals(UsuarioController.getLogado()) 
         );
+        if(jCheckAdministrador.isSelected()) {
+            jTextUsername.setEnabled(true);
+            jPasswordField1.setEnabled(true);
+        } 
+        else {
+            jTextUsername.setEnabled(false);
+            jPasswordField1.setEnabled(false);
+        }        
     }
     
     
@@ -200,6 +208,11 @@ public class CadastrarUsuario extends javax.swing.JDialog {
 
         jCheckAdministrador.setText("Administrador");
         jCheckAdministrador.setEnabled( !this.user.equals( UsuarioController.getLogado() ) );
+        jCheckAdministrador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckAdministradorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPanelTelaLayout = new javax.swing.GroupLayout(JPanelTela);
         JPanelTela.setLayout(JPanelTelaLayout);
@@ -420,6 +433,17 @@ public class CadastrarUsuario extends javax.swing.JDialog {
     private void jTextNomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextNomeKeyTyped
         
     }//GEN-LAST:event_jTextNomeKeyTyped
+
+    private void jCheckAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckAdministradorActionPerformed
+        if(jCheckAdministrador.isSelected()) {
+            jTextUsername.setEnabled(true);
+            jPasswordField1.setEnabled(true);
+        } 
+        else {
+            jTextUsername.setEnabled(false);
+            jPasswordField1.setEnabled(false);
+        }
+    }//GEN-LAST:event_jCheckAdministradorActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanelTela;

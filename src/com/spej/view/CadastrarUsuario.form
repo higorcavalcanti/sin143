@@ -329,6 +329,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Administrador"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckAdministradorActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jCheckAdministrador.setEnabled( !this.user.equals( UsuarioController.getLogado() ) );"/>
           </AuxValues>
