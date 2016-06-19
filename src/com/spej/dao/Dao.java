@@ -99,7 +99,7 @@ public abstract class Dao<T> {
      * @param stmt 
      * @return Object
      */
-        public T getByPreparedStatement( PreparedStatement stmt ) {
+    public T getByPreparedStatement( PreparedStatement stmt ) {
         try {
             ResultSet rs = stmt.executeQuery();
             

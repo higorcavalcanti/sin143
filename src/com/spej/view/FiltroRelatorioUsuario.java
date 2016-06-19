@@ -7,7 +7,7 @@ package com.spej.view;
 
 import com.spej.controller.RelatorioController;
 import com.spej.model.Departamento;
-import java.util.HashMap;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -133,14 +133,11 @@ public class FiltroRelatorioUsuario extends javax.swing.JDialog {
     private void jBotaoVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoVisualizarActionPerformed
         
         RelatorioController rc = new RelatorioController();
-
-        /*
-        JRResultSetDataSource relResult = new JRResultSetDataSource( );
-        JasperPrint jpPrint = JasperFillManager.fillReport("iReports/relatorioUsuarios.jasper", new HashMap(), relResult);
-        JasperViewer jv = new JasperViewer(jpPrint, false);
+        JasperViewer jv = rc.relatorioUsuarios();
         jv.setVisible(true);
         jv.toFront();
-        */
+
+
     }//GEN-LAST:event_jBotaoVisualizarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

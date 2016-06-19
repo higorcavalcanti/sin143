@@ -183,5 +183,17 @@ public class UsuarioDao extends Dao<Usuario> {
             throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
         }
     }    
+    
+    
+    public ResultSet relatorioTodos() {
+        String sql = "SELECT * FROM Usuarios";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            return stmt.executeQuery();
+        }
+        catch(SQLException e) {
+            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
+        }        
+    }
            
 }
