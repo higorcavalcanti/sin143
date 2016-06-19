@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.spej.view;
 
 import com.spej.controller.UsuarioController;
@@ -14,10 +9,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import javax.swing.text.MaskFormatter;
 
-/**
- *
- * @author Higor
- */
 public class CadastrarUsuario extends javax.swing.JDialog {
 
     private Usuario user;

@@ -54,7 +54,7 @@ public class PontoDao extends Dao<Ponto> {
                     "WHERE id = ?";
         try {
             // prepared statement para inserção
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt = connection.prepareStatement(sql);
             
             // seta os valores
             stmt.setInt(1, novo.getId());
@@ -81,7 +81,7 @@ public class PontoDao extends Dao<Ponto> {
                     "WHERE id = ?";
         try {
             // prepared statement para inserção
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt = connection.prepareStatement(sql);
             
             // seta os valores
             stmt.setInt(1, deletar.getId());
@@ -120,7 +120,7 @@ public class PontoDao extends Dao<Ponto> {
                     "ORDER BY id DESC " +
                     "LIMIT 1";
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt = connection.prepareStatement(sql);
             stmt.setInt(1, user.getMatricula());
             stmt.setMaxRows(1);
             return this.getByPreparedStatement(stmt);

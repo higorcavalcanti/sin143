@@ -1,7 +1,6 @@
 package com.spej.dao;
 
 import com.spej.persistencia.ConnectionFactory;
-import com.spej.view.Mensagem;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,6 +24,7 @@ public abstract class Dao<T> {
     
     /**
      * 
+     * @param novo
      * @return Verdadeiro se conseguiu inserir
      */
     public abstract boolean insert(T novo);
@@ -32,6 +32,8 @@ public abstract class Dao<T> {
     
     /**
      * 
+     * @param antigo
+     * @param novo
      * @return Verdadeiro se conseguiu atualizar
      */
     public abstract boolean update(T antigo, T novo);
@@ -39,6 +41,7 @@ public abstract class Dao<T> {
     
     /**
      * 
+     * @param deletar
      * @return Verdadeiro se conseguiu deletar
      */
     public abstract boolean delete(T deletar);
@@ -62,7 +65,7 @@ public abstract class Dao<T> {
     public ArrayList<T> getAll(String WHERE) {
         String sql = "SELECT * FROM " + this.table + (WHERE.length() != 0 ? " WHERE "+WHERE : "");
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt = connection.prepareStatement(sql);
             return this.getListByPreparedStatement(stmt);
         }
         catch(SQLException e) {

@@ -6,7 +6,6 @@
 package com.spej.view;
 
 import com.spej.controller.RelatorioController;
-import com.spej.model.Departamento;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**

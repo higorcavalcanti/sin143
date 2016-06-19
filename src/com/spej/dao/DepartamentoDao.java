@@ -52,7 +52,7 @@ public class DepartamentoDao extends Dao<Departamento> {
                     "WHERE id = ?";
         try {
             // prepared statement para inserção
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt = connection.prepareStatement(sql);
             
             // seta os valores
             stmt.setInt(1, novo.getId());
@@ -77,7 +77,7 @@ public class DepartamentoDao extends Dao<Departamento> {
                     "WHERE id = ?";
         try {
             // prepared statement para inserção
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt = connection.prepareStatement(sql);
             
             // seta os valores
             stmt.setInt(1, deletar.getId());
@@ -112,7 +112,7 @@ public class DepartamentoDao extends Dao<Departamento> {
             "WHERE id = ? " +
             "LIMIT 1";
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt = connection.prepareStatement(sql);
             stmt.setInt(1, id);
             return this.getByPreparedStatement(stmt);
         }
@@ -124,7 +124,7 @@ public class DepartamentoDao extends Dao<Departamento> {
     public ArrayList<Departamento> find(String name) {
         String sql = "SELECT * FROM Departamentos WHERE nome LIKE ?";
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt = connection.prepareStatement(sql);
             stmt.setString(1, "%" + name + "%");
             return this.getListByPreparedStatement(stmt);
         }

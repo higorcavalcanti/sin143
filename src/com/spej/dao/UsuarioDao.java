@@ -54,7 +54,7 @@ public class UsuarioDao extends Dao<Usuario> {
                     "WHERE matricula = ?";
         try {
             // prepared statement para inserção
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt = connection.prepareStatement(sql);
             
             // seta os valores
             stmt.setInt(1, novo.getMatricula());
@@ -89,7 +89,7 @@ public class UsuarioDao extends Dao<Usuario> {
                     "WHERE matricula = ?";
         try {
             // prepared statement para inserção
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt = connection.prepareStatement(sql);
             
             // seta os valores
             stmt.setInt(1, deletar.getMatricula());
@@ -111,7 +111,7 @@ public class UsuarioDao extends Dao<Usuario> {
                     "WHERE matricula = ? " +
                     "LIMIT 1";
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt = connection.prepareStatement(sql);
             stmt.setInt(1, matricula);
             return this.getByPreparedStatement(stmt);
         }
@@ -127,7 +127,7 @@ public class UsuarioDao extends Dao<Usuario> {
                 "WHERE username = ? AND password = ?" + 
                 "LIMIT 1";
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt = connection.prepareStatement(sql);
             stmt.setString(1, usuario);
             stmt.setString(2, senha);
             return this.getByPreparedStatement(stmt);
@@ -141,7 +141,7 @@ public class UsuarioDao extends Dao<Usuario> {
     public ArrayList<Usuario> getAllByDepartamento(int departamento) {
         String sql = "SELECT * FROM Usuarios WHERE departamento = ?";
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt = connection.prepareStatement(sql);
             stmt.setInt(1, departamento);
             return this.getListByPreparedStatement(stmt);
         }
@@ -175,7 +175,7 @@ public class UsuarioDao extends Dao<Usuario> {
     public ArrayList<Usuario> find(String name) {
         String sql = "SELECT * FROM Usuarios WHERE nome LIKE ?";
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt = connection.prepareStatement(sql);
             stmt.setString(1, "%" + name + "%");
             return this.getListByPreparedStatement(stmt);
         }
@@ -188,7 +188,7 @@ public class UsuarioDao extends Dao<Usuario> {
     public ResultSet relatorioTodos() {
         String sql = "SELECT * FROM Usuarios";
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt = connection.prepareStatement(sql);
             return stmt.executeQuery();
         }
         catch(SQLException e) {
