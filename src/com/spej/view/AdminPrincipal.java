@@ -47,11 +47,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArquivos = new javax.swing.JMenu();
-        jMenuSubConfig = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuSubBackup = new javax.swing.JMenuItem();
-        jMenuSubImportFunc = new javax.swing.JMenuItem();
-        jSeparator6 = new javax.swing.JPopupMenu.Separator();
         jMenuSubSair = new javax.swing.JMenuItem();
         jMenuFuncionario = new javax.swing.JMenu();
         menuGerenciarFuncionario = new javax.swing.JMenuItem();
@@ -65,7 +60,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
         jMenuSubRelatorios = new javax.swing.JMenuItem();
         jMenuAjuda = new javax.swing.JMenu();
-        jMenuSubDuvidas = new javax.swing.JMenuItem();
         jSeparator7 = new javax.swing.JPopupMenu.Separator();
         jMenuSubSobreSistema = new javax.swing.JMenuItem();
 
@@ -140,7 +134,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jBarraFerramentas.add(jSeparator8);
 
         jBotaoRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/spej/imagem/consultas.png"))); // NOI18N
-        jBotaoRelatorios.setToolTipText("Relatorio de Controle de Atividades");
+        jBotaoRelatorios.setToolTipText("Relatorios do Sistema");
         jBotaoRelatorios.setBorderPainted(false);
         jBotaoRelatorios.setFocusable(false);
         jBotaoRelatorios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -196,27 +190,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jMenuArquivos.setText("Arquivos");
-
-        jMenuSubConfig.setText("Configurações");
-        jMenuArquivos.add(jMenuSubConfig);
-        jMenuArquivos.add(jSeparator1);
-
-        jMenuSubBackup.setText("Gerar Backup");
-        jMenuSubBackup.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuSubBackupActionPerformed(evt);
-            }
-        });
-        jMenuArquivos.add(jMenuSubBackup);
-
-        jMenuSubImportFunc.setText("Importar Backup");
-        jMenuSubImportFunc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuSubImportFuncActionPerformed(evt);
-            }
-        });
-        jMenuArquivos.add(jMenuSubImportFunc);
-        jMenuArquivos.add(jSeparator6);
 
         jMenuSubSair.setText("Sair");
         jMenuSubSair.addActionListener(new java.awt.event.ActionListener() {
@@ -299,14 +272,6 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenuRelatorio);
 
         jMenuAjuda.setText("Ajuda");
-
-        jMenuSubDuvidas.setText("Dúvidas sobre o sistema");
-        jMenuSubDuvidas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuSubDuvidasActionPerformed(evt);
-            }
-        });
-        jMenuAjuda.add(jMenuSubDuvidas);
         jMenuAjuda.add(jSeparator7);
 
         jMenuSubSobreSistema.setText("Sobre o sistema");
@@ -380,28 +345,16 @@ public class AdminPrincipal extends javax.swing.JFrame {
         new RelatoriosView(this, true).setVisible(true);
     }//GEN-LAST:event_jMenuSubRelatoriosActionPerformed
 
-    private void jMenuSubDuvidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSubDuvidasActionPerformed
-        new DuvidasAjuda(this, true).setVisible(true);
-    }//GEN-LAST:event_jMenuSubDuvidasActionPerformed
-
     private void jMenuSubSobreSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSubSobreSistemaActionPerformed
         new SobreAjuda(this, true).setVisible(true);
     }//GEN-LAST:event_jMenuSubSobreSistemaActionPerformed
-
-    private void jMenuSubBackupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSubBackupActionPerformed
-        new BackupGerar(this, true).setVisible(true);
-    }//GEN-LAST:event_jMenuSubBackupActionPerformed
-
-    private void jMenuSubImportFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSubImportFuncActionPerformed
-        new BackupImportar(this, true).setVisible(true);
-    }//GEN-LAST:event_jMenuSubImportFuncActionPerformed
 
     private void jBotaoDepartamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBotaoDepartamentoMouseClicked
         new GerenciarDepartamento(this, true).setVisible(true);
     }//GEN-LAST:event_jBotaoDepartamentoMouseClicked
 
     private void jHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHelpActionPerformed
-        new DuvidasAjuda(this, true).setVisible(true);
+        new SobreAjuda(this, true).setVisible(true);
     }//GEN-LAST:event_jHelpActionPerformed
 
     private void jHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jHelpMouseClicked
@@ -447,21 +400,15 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuFuncionario;
     private javax.swing.JMenuItem jMenuGerenciarDepartamentos;
     private javax.swing.JMenu jMenuRelatorio;
-    private javax.swing.JMenuItem jMenuSubBackup;
-    private javax.swing.JMenuItem jMenuSubConfig;
-    private javax.swing.JMenuItem jMenuSubDuvidas;
-    private javax.swing.JMenuItem jMenuSubImportFunc;
     private javax.swing.JMenuItem jMenuSubRelatorioFuncionarios;
     private javax.swing.JMenuItem jMenuSubRelatorios;
     private javax.swing.JMenuItem jMenuSubSair;
     private javax.swing.JMenuItem jMenuSubSobreSistema;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator11;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JToolBar.Separator jSeparator5;
-    private javax.swing.JPopupMenu.Separator jSeparator6;
     private javax.swing.JPopupMenu.Separator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator8;
     private javax.swing.JToolBar.Separator jSeparator9;
