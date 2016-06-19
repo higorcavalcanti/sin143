@@ -7,6 +7,8 @@ package com.spej.view;
 
 import com.spej.controller.PontoController;
 import com.spej.controller.UsuarioController;
+import com.spej.model.Ponto;
+import com.spej.model.Usuario;
 
 /**
  *
@@ -190,8 +192,16 @@ public class PrincipalCliente extends javax.swing.JFrame {
     }
     
     private void baterPonto() {
+        
         try {
-            pontoC.baterPonto( Integer.parseInt(jCaixaIdentificacao.getText()) );
+            
+            //pontoC.baterPonto( Integer.parseInt(jCaixaIdentificacao.getText()) );
+            
+            Usuario u = userC.getByMatricula( Integer.parseInt(jCaixaIdentificacao.getText()) );
+            Ponto p = pontoC.baterPonto( u );
+            if(p.getSaida() != null) {
+                new RelatorioAtividades(u, p).setVisible(true);
+            }
             jCaixaIdentificacao.setText("");
         }
         catch(NumberFormatException e) {
@@ -234,10 +244,8 @@ public class PrincipalCliente extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PrincipalCliente().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new PrincipalCliente().setVisible(true);
         });
     }
 

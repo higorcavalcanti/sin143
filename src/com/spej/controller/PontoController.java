@@ -8,6 +8,9 @@ import java.util.Calendar;
 
 public class PontoController  extends Controller<Ponto> {   
     
+    public static final int PONTO_CRIADO = 1;
+    public static final int PONTO_FECHADO = 2;
+    
     @Override
     public PontoDao getDao() {
         return (PontoDao) this.dao;
@@ -24,11 +27,7 @@ public class PontoController  extends Controller<Ponto> {
         return this.getDao().getByUsuarioAtivo(user);
     }
 
-    public void baterPonto(int matricula) {
-        UsuarioController userC = new UsuarioController();        
-        this.baterPonto( userC.getByMatricula( matricula ) );
-    }    
-    public void baterPonto(Usuario user) {
+    public Ponto baterPonto(Usuario user) {
 
         if(user == null) {
             throw new RuntimeException("Usuário Inválido!");
@@ -49,6 +48,7 @@ public class PontoController  extends Controller<Ponto> {
             p.setUsuarioMatricula(user.getMatricula());
             this.insert(p);
         }
+        return p;
     }
 
 }

@@ -5,6 +5,9 @@
  */
 package com.spej.view;
 
+import com.spej.controller.AtividadeController;
+import com.spej.model.Atividade;
+import com.spej.model.Ponto;
 import com.spej.model.Usuario;
 
 /**
@@ -14,14 +17,17 @@ import com.spej.model.Usuario;
 public class RelatorioAtividades extends javax.swing.JDialog {
 
     private Usuario user;
+    private Ponto ponto;
     
     /**
      * Creates new form RelatorioAtividades
-     * @param u
+     * @param user
+     * @param ponto
      */
-    public RelatorioAtividades(Usuario user) {
+    public RelatorioAtividades(Usuario user, Ponto ponto) {
         
         this.user = user;
+        this.ponto = ponto;
         
         initComponents();
         setLocationRelativeTo( null ); // Centralizar a tela no meio
@@ -79,7 +85,7 @@ public class RelatorioAtividades extends javax.swing.JDialog {
         jScrollPane2.setViewportView(jTextAreaObservacao);
 
         jLabelUsuario.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabelUsuario.setText("Nome do Usuário");
+        jLabelUsuario.setText( this.user.getNome() );
 
         javax.swing.GroupLayout jPainelRelatorioAtividadesLayout = new javax.swing.GroupLayout(jPainelRelatorioAtividades);
         jPainelRelatorioAtividades.setLayout(jPainelRelatorioAtividadesLayout);
@@ -149,23 +155,43 @@ public class RelatorioAtividades extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPainelRelatorioAtividades, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPainelRelatorioAtividades, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBotaoLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBotaoEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBotaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoEnviarActionPerformed
-        // Teste
+        Atividade a = new Atividade();
+        
+        try {
+            
+            AtividadeController ac = new AtividadeController();
+            
+            a.setRelatorio( jTextAreaDescricao.getText() );
+            a.setObservacao( jTextAreaObservacao.getText() );
+            a.setPonto_id( ponto.getId() );
+            
+            ac.insert(a);
+            Mensagem.sucesso(this, "Atividade enviada!");
+            this.dispose();
+        }
+        catch(RuntimeException e) {
+            Mensagem.erro(this, e.getMessage(), "Falha ao cadastrar relatório");
+        }
+        catch(Exception e) {
+            Mensagem.erro(this, "Erro desconhecido!\n" + e.getMessage(), "Falha ao cadastrar relatório");
+        }
     }//GEN-LAST:event_jBotaoEnviarActionPerformed
 
     private void jBotaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoLimparActionPerformed
-        // TODO add your handling code here:
+        jTextAreaDescricao.setText("");
+        jTextAreaObservacao.setText("");
     }//GEN-LAST:event_jBotaoLimparActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

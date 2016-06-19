@@ -7,9 +7,9 @@ package com.spej.dao;
 
 import com.spej.model.Ponto;
 import com.spej.model.Usuario;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -29,7 +29,7 @@ public class PontoDao extends Dao<Ponto> {
                     " VALUES (?,?,?)";
         try {
             // prepared statement para inserção
-            stmt = connection.prepareStatement(sql);
+            stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             // seta os valores
             stmt.setInt(1, novo.getUsuarioMatricula());
@@ -38,6 +38,13 @@ public class PontoDao extends Dao<Ponto> {
 
             // executa
             stmt.executeUpdate();
+            
+            try (ResultSet rs = stmt.getGeneratedKeys()) {
+                if (rs.next()) {
+                    novo.setId( rs.getInt(1) );
+                }
+            }
+            
             stmt.close();
             
             return true;
@@ -54,7 +61,7 @@ public class PontoDao extends Dao<Ponto> {
                     "WHERE id = ?";
         try {
             // prepared statement para inserção
-            stmt = connection.prepareStatement(sql);
+            stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             
             // seta os valores
             stmt.setInt(1, novo.getId());
@@ -66,6 +73,13 @@ public class PontoDao extends Dao<Ponto> {
 
             // executa
             stmt.executeUpdate();
+            
+            try (ResultSet rs = stmt.getGeneratedKeys()) {
+                if (rs.next()) {
+                    novo.setId( rs.getInt(1) );
+                }
+            }            
+            
             stmt.close();
             
             return true;
