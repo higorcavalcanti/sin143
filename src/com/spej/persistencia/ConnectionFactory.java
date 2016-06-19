@@ -4,9 +4,9 @@ import java.sql.*;
 
 public class ConnectionFactory {
 
-    private static final String dbhost = "189.41.55.69";
-    private static final String dbuser = "root_remote";
-    private static final String dbpass = "root";
+    private static final String dbhost = "localhost";
+    private static final String dbuser = "root";
+    private static final String dbpass = "";
     private static final String dbname = "spej";
     private static final String dbopts = "zeroDateTimeBehavior=convertToNull";
     private static final String URL = "jdbc:mysql://" + dbhost + "/" + dbname + "?" + dbopts;
