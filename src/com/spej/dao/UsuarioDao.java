@@ -1,5 +1,6 @@
 package com.spej.dao;
 
+import com.spej.model.Departamento;
 import com.spej.model.Usuario;
 import java.sql.*;
 import java.util.ArrayList;
@@ -170,6 +171,12 @@ public class UsuarioDao extends Dao<Usuario> {
         }
         return u;
     }
+    
+    
+    @Override
+    public ArrayList<Usuario> getAll() {
+        return this.getAll("ORDER BY nome");
+    }
 
         
     public ArrayList<Usuario> find(String name) {
@@ -185,10 +192,21 @@ public class UsuarioDao extends Dao<Usuario> {
     }    
     
     
-    public ResultSet relatorioTodos() {
-        String sql = "SELECT * FROM Usuarios";
+    public ResultSet relatorioUsuarios( Departamento d ) {
+        String sql;
+        
         try {
+            sql = "SELECT u.matricula, u.nome, u.cargo, d.nome as departamento "+
+                    "FROM Usuarios u " +
+                    "JOIN Departamentos d ON d.id = u.departamento ";
             stmt = connection.prepareStatement(sql);
+            
+            if(d != null) {
+                sql += "WHERE d.id = ?";
+                stmt = connection.prepareStatement(sql);
+                stmt.setInt(1, d.getId());
+            }
+            
             return stmt.executeQuery();
         }
         catch(SQLException e) {

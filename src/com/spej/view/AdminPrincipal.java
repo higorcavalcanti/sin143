@@ -338,7 +338,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuSubRelatorioFuncionariosMouseClicked
 
     private void jMenuSubRelatorioFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSubRelatorioFuncionariosActionPerformed
-        new FiltroRelatorioUsuario(this, true).setVisible(true);
+        new RelatorioUsuarios(this, true).setVisible(true);
     }//GEN-LAST:event_jMenuSubRelatorioFuncionariosActionPerformed
 
     private void jMenuSubRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSubRelatoriosActionPerformed
@@ -370,7 +370,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jBotaoRelatoriosMouseClicked
 
     private void jBotaoRelatorioUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBotaoRelatorioUsuariosMouseClicked
-        new FiltroRelatorioUsuario(this, true).setVisible(true);
+        new RelatorioUsuarios(this, true).setVisible(true);
     }//GEN-LAST:event_jBotaoRelatorioUsuariosMouseClicked
 
     private void jBotaoDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoDepartamentoActionPerformed

@@ -6,6 +6,7 @@
 package com.spej.controller;
 
 import com.spej.dao.UsuarioDao;
+import com.spej.model.Departamento;
 import com.spej.view.Mensagem;
 import java.util.HashMap;
 import net.sf.jasperreports.engine.JRResultSetDataSource;
@@ -19,13 +20,13 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class RelatorioController {
     
-    public JasperViewer relatorioUsuarios() {
+    public JasperViewer relatorioUsuarios( Departamento selected ) {
         
         try {        
             UsuarioDao ud = new UsuarioDao();
             
-            JRResultSetDataSource relResult = new JRResultSetDataSource( ud.relatorioTodos() );
-            JasperPrint jpPrint = JasperFillManager.fillReport("iReports/relatorioUsuarios.jasper", new HashMap(), relResult);
+            JRResultSetDataSource relResult = new JRResultSetDataSource( ud.relatorioUsuarios( selected ) );
+            JasperPrint jpPrint = JasperFillManager.fillReport("iReports/RelatorioDeUsuarios.jasper", new HashMap(), relResult);
             return new JasperViewer(jpPrint, false);        
         } 
         catch(Exception e) {

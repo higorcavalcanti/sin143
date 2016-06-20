@@ -14,6 +14,17 @@ import javax.swing.text.MaskFormatter;
  */
 public class RelatoriosView extends javax.swing.JDialog {
 
+    public enum Relatorios {
+	PRESENCA(1),
+        ATIVIDADES(2),
+        COMPLETO(3);
+
+	public int relatorio;
+        Relatorios(int relatorio) {
+            this.relatorio = relatorio;
+        }
+    }
+    
     /**
      * Creates new form FiltroRelatorioPresencaUsuario
      * @param parent
@@ -69,11 +80,7 @@ public class RelatoriosView extends javax.swing.JDialog {
         jLabelTitulo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelTitulo.setText("Relatórios do Sistema");
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
+        jList1.setModel(new com.spej.model.UsuarioListModel());
         jScrollPane1.setViewportView(jList1);
 
         jLabel1.setText("Usuário");
@@ -83,12 +90,11 @@ public class RelatoriosView extends javax.swing.JDialog {
         jPanelUsuarioLayout.setHorizontalGroup(
             jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelUsuarioLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelUsuarioLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap(165, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1)))
+                    .addComponent(jLabel1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         jPanelUsuarioLayout.setVerticalGroup(
             jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,7 +103,7 @@ public class RelatoriosView extends javax.swing.JDialog {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jBotaoPresenca.setText("Relatório Presença");
@@ -148,11 +154,7 @@ public class RelatoriosView extends javax.swing.JDialog {
 
         jLabel5.setText("Departamento");
 
-        jList4.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
+        jList4.setModel(new com.spej.model.DepartamentoListModel());
         jScrollPane4.setViewportView(jList4);
 
         javax.swing.GroupLayout jPanelDepartamentoLayout = new javax.swing.GroupLayout(jPanelDepartamento);
@@ -260,7 +262,7 @@ public class RelatoriosView extends javax.swing.JDialog {
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanelDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(30, 30, 30)
                 .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -283,17 +285,20 @@ public class RelatoriosView extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBotaoAtividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoAtividadesActionPerformed
-        // TODO add your handling code here:
+        this.makeRelatorio(Relatorios.ATIVIDADES);
     }//GEN-LAST:event_jBotaoAtividadesActionPerformed
 
     private void jBotaoCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoCompletoActionPerformed
-        // TODO add your handling code here:
+        this.makeRelatorio(Relatorios.COMPLETO);
     }//GEN-LAST:event_jBotaoCompletoActionPerformed
 
     private void jBotaoPresencaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoPresencaActionPerformed
-        // TODO add your handling code here:
+        this.makeRelatorio(Relatorios.PRESENCA);
     }//GEN-LAST:event_jBotaoPresencaActionPerformed
 
+    private void makeRelatorio(Relatorios relatorio) {
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBotaoAtividades;

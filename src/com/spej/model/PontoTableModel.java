@@ -20,7 +20,7 @@ public class PontoTableModel extends AbstractTableModel {
     private ArrayList<Ponto> pontos;
     
     public PontoTableModel() {
-        this( new PontoDao().getAll("saida IS NULL") );
+        this( new PontoDao().getAll("WHERE saida IS NULL") );
     }
     public PontoTableModel(ArrayList<Ponto> pontos) {
         super();

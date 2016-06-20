@@ -62,8 +62,8 @@ public abstract class Dao<T> {
     public ArrayList<T> getAll() {
         return this.getAll("");
     }
-    public ArrayList<T> getAll(String WHERE) {
-        String sql = "SELECT * FROM " + this.table + (WHERE.length() != 0 ? " WHERE "+WHERE : "");
+    public ArrayList<T> getAll(String RESTO) {
+        String sql = "SELECT * FROM " + this.table + " " + RESTO;
         try {
             stmt = connection.prepareStatement(sql);
             return this.getListByPreparedStatement(stmt);

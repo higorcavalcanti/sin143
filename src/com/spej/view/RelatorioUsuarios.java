@@ -6,20 +6,21 @@
 package com.spej.view;
 
 import com.spej.controller.RelatorioController;
+import com.spej.model.Departamento;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
  * @author Daniel
  */
-public class FiltroRelatorioUsuario extends javax.swing.JDialog {
+public class RelatorioUsuarios extends javax.swing.JDialog {
 
     /**
      * Creates new form FiltroRelatorioFuncionarios
      * @param parent
      * @param modal
      */
-    public FiltroRelatorioUsuario(java.awt.Frame parent, boolean modal) {
+    public RelatorioUsuarios(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo( null ); // Centralizar a tela no meio
@@ -131,12 +132,21 @@ public class FiltroRelatorioUsuario extends javax.swing.JDialog {
 
     private void jBotaoVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoVisualizarActionPerformed
         
+        
         RelatorioController rc = new RelatorioController();
-        JasperViewer jv = rc.relatorioUsuarios();
-        jv.setVisible(true);
-        jv.toFront();
-
-
+        
+        try {
+            Departamento d = (Departamento) jComboDepartamento.getSelectedItem();
+            JasperViewer jv = rc.relatorioUsuarios( d );
+            
+            this.setVisible(false);
+        
+            jv.setVisible(true);
+            jv.toFront();
+        } 
+        catch(Exception e) {
+            
+        }
     }//GEN-LAST:event_jBotaoVisualizarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
