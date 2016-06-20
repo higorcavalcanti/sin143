@@ -51,6 +51,7 @@ public class RelatoriosView extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
         jLabel1 = new javax.swing.JLabel();
+        jSelecionarTudoUsuario = new javax.swing.JButton();
         jPanelBotoes = new javax.swing.JPanel();
         jBotaoPresenca = new javax.swing.JButton();
         jBotaoAtividades = new javax.swing.JButton();
@@ -59,6 +60,7 @@ public class RelatoriosView extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jList4 = new javax.swing.JList();
+        jSelecionarTudoDepartamento = new javax.swing.JButton();
         jPanelDatas = new javax.swing.JPanel();
         jLabelInicial = new javax.swing.JLabel();
         jLabelFinal = new javax.swing.JLabel();
@@ -85,15 +87,21 @@ public class RelatoriosView extends javax.swing.JDialog {
 
         jLabel1.setText("Usuário");
 
+        jSelecionarTudoUsuario.setText("Selecionar Tudo");
+
         javax.swing.GroupLayout jPanelUsuarioLayout = new javax.swing.GroupLayout(jPanelUsuario);
         jPanelUsuario.setLayout(jPanelUsuarioLayout);
         jPanelUsuarioLayout.setHorizontalGroup(
             jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelUsuarioLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelUsuarioLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jSelecionarTudoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelUsuarioLayout.setVerticalGroup(
@@ -103,7 +111,8 @@ public class RelatoriosView extends javax.swing.JDialog {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(jSelecionarTudoUsuario))
         );
 
         jBotaoPresenca.setText("Relatório Presença");
@@ -150,23 +159,27 @@ public class RelatoriosView extends javax.swing.JDialog {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        jPanelDepartamento.setPreferredSize(new java.awt.Dimension(211, 243));
+        jPanelDepartamento.setPreferredSize(new java.awt.Dimension(211, 247));
 
         jLabel5.setText("Departamento");
 
         jList4.setModel(new com.spej.model.DepartamentoListModel());
         jScrollPane4.setViewportView(jList4);
 
+        jSelecionarTudoDepartamento.setText("Selecionar Tudo");
+
         javax.swing.GroupLayout jPanelDepartamentoLayout = new javax.swing.GroupLayout(jPanelDepartamento);
         jPanelDepartamento.setLayout(jPanelDepartamentoLayout);
         jPanelDepartamentoLayout.setHorizontalGroup(
             jPanelDepartamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDepartamentoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addContainerGap(132, Short.MAX_VALUE))
-            .addGroup(jPanelDepartamentoLayout.createSequentialGroup()
-                .addComponent(jScrollPane4)
+                .addGroup(jPanelDepartamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4)
+                    .addGroup(jPanelDepartamentoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel5)
+                        .addGap(0, 122, Short.MAX_VALUE))
+                    .addComponent(jSelecionarTudoDepartamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelDepartamentoLayout.setVerticalGroup(
@@ -176,7 +189,8 @@ public class RelatoriosView extends javax.swing.JDialog {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSelecionarTudoDepartamento))
         );
 
         jPanelDatas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
@@ -259,10 +273,10 @@ public class RelatoriosView extends javax.swing.JDialog {
                 .addGap(34, 34, 34)
                 .addComponent(jPanelDatas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanelDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanelUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelDepartamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
                 .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -321,5 +335,7 @@ public class RelatoriosView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanelUsuario;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JButton jSelecionarTudoDepartamento;
+    private javax.swing.JButton jSelecionarTudoUsuario;
     // End of variables declaration//GEN-END:variables
 }
