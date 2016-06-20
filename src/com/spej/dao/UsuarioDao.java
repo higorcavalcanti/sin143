@@ -1,6 +1,5 @@
 package com.spej.dao;
 
-import com.spej.controller.RelatorioController;
 import com.spej.model.Departamento;
 import com.spej.model.Usuario;
 import java.sql.*;
@@ -237,24 +236,34 @@ public class UsuarioDao extends Dao<Usuario> {
     }
     */
     
-    private String getSQLrelatorio(RelatorioController.Relatorios relatorio) {
+    private String getSQLrelatorio(List<Usuario> users, List<Departamento> deps) {
         
-        String sql = "SELECT u.matricula as usuario_matricula, u.nome as usuario_nome ";
+        String sql = "";
         
-        if(relatorio == RelatorioController.Relatorios.ATIVIDADE)
-            sql += ", a.relatorio as atividade_relatorio ";
-        else if(relatorio == RelatorioController.Relatorios.PRESENCA)
-            sql += ", p.entrada as ponto_entrada, p.saida as ponto_saida ";
-        else if(relatorio == RelatorioController.Relatorios.COMPLETO)
-            sql += ", p.entrada as ponto_entrada, p.saida as ponto_saida, a.relatorio as atividade_relatorio ";
+        //sql +=  "SELECT *, SUBTIME(saida,entrada) as soma ";
+        sql += "SELECT *, ROUND(time_to_sec((TIMEDIFF(saida, entrada))) / 60 / 60) as soma ";
         
         sql +=  "FROM Usuarios u " +
                 "JOIN Ponto p ON p.usuario_matricula = u.matricula " +
                 "JOIN Atividade a ON a.ponto_id = p.id ";
         
-        sql +=  "WHERE u.matricula IN (?) " +
-                "AND u.departamento IN (?) " +
-                "AND p.entrada > ? AND p.saida < ? ";
+        sql +=  "WHERE u.matricula IN ( ";        
+        for( int i=0; i < users.size(); i++ ) {
+            if( i > 0 ) sql += ",";
+            sql += users.get(i).getMatricula();
+        }
+        sql += ") ";
+        
+        sql +=  "AND u.departamento IN ( ";
+        for( int i=0; i < deps.size(); i++ ) {
+            if( i > 0 ) sql += ",";
+            sql += deps.get(i).getId();
+        }
+        sql +=  ") ";
+        
+        //sql +=  "AND p.entrada >= ? AND p.saida < ? + interval 1 day ";
+        
+        //sql +=  "GROUP BY u.matricula, p.id ";
         
         sql +=  "ORDER BY u.nome ";
         
@@ -264,27 +273,26 @@ public class UsuarioDao extends Dao<Usuario> {
     
     /**
      * 
-     * @param relatorio tipo do relatório
      * @param users usuarios que estarão no relatório
      * @param deps departamentos que estarão no relatório
      * @param inicio data de inicio do relatório
      * @param fim data de fim do relatório
      * @return Resultset contendo os dados para o Jasper
      */
-    public ResultSet relatorioPonto( RelatorioController.Relatorios relatorio, List<Usuario> users, List<Departamento> deps, Date inicio, Date fim ) {
+    public ResultSet relatorioPonto( List<Usuario> users, List<Departamento> deps, Date inicio, Date fim ) {
         
         try {                       
-            stmt = connection.prepareStatement( this.getSQLrelatorio(relatorio) );            
+                        
+            stmt = connection.prepareStatement( this.getSQLrelatorio(users, deps) );           
+            //stmt.setDate(1, inicio);
+            //stmt.setDate(2, fim);
             
-            stmt.setArray(1, null );
-            stmt.setArray(2, null );
-            stmt.setDate(3, inicio);
-            stmt.setDate(4, fim);
-            
+            System.out.println(stmt);
+                        
             return stmt.executeQuery();
         }
         catch(SQLException e) {
-            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
+            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage() +".");
         }        
     }    
            
