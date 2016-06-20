@@ -87,7 +87,7 @@ join ponto p on p.usuario_matricula = usuarios.matricula]]>
 					<text><![CDATA[Total (min)]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="190" y="22" width="120" height="24" uuid="ba72fa05-ad7e-44ea-bbed-3ca34c6c73a2"/>
+					<reportElement x="200" y="22" width="120" height="24" uuid="ba72fa05-ad7e-44ea-bbed-3ca34c6c73a2"/>
 					<textElement textAlignment="Center">
 						<font fontName="Arial" size="16" isBold="true"/>
 					</textElement>
@@ -148,9 +148,9 @@ join ponto p on p.usuario_matricula = usuarios.matricula]]>
 				<textFieldExpression><![CDATA[$F{soma}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="180" y="0" width="140" height="21" uuid="ca3f9218-b03c-4939-b82d-96024d6d8831"/>
+				<reportElement x="190" y="0" width="140" height="21" uuid="ca3f9218-b03c-4939-b82d-96024d6d8831"/>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="14"/>
+					<font fontName="Arial" size="14" isStrikeThrough="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{saida}]]></textFieldExpression>
 			</textField>
