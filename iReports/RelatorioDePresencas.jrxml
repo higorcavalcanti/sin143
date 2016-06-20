@@ -4,7 +4,7 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
-		<![CDATA[select *, DATEDIFF(entrada, saida) as soma from usuarios
+		<![CDATA[select u.matricula, u.nome, p.entrada, p.saida, DATEDIFF(entrada, saida) as soma from usuarios
 join ponto p on p.usuario_matricula = usuarios.matricula]]>
 	</queryString>
 	<field name="matricula" class="java.lang.Integer">
