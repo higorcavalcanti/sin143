@@ -48,6 +48,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArquivos = new javax.swing.JMenu();
         jMenuSubSair = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuFuncionario = new javax.swing.JMenu();
         menuGerenciarFuncionario = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
@@ -198,6 +199,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
             }
         });
         jMenuArquivos.add(jMenuSubSair);
+        jMenuArquivos.add(jSeparator1);
 
         jMenuBar1.add(jMenuArquivos);
 
@@ -404,6 +406,7 @@ public class AdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuSubRelatorios;
     private javax.swing.JMenuItem jMenuSubSair;
     private javax.swing.JMenuItem jMenuSubSobreSistema;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator11;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;

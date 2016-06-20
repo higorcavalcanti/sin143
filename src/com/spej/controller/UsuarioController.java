@@ -33,10 +33,6 @@ public class UsuarioController extends Controller<Usuario> {
     public Usuario getByMatricula(int matricula) {
         return this.getDao().getByMatricula(matricula);
     }
-    public ArrayList<Usuario> getAllByDepartamento(int departamento) {
-        return this.getDao().getAllByDepartamento(departamento);
-    }
-    
     
     public boolean logar(String usuario, String senha) {
         UsuarioController.setLogado( this.getDao().getByUsuarioSenha(usuario, senha) );

@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class ConnectionFactory {
 
-    private static final String dbhost = "189.41.55.69";
+    private static final String dbhost = "localhost";
     private static final String dbuser = "root";
     private static final String dbpass = "";
     private static final String dbname = "spej";

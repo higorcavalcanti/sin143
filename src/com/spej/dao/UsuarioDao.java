@@ -141,19 +141,6 @@ public class UsuarioDao extends Dao<Usuario> {
     }
 
     
-    public ArrayList<Usuario> getAllByDepartamento(int departamento) {
-        String sql = "SELECT * FROM Usuarios WHERE departamento = ?";
-        try {
-            stmt = connection.prepareStatement(sql);
-            stmt.setInt(1, departamento);
-            return this.getListByPreparedStatement(stmt);
-        }
-        catch(SQLException e) {
-            throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
-        }
-    }
-    
-    
     @Override
     public Usuario byResultSet(ResultSet user) {
         Usuario u = new Usuario();
@@ -289,8 +276,8 @@ public class UsuarioDao extends Dao<Usuario> {
         try {                       
             stmt = connection.prepareStatement( this.getSQLrelatorio(relatorio) );            
             
-            stmt.setArray(1, null);
-            stmt.setArray(2, null);
+            stmt.setArray(1, null );
+            stmt.setArray(2, null );
             stmt.setDate(3, inicio);
             stmt.setDate(4, fim);
             
