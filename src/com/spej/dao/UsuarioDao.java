@@ -261,7 +261,7 @@ public class UsuarioDao extends Dao<Usuario> {
         }
         sql +=  ") ";
         
-        //sql +=  "AND p.entrada >= ? AND p.saida < ? + interval 1 day ";
+        sql +=  "AND p.entrada >= ? AND p.saida < ? + interval 1 day ";
         
         //sql +=  "GROUP BY u.matricula, p.id ";
         
@@ -284,11 +284,9 @@ public class UsuarioDao extends Dao<Usuario> {
         try {                       
                         
             stmt = connection.prepareStatement( this.getSQLrelatorio(users, deps) );           
-            //stmt.setDate(1, inicio);
-            //stmt.setDate(2, fim);
-            
-            System.out.println(stmt);
-                        
+            stmt.setDate(1, inicio);
+            stmt.setDate(2, fim);
+                                    
             return stmt.executeQuery();
         }
         catch(SQLException e) {

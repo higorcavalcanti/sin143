@@ -214,7 +214,7 @@ public class RelatoriosView extends javax.swing.JDialog {
         jLabelPeriodo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelPeriodo.setText("Período de filtragem:");
 
-        jDataInicial.setText( new SimpleDateFormat("dd/MM/yyyy").format( Calendar.getInstance().getTime().getTime() ) );
+        //jDataInicial.setText( new SimpleDateFormat("dd/MM/yyyy").format( Calendar.getInstance().getTime().getTime() ) );
 
         jDataFinal.setText( new SimpleDateFormat("dd/MM/yyyy").format( Calendar.getInstance().getTime().getTime() ) );
 
@@ -360,8 +360,12 @@ public class RelatoriosView extends javax.swing.JDialog {
         
             jv.setVisible(true);
             jv.toFront();        
-        } catch(Exception e) {
-            Mensagem.erro(null, "Falha ao abrir relatório!\n" + e.getMessage());
+        } 
+        catch(ParseException e) {
+            Mensagem.erro(this, "Data inválida!");
+        }
+        catch(Exception e) {
+            Mensagem.erro(this, "Falha ao abrir relatório!\n" + e.getMessage());
         }         
     }
 
