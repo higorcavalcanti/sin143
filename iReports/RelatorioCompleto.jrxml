@@ -65,7 +65,7 @@ join ponto p on p.usuario_matricula = usuarios.matricula join Atividade a on a.p
 	<group name="nome">
 		<groupExpression><![CDATA[$F{nome}]]></groupExpression>
 		<groupHeader>
-			<band height="126">
+			<band height="35">
 				<staticText>
 					<reportElement mode="Opaque" x="0" y="0" width="555" height="22" forecolor="#006699" backcolor="#E6E6E6" uuid="cd2877fe-f242-47e3-8797-577d0bfe5634"/>
 					<textElement textAlignment="Center">
@@ -86,62 +86,6 @@ join ponto p on p.usuario_matricula = usuarios.matricula join Atividade a on a.p
 						<font size="16" isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{cargo}]]></textFieldExpression>
-				</textField>
-				<staticText>
-					<reportElement x="0" y="30" width="119" height="24" uuid="a36dac67-f915-4948-a904-34106c341dc8"/>
-					<textElement>
-						<font fontName="Arial" size="15" isBold="true"/>
-					</textElement>
-					<text><![CDATA[Entrada]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="0" y="78" width="119" height="24" uuid="dc4d9bbf-67b0-43ca-bf14-50ed43fdef88"/>
-					<textElement>
-						<font fontName="Arial" size="15" isBold="true"/>
-					</textElement>
-					<text><![CDATA[Total (min)]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="0" y="54" width="119" height="24" uuid="18cfc04b-2a73-4db7-ba61-b5f671aac81e"/>
-					<textElement textAlignment="Left">
-						<font fontName="Arial" size="15" isBold="true" isStrikeThrough="false"/>
-					</textElement>
-					<text><![CDATA[Saída]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="0" y="102" width="119" height="20" uuid="2f87f47c-0bdd-4d79-bc05-46ac4364e874"/>
-					<textElement>
-						<font fontName="Arial" size="15" isBold="true"/>
-					</textElement>
-					<text><![CDATA[Atividade]]></text>
-				</staticText>
-				<textField>
-					<reportElement x="119" y="30" width="436" height="24" uuid="808ef6b6-1ba1-4cc8-a69e-e12bf8c1d929"/>
-					<textElement>
-						<font fontName="Arial" size="14"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{entrada}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="119" y="54" width="436" height="24" uuid="ae2293be-1933-4923-965b-46f82fb23f2c"/>
-					<textElement textAlignment="Left">
-						<font fontName="Arial" size="14" isStrikeThrough="false"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{saida}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="119" y="78" width="436" height="24" uuid="a4275c6e-91bf-4019-9ae2-2740317b74bd"/>
-					<textElement textAlignment="Left">
-						<font fontName="Arial" size="14"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{soma}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement x="119" y="102" width="436" height="20" uuid="a12f658a-28b0-40a4-879d-6b49f1c4ee42"/>
-					<textElement>
-						<font fontName="Arial" size="14"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{relatorio}]]></textFieldExpression>
 				</textField>
 			</band>
 		</groupHeader>
@@ -179,7 +123,64 @@ join ponto p on p.usuario_matricula = usuarios.matricula join Atividade a on a.p
 		<band height="14"/>
 	</columnHeader>
 	<detail>
-		<band height="7"/>
+		<band height="113">
+			<staticText>
+				<reportElement x="10" y="0" width="119" height="24" uuid="a36dac67-f915-4948-a904-34106c341dc8"/>
+				<textElement>
+					<font fontName="Arial" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Entrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="48" width="119" height="24" uuid="dc4d9bbf-67b0-43ca-bf14-50ed43fdef88"/>
+				<textElement>
+					<font fontName="Arial" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total (min)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="24" width="119" height="24" uuid="18cfc04b-2a73-4db7-ba61-b5f671aac81e"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="15" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Saída]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="72" width="119" height="20" uuid="2f87f47c-0bdd-4d79-bc05-46ac4364e874"/>
+				<textElement>
+					<font fontName="Arial" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Atividade]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="129" y="0" width="436" height="24" uuid="808ef6b6-1ba1-4cc8-a69e-e12bf8c1d929"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{entrada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="129" y="24" width="436" height="24" uuid="ae2293be-1933-4923-965b-46f82fb23f2c"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="14" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{saida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="129" y="48" width="436" height="24" uuid="a4275c6e-91bf-4019-9ae2-2740317b74bd"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{soma}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="129" y="72" width="436" height="20" uuid="a12f658a-28b0-40a4-879d-6b49f1c4ee42"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{relatorio}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<columnFooter>
 		<band/>

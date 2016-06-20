@@ -10,6 +10,7 @@ import com.spej.controller.RelatorioController.Relatorios;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.swing.text.MaskFormatter;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -212,6 +213,10 @@ public class RelatoriosView extends javax.swing.JDialog {
 
         jLabelPeriodo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelPeriodo.setText("Período de filtragem:");
+
+        jDataInicial.setText( new SimpleDateFormat("dd/MM/yyyy").format( Calendar.getInstance().getTime().getTime() ) );
+
+        jDataFinal.setText( new SimpleDateFormat("dd/MM/yyyy").format( Calendar.getInstance().getTime().getTime() ) );
 
         javax.swing.GroupLayout jPanelDatasLayout = new javax.swing.GroupLayout(jPanelDatas);
         jPanelDatas.setLayout(jPanelDatasLayout);

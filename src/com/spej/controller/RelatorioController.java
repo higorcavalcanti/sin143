@@ -67,11 +67,21 @@ public class RelatorioController {
      */
     public JasperViewer relatorio(Relatorios relatorio, List<Usuario> user, List<Departamento> deps, Date inicio, Date fim) {
         
-        ResultSet rs = ud.relatorioPonto(relatorio, user, deps, inicio, fim);
+        ResultSet rs = ud.relatorioPonto(user, deps, inicio, fim);
         
         try {                   
             JRResultSetDataSource relResult = new JRResultSetDataSource( rs );
-            JasperPrint jpPrint = JasperFillManager.fillReport("iReports/RelatorioDePresencas.jasper", new HashMap(), relResult);
+            JasperPrint jpPrint;
+            
+            if(relatorio == Relatorios.ATIVIDADE) {
+                jpPrint = JasperFillManager.fillReport("iReports/RelatorioAtividades.jasper", new HashMap(), relResult);
+            }
+            else if(relatorio == Relatorios.PRESENCA) {
+                jpPrint = JasperFillManager.fillReport("iReports/RelatorioDePresencas.jasper", new HashMap(), relResult);
+            } 
+            else {
+                jpPrint = JasperFillManager.fillReport("iReports/RelatorioCompleto.jasper", new HashMap(), relResult);
+            }
             return new JasperViewer(jpPrint, false);        
         } 
         catch(Exception e) {

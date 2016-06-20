@@ -385,11 +385,13 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(maskData)"/>
                 <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="MaskFormatter maskData = null;&#xa;try {&#xa;    maskData = new MaskFormatter(&quot;##/##/####&quot;);&#xa;    maskData.setPlaceholderCharacter(&apos;_&apos;);&#xa;} catch(ParseException e) {&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jDataInicial.setText( new SimpleDateFormat(&quot;dd/MM/yyyy&quot;).format( Calendar.getInstance().getTime().getTime() ) );"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jDataFinal">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(maskData)"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jDataFinal.setText( new SimpleDateFormat(&quot;dd/MM/yyyy&quot;).format( Calendar.getInstance().getTime().getTime() ) );"/>
               </AuxValues>
             </Component>
           </SubComponents>

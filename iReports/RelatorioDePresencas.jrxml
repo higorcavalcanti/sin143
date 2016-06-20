@@ -4,8 +4,10 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
-		<![CDATA[select *, DATEDIFF(entrada, saida) as soma from usuarios u
-join ponto p ]]>
+		<![CDATA[SELECT *, ROUND(time_to_sec((TIMEDIFF(saida, entrada))) / 60 / 60) as soma FROM Usuarios u
+JOIN Ponto p ON p.usuario_matricula = u.matricula
+JOIN Atividade a ON a.ponto_id = p.id
+ORDER BY u.nome]]>
 	</queryString>
 	<field name="matricula" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -46,9 +48,18 @@ join ponto p ]]>
 	<field name="saida" class="java.sql.Timestamp">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="soma" class="java.lang.Long"/>
-	<group name="usuario_matricula">
-		<groupExpression><![CDATA[$F{usuario_matricula}]]></groupExpression>
+	<field name="ponto_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="relatorio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="observacao" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="soma" class="java.math.BigDecimal"/>
+	<group name="matricula">
+		<groupExpression><![CDATA[$F{matricula}]]></groupExpression>
 		<groupHeader>
 			<band height="51">
 				<staticText>
@@ -84,7 +95,7 @@ join ponto p ]]>
 					<textElement>
 						<font fontName="Arial" size="16" isBold="true"/>
 					</textElement>
-					<text><![CDATA[Total (min)]]></text>
+					<text><![CDATA[Total (horas)]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="200" y="22" width="120" height="24" uuid="ba72fa05-ad7e-44ea-bbed-3ca34c6c73a2"/>
@@ -164,7 +175,7 @@ join ponto p ]]>
 			<textField>
 				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="a0b6b236-1e96-40da-b0c1-9fe04e9bed0b"/>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
 				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="a9627586-a333-4186-a410-b04e65f3ffe5"/>
