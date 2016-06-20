@@ -5,33 +5,32 @@
  */
 package com.spej.view;
 
+import com.spej.controller.RelatorioController;
+import com.spej.controller.RelatorioController.Relatorios;
+import java.sql.Date;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.swing.text.MaskFormatter;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
  * @author Daniel
  */
 public class RelatoriosView extends javax.swing.JDialog {
-
-    public enum Relatorios {
-	PRESENCA(1),
-        ATIVIDADES(2),
-        COMPLETO(3);
-
-	public int relatorio;
-        Relatorios(int relatorio) {
-            this.relatorio = relatorio;
-        }
-    }
-    
+   
+    private RelatorioController rc;
+        
     /**
      * Creates new form FiltroRelatorioPresencaUsuario
      * @param parent
      * @param modal
      */
-    public RelatoriosView(java.awt.Frame parent, boolean modal) {
+    public RelatoriosView(java.awt.Frame parent, boolean modal) {        
         super(parent, modal);
+        
+        rc = new RelatorioController();
+        
         initComponents();
         setLocationRelativeTo( null ); // Centralizar a tela no meio
     }
@@ -49,7 +48,7 @@ public class RelatoriosView extends javax.swing.JDialog {
         jLabelTitulo = new javax.swing.JLabel();
         jPanelUsuario = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        jListUsuarios = new javax.swing.JList();
         jLabel1 = new javax.swing.JLabel();
         jSelecionarTudoUsuario = new javax.swing.JButton();
         jPanelBotoes = new javax.swing.JPanel();
@@ -59,7 +58,7 @@ public class RelatoriosView extends javax.swing.JDialog {
         jPanelDepartamento = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jList4 = new javax.swing.JList();
+        jListDepartamentos = new javax.swing.JList();
         jSelecionarTudoDepartamento = new javax.swing.JButton();
         jPanelDatas = new javax.swing.JPanel();
         jLabelInicial = new javax.swing.JLabel();
@@ -76,18 +75,23 @@ public class RelatoriosView extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Relatórios do Sistema");
-        setPreferredSize(new java.awt.Dimension(480, 525));
+        setPreferredSize(new java.awt.Dimension(480, 545));
         setType(java.awt.Window.Type.UTILITY);
 
         jLabelTitulo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelTitulo.setText("Relatórios do Sistema");
 
-        jList1.setModel(new com.spej.model.UsuarioListModel());
-        jScrollPane1.setViewportView(jList1);
+        jListUsuarios.setModel(new com.spej.model.UsuarioListModel());
+        jScrollPane1.setViewportView(jListUsuarios);
 
         jLabel1.setText("Usuário");
 
         jSelecionarTudoUsuario.setText("Selecionar Tudo");
+        jSelecionarTudoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jSelecionarTudoUsuarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelUsuarioLayout = new javax.swing.GroupLayout(jPanelUsuario);
         jPanelUsuario.setLayout(jPanelUsuarioLayout);
@@ -163,10 +167,15 @@ public class RelatoriosView extends javax.swing.JDialog {
 
         jLabel5.setText("Departamento");
 
-        jList4.setModel(new com.spej.model.DepartamentoListModel());
-        jScrollPane4.setViewportView(jList4);
+        jListDepartamentos.setModel(new com.spej.model.DepartamentoListModel());
+        jScrollPane4.setViewportView(jListDepartamentos);
 
         jSelecionarTudoDepartamento.setText("Selecionar Tudo");
+        jSelecionarTudoDepartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jSelecionarTudoDepartamentoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelDepartamentoLayout = new javax.swing.GroupLayout(jPanelDepartamento);
         jPanelDepartamento.setLayout(jPanelDepartamentoLayout);
@@ -270,13 +279,13 @@ public class RelatoriosView extends javax.swing.JDialog {
             .addGroup(jPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelTitulo)
-                .addGap(34, 34, 34)
+                .addGap(22, 22, 22)
                 .addComponent(jPanelDatas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanelUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelDepartamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -299,7 +308,7 @@ public class RelatoriosView extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBotaoAtividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoAtividadesActionPerformed
-        this.makeRelatorio(Relatorios.ATIVIDADES);
+        this.makeRelatorio(Relatorios.ATIVIDADE);
     }//GEN-LAST:event_jBotaoAtividadesActionPerformed
 
     private void jBotaoCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoCompletoActionPerformed
@@ -310,8 +319,45 @@ public class RelatoriosView extends javax.swing.JDialog {
         this.makeRelatorio(Relatorios.PRESENCA);
     }//GEN-LAST:event_jBotaoPresencaActionPerformed
 
+    private void jSelecionarTudoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSelecionarTudoUsuarioActionPerformed
+        jListUsuarios.setSelectionInterval(0, jListUsuarios.getModel().getSize() - 1 );
+    }//GEN-LAST:event_jSelecionarTudoUsuarioActionPerformed
+
+    private void jSelecionarTudoDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSelecionarTudoDepartamentoActionPerformed
+        jListDepartamentos.setSelectionInterval(0, jListDepartamentos.getModel().getSize() - 1 );
+    }//GEN-LAST:event_jSelecionarTudoDepartamentoActionPerformed
+
+    
     private void makeRelatorio(Relatorios relatorio) {
         
+        if(jListUsuarios.getSelectedValuesList().isEmpty()) {
+            Mensagem.aviso(this, "Selecione ao menos um usuário");
+            return;
+        } 
+        else if( jListDepartamentos.getSelectedValuesList().isEmpty() ) {
+            Mensagem.aviso(this, "Selecione ao menos um departamento");
+            return;
+        }
+        
+        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");    
+        
+        try {
+            
+            JasperViewer jv = rc.relatorio(
+                relatorio,
+                jListUsuarios.getSelectedValuesList(), 
+                jListDepartamentos.getSelectedValuesList(),
+                new java.sql.Date(DATE_FORMAT.parse(jDataInicial.getText()).getTime()),
+                new java.sql.Date(DATE_FORMAT.parse(jDataFinal.getText()).getTime())
+            );             
+            
+            this.setVisible(false);
+        
+            jv.setVisible(true);
+            jv.toFront();        
+        } catch(Exception e) {
+            Mensagem.erro(null, "Falha ao abrir relatório!\n" + e.getMessage());
+        }         
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -326,8 +372,8 @@ public class RelatoriosView extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelInicial;
     private javax.swing.JLabel jLabelPeriodo;
     private javax.swing.JLabel jLabelTitulo;
-    private javax.swing.JList jList1;
-    private javax.swing.JList jList4;
+    private javax.swing.JList jListDepartamentos;
+    private javax.swing.JList jListUsuarios;
     private javax.swing.JPanel jPanel;
     private javax.swing.JPanel jPanelBotoes;
     private javax.swing.JPanel jPanelDatas;

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioDePresenca" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="aa934a3f-ee07-4021-b3b6-e2114b14f84d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select * from usuarios join ponto]]>
+	</queryString>
+	<field name="usuario_matricula" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="entrada" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="saida" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="usuario_matricula">
+		<groupExpression><![CDATA[$F{usuario_matricula}]]></groupExpression>
+	</group>
+	<group name="nome">
+		<groupExpression><![CDATA[$F{nome}]]></groupExpression>
+	</group>
+	<group name="entrada">
+		<groupExpression><![CDATA[$F{entrada}]]></groupExpression>
+	</group>
+	<group name="saida">
+		<groupExpression><![CDATA[$F{saida}]]></groupExpression>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="7b63b7bf-7f1d-4fb3-beed-f2ca7baa25e7"/>
+				<staticText>
+					<reportElement x="120" y="20" width="362" height="43" forecolor="#FFFFFF" uuid="0c19f9eb-41a7-4cc3-989b-0d20c26ddead"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Relatório de presença]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band height="49">
+			<staticText>
+				<reportElement x="0" y="11" width="112" height="24" uuid="2b5bc211-2028-4356-afbe-bd7cf1ca7a0f"/>
+				<textElement>
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Matrícula]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="166" y="11" width="110" height="24" uuid="062993b0-141d-40d2-9256-73c867c86fef"/>
+				<textElement>
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="11" width="119" height="24" uuid="53e67b0d-84b2-4297-b66c-56940aae2c72"/>
+				<textElement>
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Entrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="11" width="120" height="24" uuid="ba72fa05-ad7e-44ea-bbed-3ca34c6c73a2"/>
+				<textElement>
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Saída]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="58">
+			<textField>
+				<reportElement x="0" y="0" width="138" height="47" uuid="f16bc1ab-0540-4f71-ad3c-5dc251d57716"/>
+				<textElement>
+					<font fontName="Arial" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usuario_matricula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="138" y="0" width="138" height="47" uuid="2668ea80-f41c-4963-bcc2-8191de01c2e6"/>
+				<textElement>
+					<font fontName="Arial" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="0" width="138" height="47" uuid="d117bd24-75f5-466e-9b75-1e26e905ca0a"/>
+				<textElement>
+					<font fontName="Arial" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{entrada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="415" y="0" width="140" height="47" uuid="ca3f9218-b03c-4939-b82d-96024d6d8831"/>
+				<textElement>
+					<font fontName="Arial" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{saida}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="49" width="555" height="1" uuid="72bcad13-6f8c-4954-83ea-ed8ba7934431"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="a0b6b236-1e96-40da-b0c1-9fe04e9bed0b"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="a9627586-a333-4186-a410-b04e65f3ffe5"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="be255aa2-25a7-4264-bb3c-5aaabc3e879b"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

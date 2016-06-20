@@ -13,7 +13,7 @@ import javax.swing.AbstractListModel;
  *
  * @author Higor
  */
-public class UsuarioListModel extends AbstractListModel {
+public class UsuarioListModel extends AbstractListModel<Usuario> {
 
     private ArrayList<Usuario> users;
 
@@ -27,7 +27,7 @@ public class UsuarioListModel extends AbstractListModel {
     }
 
     @Override
-    public Object getElementAt(int index) {
+    public Usuario getElementAt(int index) {
         return this.users.get(index);
     }
 

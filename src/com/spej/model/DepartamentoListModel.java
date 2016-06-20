@@ -13,7 +13,7 @@ import javax.swing.AbstractListModel;
  *
  * @author Higor
  */
-public class DepartamentoListModel extends AbstractListModel {
+public class DepartamentoListModel extends AbstractListModel<Departamento> {
 
     private ArrayList<Departamento> deps;
 
@@ -27,7 +27,7 @@ public class DepartamentoListModel extends AbstractListModel {
     }
 
     @Override
-    public Object getElementAt(int index) {
+    public Departamento getElementAt(int index) {
         return this.deps.get(index);
     }
 
