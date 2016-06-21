@@ -11,7 +11,7 @@ import com.spej.model.Ponto;
 import com.spej.model.Usuario;
 
 /**
- *
+ * Tela para preenchimento do relatório de atividades (Acessivel após bater ponto)
  * @author Daniel
  */
 public class RelatorioAtividades extends javax.swing.JDialog {

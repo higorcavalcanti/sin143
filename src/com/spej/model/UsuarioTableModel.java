@@ -60,6 +60,11 @@ public class UsuarioTableModel extends AbstractTableModel {
         return false; 
     }  
     
+    /**
+     * Pega o usuario da linha
+     * @param rowIndex Linha desejada
+     * @return Usuário pesquisado
+     */
     public Usuario getRowObject(int rowIndex) {
         try {
             return this.users.get(rowIndex);

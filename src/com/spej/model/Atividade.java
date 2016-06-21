@@ -1,5 +1,9 @@
 package com.spej.model;
 
+/**
+ * Entidade de representação de atividades
+ * @author Higor
+ */
 public class Atividade {
     
     private int id;

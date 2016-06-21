@@ -2,6 +2,9 @@ package com.spej.persistencia;
 
 import java.sql.*;
 
+/**
+ * Classe que inicializa a conexão com o banco de dados
+ */
 public class ConnectionFactory {
 
     private static final String dbhost = "localhost";
@@ -15,11 +18,19 @@ public class ConnectionFactory {
     
     private static Connection conection = null;
 
+    /**
+     * Cria ou retorna a conexão ativa com o banco
+     * @return Conexão ativa com o banco
+     */
     public static Connection getConnection() {
         return getConnectionMysql(); 
     }
     
     
+    /**
+     * Cria ou retorna a conexão ativa com o banco MySQL
+     * @return Conexão ativa com o banco de dados MySQL
+     */
     private static Connection getConnectionMysql() {
         //Se a conexão for nula
         if(ConnectionFactory.conection == null) {

@@ -166,7 +166,11 @@ public class UsuarioDao extends Dao<Usuario> {
         return this.getAll("ORDER BY nome");
     }
 
-        
+    /**
+     * Procura todos usuarios com o nome (like)
+     * @param name Nome a procurar
+     * @return Lista de usuários encontrados
+     */
     public ArrayList<Usuario> find(String name) {
         String sql = "SELECT * FROM Usuarios WHERE nome LIKE ?";
         try {
@@ -179,7 +183,11 @@ public class UsuarioDao extends Dao<Usuario> {
         }
     }    
     
-    
+    /**
+     * Obtem todos usuários para o relatório
+     * @param d Departamento para filtrar (null para todos)
+     * @return ResultSet contendo os usuários
+     */
     public ResultSet relatorioUsuarios( Departamento d ) {
         String sql;
         
@@ -201,41 +209,13 @@ public class UsuarioDao extends Dao<Usuario> {
             throw new RuntimeException("Erro desconhecido!\nMensagem:\n" + e.getMessage());
         }        
     }
-    
-    
-    
-    
-    
-    /*
-    private String getSQLrelatorio(RelatorioController.Relatorios relatorio, List<Usuario> users, List<Departamento> deps, Date inicio, Date fim) {
-        String sql = "SELECT u.matricula as usuario_matricula, u.nome as usuario_nome, p.entrada as ponto_entrada, p.saida as ponto_saida "+
-                    "FROM Usuarios u " +
-                    "JOIN Ponto p ON p.usuario_matricula = u.matricula ";
-            
-        sql += "WHERE u.matricula IN (";
 
-        int i = 0;
-        for(Usuario u : users) {
-            if(i != 0)
-                sql += ",";
-            sql += "" + u.getMatricula();
-            i++;
-        }
-
-        sql += ") AND u.departamento IN (";
-        i = 0;
-        for(Departamento d : deps) {
-            if(i != 0)
-                sql += ",";
-            sql += "" + d.getId();
-            i++;
-        }            
-        sql += ")";    
-        
-        return sql;
-    }
-    */
-    
+    /**
+     * Gera SQL para o relatório
+     * @param users Lista de Usuários
+     * @param deps Lista de Departamentos
+     * @return String do SQL
+     */
     private String getSQLrelatorio(List<Usuario> users, List<Departamento> deps) {
         
         String sql = "";

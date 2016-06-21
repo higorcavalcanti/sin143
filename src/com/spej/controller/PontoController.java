@@ -5,7 +5,9 @@ import com.spej.model.Ponto;
 import com.spej.model.Usuario;
 import java.util.Calendar;
 
-
+/**
+ * Controle dos pontos
+ */
 public class PontoController  extends Controller<Ponto> {   
     
     public static final int PONTO_CRIADO = 1;

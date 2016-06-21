@@ -3,7 +3,9 @@ package com.spej.controller;
 import com.spej.dao.AtividadeDao;
 import com.spej.model.Atividade;
 
-
+/**
+ * Controller das atividas
+ */
 public class AtividadeController  extends Controller<Atividade> {   
     
     @Override

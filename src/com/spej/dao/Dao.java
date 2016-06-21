@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- *
- * @param <T> Tipo de Objeto que será retornado
+ * Classe abstrata para persistencia de dados
+ * @param <T> Model do Objeto
  */
 public abstract class Dao<T> {
     
@@ -24,7 +24,7 @@ public abstract class Dao<T> {
     
     /**
      * 
-     * @param novo
+     * @param novo Novo objeto a ser inserido
      * @return Verdadeiro se conseguiu inserir
      */
     public abstract boolean insert(T novo);
@@ -32,8 +32,8 @@ public abstract class Dao<T> {
     
     /**
      * 
-     * @param antigo
-     * @param novo
+     * @param antigo Objeto a ser atualizado
+     * @param novo Atualização do objeto
      * @return Verdadeiro se conseguiu atualizar
      */
     public abstract boolean update(T antigo, T novo);
@@ -41,7 +41,7 @@ public abstract class Dao<T> {
     
     /**
      * 
-     * @param deletar
+     * @param deletar Objeto a ser deletado
      * @return Verdadeiro se conseguiu deletar
      */
     public abstract boolean delete(T deletar);
@@ -49,8 +49,8 @@ public abstract class Dao<T> {
         
     /**
      * 
-     * @param rs
-     * @return 
+     * @param rs ResultSet contendo o resultado da pesquisa
+     * @return Objeto encontrado
      */
     public abstract T byResultSet(ResultSet rs);
     
@@ -75,9 +75,9 @@ public abstract class Dao<T> {
     
     
     /**
-     * Retorna uma array list de
-     * @param stmt
-     * @return 
+     * Retorna uma array list de objetos
+     * @param stmt Statement para realizar a pesquisa
+     * @return Lista de objetos
      */
     public ArrayList<T> getListByPreparedStatement( PreparedStatement stmt ) {
         
@@ -99,8 +99,8 @@ public abstract class Dao<T> {
     
     /**
      * Retorna UM objeto
-     * @param stmt 
-     * @return Object
+     * @param stmt Statement para realizar a pesquisa
+     * @return Objeto pesquisado
      */
     public T getByPreparedStatement( PreparedStatement stmt ) {
         try {

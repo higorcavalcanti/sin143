@@ -3,6 +3,10 @@ package com.spej.controller;
 import com.spej.dao.Dao;
 import java.util.ArrayList;
 
+/**
+ * Classe abstrata de controllers
+ * @param <T> Model
+ */
 public abstract class Controller<T> {
 
     protected Dao dao;

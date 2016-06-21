@@ -9,6 +9,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import javax.swing.text.MaskFormatter;
 
+/**
+ * Tela para cadastro e edição de usuários
+ */
 public class CadastrarUsuario extends javax.swing.JDialog {
 
     private Usuario user;
