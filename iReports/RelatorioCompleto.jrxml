@@ -124,7 +124,7 @@ join ponto p on p.usuario_matricula = usuarios.matricula join Atividade a on a.p
 		<band height="14"/>
 	</columnHeader>
 	<detail>
-		<band height="73">
+		<band height="69">
 			<staticText>
 				<reportElement x="10" y="9" width="62" height="24" uuid="a36dac67-f915-4948-a904-34106c341dc8"/>
 				<textElement>
