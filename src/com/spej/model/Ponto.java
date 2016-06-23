@@ -58,4 +58,8 @@ public class Ponto {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+    
+    public long getDiferenca() {
+        return this.getSaida().getTime() - this.getEntrada().getTime();
+    }
 }
