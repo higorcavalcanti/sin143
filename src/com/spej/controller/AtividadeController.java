@@ -4,7 +4,7 @@ import com.spej.dao.AtividadeDao;
 import com.spej.model.Atividade;
 
 /**
- * Controller das atividas
+ * Controller das atividades
  */
 public class AtividadeController  extends Controller<Atividade> {   
     
