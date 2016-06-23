@@ -157,7 +157,6 @@ public class RelatorioAtividades extends javax.swing.JDialog {
             AtividadeController ac = new AtividadeController();
             
             a.setRelatorio( jTextAreaDescricao.getText() );
-            a.setObservacao( jTextAreaObservacao.getText() );
             a.setPonto_id( ponto.getId() );
             
             ac.insert(a);
@@ -174,7 +173,6 @@ public class RelatorioAtividades extends javax.swing.JDialog {
 
     private void jBotaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotaoLimparActionPerformed
         jTextAreaDescricao.setText("");
-        jTextAreaObservacao.setText("");
     }//GEN-LAST:event_jBotaoLimparActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
