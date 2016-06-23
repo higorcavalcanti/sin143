@@ -49,12 +49,9 @@ public class RelatorioAtividades extends javax.swing.JDialog {
         jLabelDescricao = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaDescricao = new javax.swing.JTextArea();
-        jLabelObservacoes = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextAreaObservacao = new javax.swing.JTextArea();
         jLabelUsuario = new javax.swing.JLabel();
-        jBotaoEnviar = new javax.swing.JButton();
         jBotaoLimpar = new javax.swing.JButton();
+        jBotaoEnviar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setModal(true);
@@ -77,15 +74,22 @@ public class RelatorioAtividades extends javax.swing.JDialog {
         jTextAreaDescricao.setRows(5);
         jScrollPane1.setViewportView(jTextAreaDescricao);
 
-        jLabelObservacoes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelObservacoes.setText("Observações importantes");
-
-        jTextAreaObservacao.setColumns(20);
-        jTextAreaObservacao.setRows(5);
-        jScrollPane2.setViewportView(jTextAreaObservacao);
-
         jLabelUsuario.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabelUsuario.setText( this.user.getNome() );
+
+        jBotaoLimpar.setText("Limpar");
+        jBotaoLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotaoLimparActionPerformed(evt);
+            }
+        });
+
+        jBotaoEnviar.setText("Enviar");
+        jBotaoEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotaoEnviarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPainelRelatorioAtividadesLayout = new javax.swing.GroupLayout(jPainelRelatorioAtividades);
         jPainelRelatorioAtividades.setLayout(jPainelRelatorioAtividadesLayout);
@@ -93,15 +97,16 @@ public class RelatorioAtividades extends javax.swing.JDialog {
             jPainelRelatorioAtividadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPainelRelatorioAtividadesLayout.createSequentialGroup()
                 .addContainerGap(50, Short.MAX_VALUE)
-                .addGroup(jPainelRelatorioAtividadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPainelRelatorioAtividadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPainelRelatorioAtividadesLayout.createSequentialGroup()
+                        .addComponent(jBotaoLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBotaoEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabelUsuario)
                     .addComponent(jlLabelTituloRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelMensagemSubtitulo)
                     .addComponent(jLabelDescricao)
-                    .addComponent(jLabelObservacoes)
-                    .addGroup(jPainelRelatorioAtividadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPainelRelatorioAtividadesLayout.setVerticalGroup(
@@ -116,51 +121,29 @@ public class RelatorioAtividades extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(jLabelDescricao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelObservacoes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPainelRelatorioAtividadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBotaoLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBotaoEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jBotaoEnviar.setText("Enviar");
-        jBotaoEnviar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBotaoEnviarActionPerformed(evt);
-            }
-        });
-
-        jBotaoLimpar.setText("Limpar");
-        jBotaoLimpar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBotaoLimparActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPainelRelatorioAtividades, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 55, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jBotaoLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBotaoEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPainelRelatorioAtividades, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBotaoLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBotaoEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPainelRelatorioAtividades, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
@@ -199,13 +182,10 @@ public class RelatorioAtividades extends javax.swing.JDialog {
     private javax.swing.JButton jBotaoLimpar;
     private javax.swing.JLabel jLabelDescricao;
     private javax.swing.JLabel jLabelMensagemSubtitulo;
-    private javax.swing.JLabel jLabelObservacoes;
     private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JPanel jPainelRelatorioAtividades;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextAreaDescricao;
-    private javax.swing.JTextArea jTextAreaObservacao;
     private javax.swing.JLabel jlLabelTituloRelatorio;
     // End of variables declaration//GEN-END:variables
 }
