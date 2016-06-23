@@ -14,8 +14,8 @@ public class AtividadeDao extends Dao<Atividade> {
     public boolean insert(Atividade novo) {
                 
         String sql = "INSERT INTO Atividade " +
-                    "(ponto_id,relatorio,observacao)" +
-                    " VALUES (?,?,?)";
+                    "(ponto_id,relatorio)" +
+                    " VALUES (?,?)";
         try {
             // prepared statement para inserção
             stmt = connection.prepareStatement(sql);
@@ -23,7 +23,7 @@ public class AtividadeDao extends Dao<Atividade> {
             // seta os valores
             stmt.setInt(1, novo.getPonto_id());
             stmt.setString(2, novo.getRelatorio());
-            stmt.setString(3, novo.getObservacao());
+            //stmt.setString(3, novo.getObservacao());
 
             // executa
             stmt.executeUpdate();

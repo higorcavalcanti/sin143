@@ -46,7 +46,7 @@ public class RelatorioController {
         try {       
             
             JRResultSetDataSource relResult = new JRResultSetDataSource( ud.relatorioUsuarios(selected) );
-            JasperPrint jpPrint = JasperFillManager.fillReport("iReports/RelatorioDeUsuarios.jasper", new HashMap(), relResult);
+            JasperPrint jpPrint = JasperFillManager.fillReport("iReports/RelatorioUsuario.jasper", new HashMap(), relResult);
             return new JasperViewer(jpPrint, false);        
         } 
         catch(Exception e) {

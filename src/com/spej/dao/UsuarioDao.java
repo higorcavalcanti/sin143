@@ -192,7 +192,8 @@ public class UsuarioDao extends Dao<Usuario> {
         String sql;
         
         try {
-            sql = "SELECT u.matricula, u.nome, u.cargo, d.nome as departamento "+
+            sql = "SELECT u.matricula as usuarios_matricula, u.nome as usuarios_nome, u.cargo as usuarios_cargo, " +
+                    "u.departamento as usuarios_departamento, d.nome as departamentos_nome " +
                     "FROM Usuarios u " +
                     "JOIN Departamentos d ON d.id = u.departamento ";
             stmt = connection.prepareStatement(sql);
