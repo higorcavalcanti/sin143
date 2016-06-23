@@ -6,7 +6,7 @@
 package com.spej.model;
 
 /**
- *
+ * Entidade que representa os departamentos
  * @author Higor
  */
 public class Departamento {

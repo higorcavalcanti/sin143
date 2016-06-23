@@ -7,7 +7,7 @@ package com.spej.view;
 
 
 /**
- *
+ * Tela principal do administrador, a primeira a aparecer após o login
  * @author Daniel
  */
 public class AdminPrincipal extends javax.swing.JFrame {

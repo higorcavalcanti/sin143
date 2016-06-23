@@ -10,7 +10,7 @@ import com.spej.model.Departamento;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**
- *
+ * Tela para acesso ao relatório de usuários
  * @author Daniel
  */
 public class RelatorioUsuarios extends javax.swing.JDialog {

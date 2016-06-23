@@ -14,8 +14,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 /**
- *
- * @author Daniel
+ * Tela para gerencia de usuários (Apenas visualização, a inserção/atualização é em CadastrarUsuário)
  */
 public class GerenciarUsuario extends javax.swing.JDialog {
 

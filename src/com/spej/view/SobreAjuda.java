@@ -6,13 +6,15 @@
 package com.spej.view;
 
 /**
- *
+ * Tela contendo informações do projeto
  * @author Daniel
  */
 public class SobreAjuda extends javax.swing.JDialog {
 
     /**
      * Creates new form SobreAjuda
+     * @param parent Pai
+     * @param modal Se é modal
      */
     public SobreAjuda(java.awt.Frame parent, boolean modal) {
         super(parent, modal);

@@ -7,7 +7,9 @@ import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-
+/**
+ * Tela para gerencia de departamentos (CRUD)
+ */
 public class GerenciarDepartamento extends javax.swing.JDialog {
 
     /**

@@ -2,6 +2,9 @@ package com.spej.view;
 
 import com.spej.controller.UsuarioController;
 
+/**
+ * Tela para acesso à área restrita do sistema
+ */
 public class Login extends javax.swing.JFrame {
 
     /**

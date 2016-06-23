@@ -20,6 +20,9 @@ public class DepartamentoComboBoxModel implements ComboBoxModel {
     private Departamento selected;
     private ArrayList<Departamento> departamentos;
     
+    /**
+     * 
+     */
     public DepartamentoComboBoxModel() {
         DepartamentoDao dao = new DepartamentoDao();
         this.departamentos = dao.getAll();

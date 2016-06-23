@@ -5,11 +5,10 @@
  */
 package com.spej.model;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
- *
+ * Entidade que representa os pontos
  * @author Higor
  */
 public class Ponto {

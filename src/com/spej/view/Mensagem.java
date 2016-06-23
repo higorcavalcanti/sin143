@@ -3,7 +3,10 @@ package com.spej.view;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 
-
+/**
+ * Classe para uso do JOptionPane sem importações
+ * @author Higor
+ */
 public class Mensagem {
     
     public static void erro(Component c, Object message) {

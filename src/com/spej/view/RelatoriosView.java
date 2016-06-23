@@ -7,7 +7,6 @@ package com.spej.view;
 
 import com.spej.controller.RelatorioController;
 import com.spej.controller.RelatorioController.Relatorios;
-import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -15,7 +14,7 @@ import javax.swing.text.MaskFormatter;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**
- *
+ * Tela para acesso aos relatórios do sistema
  * @author Daniel
  */
 public class RelatoriosView extends javax.swing.JDialog {

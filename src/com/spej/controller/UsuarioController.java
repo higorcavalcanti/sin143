@@ -2,8 +2,11 @@ package com.spej.controller;
 
 import com.spej.dao.UsuarioDao;
 import com.spej.model.Usuario;
-import java.util.ArrayList;
 
+
+/**
+ * Controller dos usuários
+ */
 public class UsuarioController extends Controller<Usuario> {
         
     private static Usuario logado;
@@ -34,6 +37,12 @@ public class UsuarioController extends Controller<Usuario> {
         return this.getDao().getByMatricula(matricula);
     }
     
+    /**
+     * Realiza o login no sistema
+     * @param usuario Usuario
+     * @param senha Senha
+     * @return True em caso de sucesso, false em caso de erro
+     */
     public boolean logar(String usuario, String senha) {
         UsuarioController.setLogado( this.getDao().getByUsuarioSenha(usuario, senha) );
         return (UsuarioController.getLogado() != null);

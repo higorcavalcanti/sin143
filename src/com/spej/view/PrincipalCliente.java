@@ -11,7 +11,7 @@ import com.spej.model.Ponto;
 import com.spej.model.Usuario;
 
 /**
- *
+ * Tela principal do sistema, onde é possivel bater ponto
  * @author Daniel
  */
 public class PrincipalCliente extends javax.swing.JFrame {

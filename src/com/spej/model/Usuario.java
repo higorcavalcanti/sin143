@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 /**
- *
+ * Entidade que representa os usuários
  * @author Higor
  */
 public class Usuario {
