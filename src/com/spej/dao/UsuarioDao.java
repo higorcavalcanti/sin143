@@ -222,7 +222,7 @@ public class UsuarioDao extends Dao<Usuario> {
         String sql = "";
         
         //sql +=  "SELECT *, SUBTIME(saida,entrada) as soma ";
-        sql += "SELECT *, ROUND(time_to_sec((TIMEDIFF(saida, entrada))) / 60 / 60) as soma ";
+        sql += "SELECT *, ROUND(time_to_sec((TIMEDIFF(saida, entrada))) / 60 ) as soma ";
         
         sql +=  "FROM Usuarios u " +
                 "JOIN Ponto p ON p.usuario_matricula = u.matricula " +

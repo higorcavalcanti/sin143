@@ -95,7 +95,7 @@ ORDER BY u.nome]]>
 					<textElement>
 						<font fontName="Arial" size="16" isBold="true"/>
 					</textElement>
-					<text><![CDATA[Total (horas)]]></text>
+					<text><![CDATA[Total (minutos)]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="200" y="22" width="120" height="24" uuid="ba72fa05-ad7e-44ea-bbed-3ca34c6c73a2"/>
